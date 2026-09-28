@@ -1,0 +1,72 @@
+Options -MultiViews -Indexes
+
+DirectorySlash Off
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# --- 1. Канонический адрес: https и без www --------------------------------
+# Только для нашего домена: на временном адресе хостинга редиректов нет,
+# чтобы сайт можно было проверить до переключения DNS.
+# На reg.ru https принимает nginx, до Apache запрос доходит по http —
+# поэтому смотрим и HTTPS, и X-Forwarded-Proto, иначе будет бесконечный редирект.
+# ВКЛЮЧАТЬ (раскомментировать) только после выпуска SSL-сертификата.
+#RewriteCond %{HTTP_HOST} ^(www\.)?agregatory\.pro$ [NC]
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+#RewriteRule ^ https://agregatory.pro%{REQUEST_URI} [R=301,L,NE]
+
+#RewriteCond %{HTTP_HOST} ^www\.agregatory\.pro$ [NC]
+#RewriteRule ^ https://agregatory.pro%{REQUEST_URI} [R=301,L,NE]
+
+# --- 1б. Служебные файлы не отдаём ----------------------------------------
+RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
+
+# --- 1в. Слэш на конце -> адрес без слэша (один канонический адрес) --------
+# на нашем домене сразу на https (Apache за прокси сам подставил бы http)
+RewriteCond %{HTTP_HOST} ^(www\.)?agregatory\.pro$ [NC]
+RewriteCond %{THE_REQUEST} \s/+(.+?)/+(\?\S*)?\s
+RewriteRule ^ https://agregatory.pro/%1 [R=301,L,NE]
+# на временном адресе хостинга — относительный редирект
+RewriteCond %{THE_REQUEST} \s/+(.+?)/+(\?\S*)?\s
+RewriteRule ^ /%1 [R=301,L,NE]
+
+RewriteRule ^$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.*?)/?$ /$1/index.html [L]
+
+RewriteRule ^ - [R=404,L]
+
+<IfModule mod_headers.c>
+  # Картинки: 30 дней без immutable — если заменят файл без ?v=, обновится сам
+  <FilesMatch "\.(webp|png|jpg|jpeg|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "^(sitemap\.xml|robots\.txt|rss\.xml)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml
+</IfModule>
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType application/xml .xml
+</IfModule>
