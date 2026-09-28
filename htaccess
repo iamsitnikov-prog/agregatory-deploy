@@ -18,8 +18,8 @@ RewriteEngine On
 #RewriteCond %{HTTP:X-Forwarded-Proto} !=https
 #RewriteRule ^ https://agregatory.pro%{REQUEST_URI} [R=301,L,NE]
 
-#RewriteCond %{HTTP_HOST} ^www\.agregatory\.pro$ [NC]
-#RewriteRule ^ https://agregatory.pro%{REQUEST_URI} [R=301,L,NE]
+RewriteCond %{HTTP_HOST} ^www\.agregatory\.pro$ [NC]
+RewriteRule ^ https://agregatory.pro%{REQUEST_URI} [R=301,L,NE]
 
 # --- 1б. Служебные файлы не отдаём ----------------------------------------
 RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
