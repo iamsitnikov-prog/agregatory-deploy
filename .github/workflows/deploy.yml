@@ -1,0 +1,120 @@
+name: Выкладка agregatory.pro на reg.ru
+
+# Отдельный репозиторий выкладки: платформа poehali.dev его не трогает.
+# Каждые 30 минут забирает код сайта из iamsitnikov-prog/food-delivery-site-10,
+# собирает, подкладывает проверенный .htaccess из этого репозитория
+# и выкладывает на хостинг reg.ru. Если с прошлой выкладки ничего
+# не изменилось — ничего не делает.
+#
+# Settings -> Secrets and variables -> Actions
+#   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_DIR
+#   Variables: SITE_URL — адрес для проверки после выкладки
+#                (до переезда http://agregatory.pro, после — https://agregatory.pro)
+#              SITE_IP  — IP хостинга (37.140.192.35), только ДО переключения DNS:
+#                проверка пойдёт прямо на reg.ru, минуя старый сервер.
+#                После переключения DNS переменную удалить.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: read
+  actions: write   # только чтобы GitHub не выключил расписание через 60 дней
+
+concurrency:
+  group: deploy-regru
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Забираем настройки выкладки (.htaccess)
+        uses: actions/checkout@v4
+        with:
+          path: deploy
+
+      - name: Забираем код сайта
+        uses: actions/checkout@v4
+        with:
+          repository: iamsitnikov-prog/food-delivery-site-10
+          path: site
+
+      - name: Что выкладываем
+        id: ver
+        run: echo "key=$(git -C site rev-parse HEAD)-$(git -C deploy rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Выкладывали ли уже эту версию
+        id: last
+        uses: actions/cache/restore@v4
+        with:
+          path: .deployed
+          key: deployed-${{ steps.ver.outputs.key }}
+          lookup-only: true
+
+      - name: Изменений нет — выходим
+        if: steps.last.outputs.cache-hit == 'true' && github.event_name == 'schedule'
+        run: echo "Эта версия уже на хостинге, пропускаю."
+
+      - name: Ставим Node
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Собираем сайт
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        working-directory: site
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+          cp ../deploy/htaccess dist/.htaccess
+
+      - name: Проверяем, что сборка полная
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        working-directory: site
+        run: |
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess; do
+            test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
+          done
+          grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }
+          pages=$(find dist -name index.html | wc -l)
+          echo "Страниц в сборке: $pages"
+          test "$pages" -gt 200 || { echo "Мало страниц ($pages) — пререндер отвалился, выкладку отменяю"; exit 1; }
+
+      - name: Выкладываем на reg.ru
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_DIR }}
+          local-dir: ./site/dist/
+          protocol: ftps
+          dangerous-clean-slate: false
+
+      - name: Проверяем сайт на хостинге
+        if: (steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule') && vars.SITE_URL != ''
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_IP: ${{ vars.SITE_IP }}
+        run: bash deploy/check.sh
+
+      - name: Запоминаем выложенную версию
+        if: steps.last.outputs.cache-hit != 'true'
+        run: mkdir -p .deployed && echo "${{ steps.ver.outputs.key }}" > .deployed/key
+
+      - name: Сохраняем отметку
+        if: steps.last.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .deployed
+          key: deployed-${{ steps.ver.outputs.key }}
+
+      - name: Не даём GitHub выключить расписание
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1
