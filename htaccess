@@ -6,6 +6,8 @@ DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
 RewriteEngine On
+# /test — короткий адрес теста, ведём на основной
+RewriteRule ^test/?$ https://agregatory.pro/testy/audit [R=301,L]
 
 # --- 1. Канонический адрес: https и без www --------------------------------
 # Только для нашего домена: на временном адресе хостинга редиректов нет,
@@ -69,4 +71,9 @@ RewriteRule ^ - [R=404,L]
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType application/xml .xml
+</IfModule>
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=604800"
 </IfModule>
