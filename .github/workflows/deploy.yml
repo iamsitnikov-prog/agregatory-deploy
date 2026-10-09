@@ -45,7 +45,9 @@ jobs:
 
       - name: Что выкладываем
         id: ver
-        run: echo "key=$(git -C site rev-parse HEAD)-$(git -C deploy rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+        # Дата по Москве в ключе: раз в сутки сайт пересобирается даже без изменений
+        # кода — так статьи с будущей датой публикуются сами в свой день.
+        run: echo "key=$(git -C site rev-parse HEAD)-$(git -C deploy rev-parse HEAD)-$(TZ=Europe/Moscow date +%F)" >> "$GITHUB_OUTPUT"
 
       - name: Выкладывали ли уже эту версию
         id: last
