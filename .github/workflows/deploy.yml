@@ -75,11 +75,31 @@ jobs:
           npm run build
           cp ../deploy/htaccess dist/.htaccess
 
+      - name: Приём заявок на нашем хостинге (api/lead.php)
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        # Токены берутся из секретов GitHub и попадают только в api/config.php
+        # на хостинге (снаружи закрыт в .htaccess). В репозитории их нет.
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          LEAD_EMAIL_TO: ${{ secrets.LEAD_EMAIL_TO }}
+        run: |
+          mkdir -p site/dist/api
+          cp deploy/api/lead.php site/dist/api/lead.php
+          php -r 'echo "<?php\nreturn " . var_export([
+            "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
+            "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
+            "email_to" => getenv("LEAD_EMAIL_TO") ?: "",
+          ], true) . ";\n";' > site/dist/api/config.php
+          php -l site/dist/api/lead.php
+          php -l site/dist/api/config.php
+          [ -n "$TG_BOT_TOKEN" ] && echo "Telegram: настроен" || echo "Telegram: секреты не заданы, заявки идут через запасной путь poehali"
+
       - name: Проверяем, что сборка полная
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/config.php; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }
