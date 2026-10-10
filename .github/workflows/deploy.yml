@@ -93,6 +93,16 @@ jobs:
           ], true) . ";\n";' > site/dist/api/config.php
           php -l site/dist/api/lead.php
           php -l site/dist/api/config.php
+          # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
+          OLD='https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0'
+          files=$(grep -rlF "$OLD" site/dist --include='*.js' || true)
+          if [ -n "$files" ]; then
+            echo "$files" | xargs sed -i "s#$OLD#/api/lead.php#g"
+            echo "Форма переключена на /api/lead.php: $(echo "$files" | wc -l) файл(ов)"
+          else
+            echo "::warning::Адрес функции poehali в коде формы не найден: форма шлёт заявки по-старому"
+          fi
+          ! grep -rqF "$OLD" site/dist --include='*.js' || { echo "Остались старые адреса формы"; exit 1; }
           [ -n "$TG_BOT_TOKEN" ] && echo "Telegram: настроен" || echo "Telegram: секреты не заданы, заявки идут через запасной путь poehali"
 
       - name: Проверяем, что сборка полная
