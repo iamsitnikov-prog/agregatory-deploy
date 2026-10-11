@@ -12,3 +12,8 @@ foreach (array_unique($cands) as $f) {
 }
 echo "\ndocroot: " . $_SERVER['DOCUMENT_ROOT'] . "\n";
 foreach ([dirname($_SERVER['DOCUMENT_ROOT']), dirname($_SERVER['DOCUMENT_ROOT'], 2)] as $d) { echo "ls $d: " . implode(' ', array_slice(@scandir($d) ?: [], 0, 40)) . "\n"; }
+if (($_GET['send'] ?? '') === '1') {
+  $to = base64_decode('aS5hbS5zaXRuaWtvdkBnbWFpbC5jb20=');
+  $ok = mail($to, 'Diag agregatory.pro ' . date('H:i:s'), "Служебное письмо для проверки почты хостинга.", "From: info@agregatory.pro\r\nContent-Type: text/plain; charset=UTF-8\r\n", '-finfo@agregatory.pro');
+  echo "\nmail() to gmail: " . var_export($ok, true) . "\n";
+}
