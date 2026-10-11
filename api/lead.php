@@ -5,7 +5,7 @@
 //   1. Записывает в журнал на хостинге (api/data/leads.csv, снаружи закрыт).
 //   2. Шлёт в Telegram, если в секретах выкладки заданы TG_BOT_TOKEN и TG_CHAT_ID
 //      (несколько чатов через запятую).
-//   3. Шлёт на почту (адрес по умолчанию ниже, секрет LEAD_EMAIL_TO важнее).
+//   3. Шлёт на почту (Яндекс и Gmail, адреса ниже; секрет LEAD_EMAIL_TO важнее).
 //   4. Если ни Telegram, ни почта не сработали — пересылает
 //      заявку в старую функцию poehali.dev, чтобы заявка дошла привычным путём.
 //
@@ -34,7 +34,8 @@ $POEHALI_URL = $cfg['backup_url'] ?? 'https://functions.poehali.dev/3df83e5c-d49
 // Почта для заявок по умолчанию (закодирована, чтобы адрес не собирали роботы
 // из открытого репозитория). Секрет LEAD_EMAIL_TO, если задан, важнее.
 if (trim((string)($cfg['email_to'] ?? '')) === '') {
-    $cfg['email_to'] = base64_decode('aS5hbS5zaXRuaWtvdkB5YW5kZXgucnU=');
+    // Яндекс и Gmail: с 8.10 у Яндекс Почты сбой, Gmail получает письма с хостинга (проверено 11.10).
+    $cfg['email_to'] = base64_decode('aS5hbS5zaXRuaWtvdkB5YW5kZXgucnU=') . ', ' . base64_decode('aS5hbS5zaXRuaWtvdkBnbWFpbC5jb20=');
 }
 
 $raw = file_get_contents('php://input');
@@ -163,12 +164,10 @@ if ($to !== '') {
 }
 
 // --- Запасной путь: старая функция poehali.dev ------------------------------
-// Пока письма прямо с хостинга не доходят (11.10 проверено: mail() отвечает
-// «отправлено», но в Яндекс Почту письмо не приходит), заявку всегда
-// дублируем через poehali — его письма доходят. Когда прямая почта заработает,
-// вернуть условие: if (!$tg && !$mailed && ...).
+// Только если ни Telegram, ни почта не сработали — чтобы заявки не дублировались.
+// Письма с хостинга (отправитель info@agregatory.pro) доходят: проверено 11.10 на Gmail.
 $poehali = false;
-if (!$tg && function_exists('curl_init')) {
+if (!$tg && !$mailed && function_exists('curl_init')) {
     $ch = curl_init($POEHALI_URL);
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
