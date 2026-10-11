@@ -1,0 +1,37 @@
+name: Выгрузка заявок в Telegram
+
+# Раз в неделю (понедельник, 9:52 МСК) просит сайт прислать файл заявок
+# в личный Telegram Юрия. Сам файл собирает и отправляет api/report.php на хостинге.
+# Запустить вручную: Actions → «Выгрузка заявок в Telegram» → Run workflow.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '52 6 * * 1'
+
+permissions:
+  contents: read
+  actions: write   # только чтобы GitHub не выключил расписание через 60 дней
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Просим сайт прислать выгрузку
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+        run: |
+          [ -n "$TG_BOT_TOKEN" ] || { echo "Нет секрета TG_BOT_TOKEN"; exit 1; }
+          KEY=$(printf '%s' "${TG_BOT_TOKEN}leads-report" | sha256sum | cut -d' ' -f1)
+          for i in 1 2 3; do
+            code=$(curl -s -o resp.json -w '%{http_code}' -m 60 -X POST -d "k=$KEY" https://agregatory.pro/api/report.php)
+            cat resp.json; echo
+            [ "$code" = 200 ] && exit 0
+            sleep 30
+          done
+          echo "Выгрузка не отправлена (код $code)"; exit 1
+
+      - name: Не даём GitHub выключить расписание
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1
