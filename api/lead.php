@@ -151,7 +151,7 @@ if ($token !== '' && $chats && function_exists('curl_init')) {
 $mailed = false;
 $to = trim((string)($cfg['email_to'] ?? ''));
 if ($to !== '') {
-    $from = "noreply@agregatory.pro";
+    $from = "info@agregatory.pro"; // так задано в sendmail_path хостинга reg.ru
     $fromName = '=?UTF-8?B?' . base64_encode('Сайт agregatory.pro') . '?=';
     $headers = "From: {$fromName} <{$from}>\r\n"
         . "Reply-To: {$from}\r\n"
