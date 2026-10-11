@@ -36,7 +36,8 @@ $POEHALI_URL = $cfg['backup_url'] ?? 'https://functions.poehali.dev/3df83e5c-d49
 if (trim((string)($cfg['email_to'] ?? '')) === '') {
     // Яндекс и Gmail Юрия + копия Алисе: с 8.10 у Яндекс Почты сбой, Gmail получает письма с хостинга (проверено 11.10).
     $cfg['email_to'] = base64_decode('aS5hbS5zaXRuaWtvdkB5YW5kZXgucnU=') . ', ' . base64_decode('aS5hbS5zaXRuaWtvdkBnbWFpbC5jb20=')
-        . ', ' . base64_decode('YWxpc2EubWFsdXl0YUB5YW5kZXgucnU='); // копия Алисе
+        . ', ' . base64_decode('YWxpc2EubWFsdXl0YUB5YW5kZXgucnU=') // копия Алисе
+        . ', info@agregatory.pro'; // копия в ящик сайта
 }
 
 $raw = file_get_contents('php://input');
