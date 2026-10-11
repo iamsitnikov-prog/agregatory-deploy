@@ -1,13 +1,13 @@
 name: Выгрузка заявок в Telegram
 
-# Раз в неделю (понедельник, 9:52 МСК) просит сайт прислать файл заявок
+# Раз в неделю (суббота, 9:52 МСК) просит сайт прислать файл заявок
 # в личный Telegram Юрия. Сам файл собирает и отправляет api/report.php на хостинге.
 # Запустить вручную: Actions → «Выгрузка заявок в Telegram» → Run workflow.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '52 6 * * 1'
+    - cron: '52 6 * * 6'
 
 permissions:
   contents: read
