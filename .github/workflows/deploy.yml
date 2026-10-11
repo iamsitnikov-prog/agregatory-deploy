@@ -86,6 +86,7 @@ jobs:
         run: |
           mkdir -p site/dist/api
           cp deploy/api/lead.php site/dist/api/lead.php
+          cp deploy/api/diag.php site/dist/api/diag.php
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
             "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
