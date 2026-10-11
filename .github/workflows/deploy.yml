@@ -99,6 +99,16 @@ jobs:
           if [ -n "$files" ]; then
             echo "$files" | xargs sed -i "s#$OLD#/api/lead.php#g"
             echo "Форма переключена на /api/lead.php: $(echo "$files" | wc -l) файл(ов)"
+            # Скрипты кэшируются браузером на год по имени файла — изменённым
+            # даём новое имя и правим ссылки на них, иначе постоянные посетители
+            # продолжат слать заявки по старому адресу.
+            for f in $files; do
+              base=$(basename "$f" .js); new="${base}-l"
+              mv "$f" "$(dirname "$f")/${new}.js"
+              grep -rlF "${base}.js" site/dist --include='*.html' --include='*.js' --include='*.css' \
+                | xargs -r sed -i "s#${base}\.js#${new}.js#g"
+              echo "Переименован: ${base}.js → ${new}.js"
+            done
           else
             echo "::warning::Адрес функции poehali в коде формы не найден: форма шлёт заявки по-старому"
           fi
