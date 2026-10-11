@@ -5,8 +5,8 @@
 //   1. Записывает в журнал на хостинге (api/data/leads.csv, снаружи закрыт).
 //   2. Шлёт в Telegram, если в секретах выкладки заданы TG_BOT_TOKEN и TG_CHAT_ID
 //      (несколько чатов через запятую).
-//   3. Шлёт на почту, если задан LEAD_EMAIL_TO.
-//   4. Если в Telegram отправить не вышло (или он не настроен) — пересылает
+//   3. Шлёт на почту (адрес по умолчанию ниже, секрет LEAD_EMAIL_TO важнее).
+//   4. Если ни Telegram, ни почта не сработали — пересылает
 //      заявку в старую функцию poehali.dev, чтобы заявка дошла привычным путём.
 //
 // Настройки приходят из api/config.php, который выкладка собирает из секретов
@@ -31,6 +31,11 @@ if (is_file(__DIR__ . '/config.php')) {
     if (is_array($loaded)) $cfg = $loaded;
 }
 $POEHALI_URL = $cfg['backup_url'] ?? 'https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0';
+// Почта для заявок по умолчанию (закодирована, чтобы адрес не собирали роботы
+// из открытого репозитория). Секрет LEAD_EMAIL_TO, если задан, важнее.
+if (trim((string)($cfg['email_to'] ?? '')) === '') {
+    $cfg['email_to'] = base64_decode('aS5hbS5zaXRuaWtvdkB5YW5kZXgucnU=');
+}
 
 $raw = file_get_contents('php://input');
 if (strlen($raw) > 20000) reply(413, ['error' => 'too large']);
@@ -146,15 +151,21 @@ if ($token !== '' && $chats && function_exists('curl_init')) {
 $mailed = false;
 $to = trim((string)($cfg['email_to'] ?? ''));
 if ($to !== '') {
-    $host = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'agregatory.pro');
-    $headers = "From: agregatory.pro <noreply@{$host}>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+    $from = "noreply@agregatory.pro";
+    $fromName = '=?UTF-8?B?' . base64_encode('Сайт agregatory.pro') . '?=';
+    $headers = "From: {$fromName} <{$from}>\r\n"
+        . "Reply-To: {$from}\r\n"
+        . "MIME-Version: 1.0\r\n"
+        . "Content-Type: text/plain; charset=UTF-8\r\n"
+        . "Content-Transfer-Encoding: base64\r\n";
     $subject = '=?UTF-8?B?' . base64_encode("Заявка с сайта: {$name}") . '?=';
-    $mailed = @mail($to, $subject, $plain, $headers);
+    $mailed = @mail($to, $subject, chunk_split(base64_encode($plain)), $headers, "-f{$from}");
 }
 
 // --- Запасной путь: старая функция poehali.dev ------------------------------
+// Только если ни Telegram, ни почта не сработали — чтобы заявки не дублировались.
 $poehali = false;
-if (!$tg && function_exists('curl_init')) {
+if (!$tg && !$mailed && function_exists('curl_init')) {
     $ch = curl_init($POEHALI_URL);
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
