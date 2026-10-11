@@ -87,6 +87,8 @@ jobs:
           mkdir -p site/dist/api
           cp deploy/api/lead.php site/dist/api/lead.php
           cp deploy/api/report.php site/dist/api/report.php
+          cp deploy/api/reactions.php site/dist/api/reactions.php
+          cp deploy/api/reactions-seed.json site/dist/api/reactions-seed.json
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
             "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
@@ -94,6 +96,7 @@ jobs:
           ], true) . ";\n";' > site/dist/api/config.php
           php -l site/dist/api/lead.php
           php -l site/dist/api/config.php
+          php -l site/dist/api/reactions.php
           # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
           OLD='https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0'
           files=$(grep -rlF "$OLD" site/dist --include='*.js' || true)
@@ -111,16 +114,23 @@ jobs:
               echo "Переименован: ${base}.js → ${new}.js"
             done
           else
-            echo "::warning::Адрес функции poehali в коде формы не найден: форма шлёт заявки по-старому"
+            echo "Форма уже шлёт заявки на /api/lead.php прямо из кода сайта"
+          fi
+          # Отметки «Полезно» в блоге: тоже на свой хостинг (если в коде остался старый адрес).
+          OLDR='https://functions.poehali.dev/5384928e-d232-4529-9e00-cfdcc6458060'
+          { grep -rlF "$OLDR" site/dist --include="*.js" || true; } | xargs -r sed -i "s#$OLDR#/api/reactions.php#g"
+          # Сайт не должен обращаться к poehali.dev ни за чем.
+          if grep -rlF "poehali.dev" site/dist --include='*.js' --include='*.html'; then
+            echo "В сборке остались обращения к poehali.dev — выкладку отменяю"; exit 1
           fi
           ! grep -rqF "$OLD" site/dist --include='*.js' || { echo "Остались старые адреса формы"; exit 1; }
-          [ -n "$TG_BOT_TOKEN" ] && echo "Telegram: настроен" || echo "Telegram: секреты не заданы, заявки идут через запасной путь poehali"
+          [ -n "$TG_BOT_TOKEN" ] && echo "Telegram: настроен" || echo "Telegram: секреты не заданы, заявки идут на почту"
 
       - name: Проверяем, что сборка полная
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }

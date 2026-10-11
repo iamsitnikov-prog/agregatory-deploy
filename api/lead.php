@@ -6,8 +6,8 @@
 //   2. Шлёт в Telegram, если в секретах выкладки заданы TG_BOT_TOKEN и TG_CHAT_ID
 //      (несколько чатов через запятую).
 //   3. Шлёт на почту (Яндекс и Gmail, адреса ниже; секрет LEAD_EMAIL_TO важнее).
-//   4. Если ни Telegram, ни почта не сработали — пересылает
-//      заявку в старую функцию poehali.dev, чтобы заявка дошла привычным путём.
+//   (С 11.10.2026 запасного пути через poehali.dev нет: сайт от платформы не зависит.
+//    Заявка в любом случае остаётся в журнале на хостинге.)
 //
 // Настройки приходят из api/config.php, который выкладка собирает из секретов
 // GitHub. В репозитории токенов нет.
@@ -30,7 +30,7 @@ if (is_file(__DIR__ . '/config.php')) {
     $loaded = include __DIR__ . '/config.php';
     if (is_array($loaded)) $cfg = $loaded;
 }
-$POEHALI_URL = $cfg['backup_url'] ?? 'https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0';
+$BACKUP_URL = trim((string)($cfg['backup_url'] ?? ''));
 // Почта для заявок по умолчанию (закодирована, чтобы адрес не собирали роботы
 // из открытого репозитория). Секрет LEAD_EMAIL_TO, если задан, важнее.
 if (trim((string)($cfg['email_to'] ?? '')) === '') {
@@ -165,12 +165,12 @@ if ($to !== '') {
     $mailed = @mail($to, $subject, chunk_split(base64_encode($plain)), $headers, "-f{$from}");
 }
 
-// --- Запасной путь: старая функция poehali.dev ------------------------------
+// --- Запасной путь (по умолчанию выключен, backup_url в config.php) ---------
 // Только если ни Telegram, ни почта не сработали — чтобы заявки не дублировались.
 // Письма с хостинга (отправитель info@agregatory.pro) доходят: проверено 11.10 на Gmail.
 $poehali = false;
-if (!$tg && !$mailed && function_exists('curl_init')) {
-    $ch = curl_init($POEHALI_URL);
+if (!$tg && !$mailed && $BACKUP_URL !== '' && function_exists('curl_init')) {
+    $ch = curl_init($BACKUP_URL);
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => json_encode([
