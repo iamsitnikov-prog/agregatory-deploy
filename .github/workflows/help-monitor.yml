@@ -1,0 +1,41 @@
+name: Снимок справки Яндекс Еды
+
+# Раз в неделю сохраняет текст всех страниц справки для ресторанов
+# в ветку help-monitor и пишет, что поменялось (CHANGES.md).
+# Из этих изменений делается рубрика канала «Что поменялось в справке».
+# Ветка help-monitor не влияет на выкладку сайта.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * 6'   # суббота 21:00 UTC = воскресенье 00:00 МСК
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main }
+      - name: Ветка со снимками
+        run: |
+          git clone --branch help-monitor "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" snap \
+            || (git clone "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" snap && cd snap && git checkout --orphan help-monitor && git rm -rf . -q)
+      - run: pip install requests beautifulsoup4 -q
+      - name: Снимок
+        run: |
+          rm -rf new && python main/help-monitor/snapshot.py new
+          mkdir -p snap/pages && rm -f snap/pages/*.txt && cp new/*.txt snap/pages/
+      - name: Что поменялось
+        run: |
+          cd snap
+          git config user.name "help-monitor"; git config user.email "help-monitor@users.noreply.github.com"
+          git add -A pages
+          D=$(date -u +%F)
+          { echo "# Изменения справки на $D"; echo; git diff --cached --stat -- pages | tail -n 50; echo; echo '```diff'; git diff --cached -U2 -- pages | head -n 3000; echo '```'; } > CHANGES.md
+          if git diff --cached --quiet -- pages; then echo "Без изменений" >> CHANGES.md; fi
+          cp CHANGES.md "changes-$D.md"; git add CHANGES.md "changes-$D.md"
+          git commit -qm "Снимок справки $D" && git push -q origin help-monitor
