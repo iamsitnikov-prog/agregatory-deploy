@@ -1,0 +1,20 @@
+# Страницы справки, которые обходим всегда (путь после /eda-vendor-ru/ru/)
+orders/take
+orders/min-problems
+orders/new-year
+orders/self-delivery
+menu/create
+menu/photo
+menu/moderation
+menu/platform-economy
+menu/secret
+menu/tags
+rating/quality-index
+rating/fines
+rating/rating-up
+rating/actions
+tools/stocks
+finance/finance-orders
+finance/statistics
+finance/about-finance
+start

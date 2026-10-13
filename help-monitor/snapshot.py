@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 BASE = "https://yandex.com/support/eda-vendor-ru/ru/"
 START = [BASE, BASE + "index.html"] + [BASE + "main/" + s for s in ["index","orders","menu","finance","rating","tools","services","help"]]
+EXTRA = [l.strip() for l in open(os.path.join(os.path.dirname(__file__), "seeds.txt"), encoding="utf-8") if l.strip() and not l.startswith("#")]
+START += [BASE + p for p in EXTRA]
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
 S = requests.Session(); S.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
 S.headers["Accept-Language"] = "ru-RU,ru;q=0.9"
@@ -14,6 +16,14 @@ def norm(u):
     u = u.replace("/ru/ru/", "/ru/")
     if u.endswith(".html"): u = u[:-5]
     return u.rstrip("/")
+def sitemap():
+    for sm in ["https://yandex.com/support/eda-vendor-ru/sitemap.xml", "https://yandex.com/support/sitemap.xml"]:
+        try:
+            r = requests.get(sm, timeout=30, headers=S.headers)
+            if r.ok: return [x for x in re.findall(r"<loc>([^<]+)</loc>", r.text) if "/eda-vendor-ru/ru/" in x]
+        except Exception: pass
+    return []
+SM = sitemap(); print("sitemap urls:", len(SM)); START += SM
 seen, q, saved, bad = set(), collections.deque(norm(u) for u in START), 0, 0
 BLOCK = ["p","li","h1","h2","h3","h4","td","th","dt","dd","pre","blockquote"]
 while q and len(seen) < 400:
