@@ -1,0 +1,27 @@
+name: Проверка адресов (http, www, слэш)
+
+# Ручная диагностика: как сервер отвечает на разные варианты адреса.
+# Ничего не меняет на сайте. Actions → «Проверка адресов» → Run workflow.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ответы сервера
+        run: |
+          for u in \
+            http://agregatory.pro/ \
+            http://agregatory.pro/uslugi \
+            http://www.agregatory.pro/uslugi \
+            https://www.agregatory.pro/uslugi \
+            https://agregatory.pro/uslugi/ \
+            https://agregatory.pro/uslugi \
+            https://agregatory.pro/static3.tildacdn.com/ \
+            https://agregatory.pro/css/fonts-tildasans \
+            https://agregatory.pro/net-takoy-stranicy ; do
+            line=$(curl -s -o /dev/null -A "Mozilla/5.0 (compatible; YandexBot/3.0)" -w '%{http_code} -> %{redirect_url}' --max-time 20 "$u")
+            echo "$u  $line"
+          done
