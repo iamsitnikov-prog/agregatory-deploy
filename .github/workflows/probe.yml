@@ -23,5 +23,5 @@ jobs:
             https://agregatory.pro/css/fonts-tildasans \
             https://agregatory.pro/net-takoy-stranicy ; do
             line=$(curl -s -o /dev/null -A "Mozilla/5.0 (compatible; YandexBot/3.0)" -w '%{http_code} -> %{redirect_url}' --max-time 20 "$u")
-            echo "$u  $line"
+            echo "$u  $line"; echo "::notice::$u  $line"
           done
