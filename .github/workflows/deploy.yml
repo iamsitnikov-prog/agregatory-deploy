@@ -136,6 +136,23 @@ jobs:
           ! grep -rqF "$OLD" site/dist --include='*.js' || { echo "Остались старые адреса формы"; exit 1; }
           [ -n "$TG_BOT_TOKEN" ] && echo "Telegram: настроен" || echo "Telegram: секреты не заданы, заявки идут на почту"
 
+      - name: Прошлые отпечатки страниц (для дат в карте сайта и IndexNow)
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        uses: actions/cache/restore@v4
+        with:
+          path: .pagestate
+          key: pagestate-${{ github.run_id }}
+          restore-keys: pagestate-
+
+      - name: Честные даты изменений в sitemap.xml и ключ IndexNow
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        # lastmod = дата, когда текст страницы реально поменялся (а не дата сборки).
+        # Ключ IndexNow не секретный: поисковики проверяют его по файлу на сайте.
+        run: |
+          python3 deploy/scripts/pagestate.py site/dist .pagestate
+          echo "39050443d3049b8c150187db433237a1" > site/dist/39050443d3049b8c150187db433237a1.txt
+          echo "::notice::IndexNow: к отправке $(grep -c . .pagestate/changed.txt || true) страниц"
+
       - name: Проверяем, что сборка полная
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
@@ -166,6 +183,38 @@ jobs:
           SITE_URL: ${{ vars.SITE_URL }}
           SITE_IP: ${{ vars.SITE_IP }}
         run: bash deploy/check.sh
+
+      - name: Сообщаем Яндексу и Bing об изменённых страницах (IndexNow)
+        if: (steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule') && hashFiles('.pagestate/changed.txt') != ''
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: 39050443d3049b8c150187db433237a1
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          urls = [u.strip() for u in open('.pagestate/changed.txt') if u.strip()][:10000]
+          if not urls:
+              print('Изменённых страниц нет'); raise SystemExit
+          key = os.environ['INDEXNOW_KEY']
+          body = json.dumps({'host': 'agregatory.pro', 'key': key,
+                             'keyLocation': f'https://agregatory.pro/{key}.txt', 'urlList': urls}).encode()
+          for ep in ['https://yandex.com/indexnow', 'https://api.indexnow.org/indexnow']:
+              req = urllib.request.Request(ep, data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+              try:
+                  code = urllib.request.urlopen(req, timeout=30).status
+              except urllib.error.HTTPError as e:
+                  code = f'{e.code} {e.read()[:200]!r}'
+              except Exception as e:
+                  code = repr(e)
+              print(f'::notice::IndexNow {ep}: {len(urls)} адресов, ответ {code}')
+          PY
+
+      - name: Сохраняем отпечатки страниц
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        uses: actions/cache/save@v4
+        with:
+          path: .pagestate
+          key: pagestate-${{ github.run_id }}
 
       - name: Запоминаем выложенную версию
         if: steps.last.outputs.cache-hit != 'true'

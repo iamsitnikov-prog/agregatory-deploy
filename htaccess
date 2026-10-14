@@ -28,6 +28,10 @@ RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
 # Журнал заявок и настройки обработчика наружу не отдаём
 RewriteRule ^api/(data(/|$)|config\.php|pay-lib\.php) - [R=404,L]
 
+# Адреса старого сайта на Тильде: «страницы больше нет навсегда» (410),
+# чтобы поисковики быстрее выкинули их из отчётов
+RewriteRule ^(static\d*\.tildacdn\.com|css/fonts-tilda|js/tilda) - [G,L]
+
 # --- 1в. Слэш на конце -> адрес без слэша (один канонический адрес) --------
 # на нашем домене сразу на https (Apache за прокси сам подставил бы http)
 RewriteCond %{HTTP_HOST} ^(www\.)?agregatory\.pro$ [NC]
