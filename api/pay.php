@@ -62,7 +62,7 @@ $code = $f('product', 40);
 $name = $f('name', 120);
 $phone = preg_replace('/\D/', '', $f('phone', 40));
 $email = $f('email', 120);
-$company = $f('company', 200);
+$company = ''; // онлайн оплата только для физических лиц
 $invoice = $f('invoice', 100);
 $agree = !empty($body['agree']);
 
@@ -75,12 +75,6 @@ if (!$agree) pay_reply(400, ['error' => 'Нужно согласие с офер
 $product = PRODUCTS[$code];
 $amount = $product['price'];
 $title = $product['title'];
-if ($code === 'po-schetu') {
-    $amount = (int)round((float)str_replace([' ', ','], ['', '.'], (string)($body['amount'] ?? '0')));
-    if ($amount < 1000 || $amount > 1000000) pay_reply(400, ['error' => 'Сумма от 1 000 до 1 000 000 ₽']);
-    if ($invoice === '') pay_reply(400, ['error' => 'Укажите номер счёта, договора или КП']);
-    $title = 'Оплата услуг по счёту ' . $invoice;
-}
 
 if (!pay_rate_ok()) pay_reply(429, ['error' => 'Слишком много попыток, попробуйте через 10 минут']);
 
@@ -115,7 +109,7 @@ $res = yk_request($cfg, 'POST', 'payments', [
     'metadata' => ['order_id' => $id],
     'receipt' => [
         'customer' => array_filter([
-            'full_name' => $company !== '' ? $company : $name,
+            'full_name' => $name,
             'email' => $email,
             'phone' => $phone,
         ]),
