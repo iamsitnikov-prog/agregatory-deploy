@@ -93,6 +93,9 @@ jobs:
           cp deploy/api/reactions-seed.json site/dist/api/reactions-seed.json
           # Онлайн оплата (ЮKassa): включается сама, когда заданы секреты YK_SHOP_ID и YK_SECRET_KEY
           cp deploy/api/pay.php deploy/api/pay-lib.php deploy/api/yookassa.php site/dist/api/
+          # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
+          cp deploy/api/docs.php site/dist/api/
+          mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
             "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
@@ -106,6 +109,7 @@ jobs:
           php -l site/dist/api/pay.php
           php -l site/dist/api/pay-lib.php
           php -l site/dist/api/yookassa.php
+          php -l site/dist/api/docs.php
           [ -n "$YK_SHOP_ID" ] && [ -n "$YK_SECRET_KEY" ] && echo "Оплата ЮKassa: включена" || echo "Оплата ЮKassa: ключей нет, кнопки оплаты скрыты"
           # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
           OLD='https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0'
@@ -157,7 +161,7 @@ jobs:
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }
