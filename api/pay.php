@@ -25,7 +25,7 @@ $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 if ($method === 'GET' && isset($_GET['check'])) {
     pay_reply(200, ['enabled' => $enabled, 'products' => array_map(
         fn($p) => ['title' => $p['title'], 'price' => $p['price']],
-        PRODUCTS
+        array_diff_key(PRODUCTS, ['test' => 1])
     )]);
 }
 
