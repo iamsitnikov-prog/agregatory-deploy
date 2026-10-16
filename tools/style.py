@@ -170,19 +170,24 @@ def compact_samples(d):
         a = re.sub(r'w:(before|after)="(\d+)"', lambda x: f'w:{x.group(1)}="{int(x.group(2)) * 45 // 100}"', a)
         return a.replace('w:line="250"', 'w:line="240"')
     tail = re.sub(r'<w:spacing [^>]*/>', sp, tail)
-    # основной текст образцов 10 pt вместо 12 pt (заголовки со своим размером не трогаем)
+    # основной текст образцов 10 pt вместо 12 pt; куски без своего размера берут размер соседей по абзацу
     after_sz = r'<w:(szCs|highlight|u|effect|bdr|shd|fitText|vertAlign|rtl|cs|em|lang|eastAsianLayout|specVanish|oMath)\b'
-    def rpr(m):
-        r = m.group(0)
-        if '<w:sz ' in r:
-            return r
-        k = re.search(after_sz, r)
-        add = '<w:sz w:val="20"/><w:szCs w:val="20"/>' if not (k and k.group(1) == 'szCs') else '<w:sz w:val="20"/>'
-        if k:
-            return r[:k.start()] + add + r[k.start():]
-        return r.replace('</w:rPr>', add + '</w:rPr>')
-    tail = re.sub(r'(?<=<w:r>)<w:rPr>.*?</w:rPr>|(?<=<w:r )[^>]*><w:rPr>.*?</w:rPr>', rpr, tail, flags=re.S)
-    tail = re.sub(r'(<w:r(?: [^>]*)?>)(?!<w:rPr>)', r'\1<w:rPr><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>', tail)
+
+    def para(mp):
+        p = mp.group(0)
+        sizes = re.findall(r'<w:r(?: [^>]*)?><w:rPr>(?:(?!</w:rPr>).)*<w:sz w:val="(\d+)"', p)
+        size = max(set(sizes), key=sizes.count) if sizes else '20'
+
+        def rpr(m):
+            r = m.group(0)
+            if '<w:sz ' in r:
+                return r
+            k = re.search(after_sz, r)
+            add = f'<w:sz w:val="{size}"/>' + ('' if k and k.group(1) == 'szCs' else f'<w:szCs w:val="{size}"/>')
+            return r[:k.start()] + add + r[k.start():] if k else r.replace('</w:rPr>', add + '</w:rPr>')
+        p = re.sub(r'(?<=<w:r>)<w:rPr>.*?</w:rPr>|(?<=<w:r )[^>]*><w:rPr>.*?</w:rPr>', rpr, p, flags=re.S)
+        return re.sub(r'(<w:r(?: [^>]*)?>)(?!<w:rPr>)', rf'\1<w:rPr><w:sz w:val="{size}"/><w:szCs w:val="{size}"/></w:rPr>', p)
+    tail = re.sub(r'<w:p[ >](?:(?!</w:p>).)*</w:p>', para, tail, flags=re.S)
     tail = re.sub(r'<w:trHeight w:val="(\d+)"/>', lambda x: f'<w:trHeight w:val="{min(int(x.group(1)), 400)}"/>', tail)
     return head + tail
 
