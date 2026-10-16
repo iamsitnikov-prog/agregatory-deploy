@@ -257,7 +257,42 @@ def layout(d):
     return ''.join(parts)
 
 
+def remove_signatures(d):
+    """Подписи ставятся в ЭДО: убираем строки и таблицы для ручных подписей и лишние пустые строки на их месте."""
+    def tbl(m):
+        t = m.group(0)
+        txt = text(t)
+        if 'Услуги оказаны:' in txt or ('Подпись:' in txt and 'Телефон' not in txt):
+            return ''
+        if 'Телефон' in txt and 'ЗАКАЗЧИК:' in txt:  # контакты: убираем хвост «ЗАКАЗЧИК: / Подпись / М.П.»
+            rows = re.findall(r'<w:tr[ >].*?</w:tr>', t, flags=re.S)
+            k = next(i for i, r in enumerate(rows) if 'ЗАКАЗЧИК:' in text(r))
+            for r in rows[k:]:
+                t = t.replace(r, '', 1)
+        return t
+    d = re.sub(r'<w:tbl>.*?</w:tbl>', tbl, d, flags=re.S)
+    d = re.sub(r'<w:p [^>]*>(?:(?!</w:p>).)*</w:p>', lambda m: '' if text(m.group(0)).startswith('Исполнитель: ___') else m.group(0), d, flags=re.S)
+    # несколько пустых строк подряд (были отступом перед подписями) → одна
+    def is_empty(p):
+        return not text(p) and not re.search(r'<w:drawing|<w:sectPr|<w:br w:type="page"|<w:fldChar', p)
+    parts = re.split(r'(<w:p [^>]*>(?:(?!</w:p>).)*</w:p>)', d, flags=re.S)
+    out, prev_empty = [], False
+    for i, part in enumerate(parts):
+        if i % 2 == 1:
+            e = is_empty(part)
+            if e and prev_empty and not out[-1].strip():
+                continue
+            prev_empty = e
+        elif part.strip():
+            prev_empty = False
+        out.append(part)
+    d = ''.join(out)
+    # пустая строка перед концом документа или перед «Приложение №» не нужна
+    return d
+
+
 def doc_xml(d, v):
+    d = remove_signatures(d)
     d = keep_tables(d)
     d = layout(d)
     if v == 'brand':

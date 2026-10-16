@@ -6,6 +6,7 @@
 //   POST ?a=login              проверка пароля
 //   GET  ?a=lookup&inn=…       реквизиты по ИНН: DaData (с адресом), если задан ключ, иначе ЕГРЮЛ/ЕГРИП
 //   GET  ?a=addr&q=…           подсказки адреса (DaData)
+//   GET  ?a=bank&bik=…         банк и корр. счёт по БИК (справочник ЦБ из выкладки, запасной путь DaData)
 //   GET  ?a=nextnum&prefix=…   следующий свободный номер договора: МОЛ01, МОЛ02…
 //   GET  ?a=journal            последние договоры из журнала
 //   GET  ?a=check&num=…        есть ли уже договор с таким номером
@@ -140,6 +141,19 @@ if ($a === 'lookup') {
         'head' => (string)($x['g'] ?? ''),
         'closed' => !empty($x['e']),
     ]]);
+}
+
+// --- Банк по БИК ---------------------------------------------------------------
+if ($a === 'bank') {
+    $bik = preg_replace('/\D/', '', (string)($_GET['bik'] ?? ''));
+    if (strlen($bik) !== 9) out(400, ['error' => 'В БИК 9 цифр']);
+    $book = @json_decode((string)@file_get_contents(__DIR__ . '/docs/bik.json'), true) ?: [];
+    if (isset($book[$bik])) out(200, ['ok' => true, 'name' => $book[$bik][0], 'ks' => $book[$bik][1], 'source' => 'cbr']);
+    $dd = dadata('findById/bank', ['query' => $bik, 'count' => 1]);
+    $x = $dd['suggestions'][0]['data'] ?? null;
+    if ($x) out(200, ['ok' => true, 'name' => (string)($x['name']['payment'] ?? $dd['suggestions'][0]['value'] ?? ''),
+        'ks' => (string)($x['correspondent_account'] ?? ''), 'source' => 'dadata']);
+    out(404, ['error' => 'Такого БИК нет в справочнике Банка России. Проверьте цифры.']);
 }
 
 // --- Подсказки адреса --------------------------------------------------------
