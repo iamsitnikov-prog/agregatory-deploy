@@ -1,3 +1,4 @@
+import os
 """Готовит шаблоны договоров для docxtemplater из исходных Word-файлов Юрия.
 
 Меняет только поля в квадратных скобках на метки {…} и вносит правки,
@@ -249,6 +250,15 @@ def build(kind):
         sub_all(doc, '[ОГРН]', '{ogrn}')
         sub_all(doc, '[КПП]', '{kpp}')
         sub_all(doc, '[юридический адрес]', '{address}')
+        # В образце УПД у ООО адрес продавца был пустым (у ИП заполнен): ставим адрес исполнителя
+        n = 0
+        for p in paragraphs(doc):
+            ts = p.findall('.//' + qn('w:t'))
+            if p_text(p).strip() == 'Адрес продавца:' and ts and ts[-1].text == ' ':
+                ts[-1].text = ' 192007 г.Санкт-Петербург, Лиговский 242 к.1 кв.30'
+                n += 1
+        if n != 1:
+            raise SystemExit(f'адрес продавца: {n}')
         # Строка «Генеральный директор» в реквизитах: должность из формы
         for t in doc.tables:
             for r in t.rows:
@@ -280,6 +290,10 @@ def build(kind):
     if any('784243001' in p_text(p) for p in paragraphs(doc)):
         raise SystemExit(f'{kind}: КПП исполнителя остался')
     doc.save(f'out/{kind}.docx')
+    # Оформление «Фирменный agregatory.pro» и вёрстка без съезда (выбор Юрия 17.10.2026)
+    import style
+    style.apply(f'out/{kind}.docx', f'out/{kind}.docx.tmp', 'brand')
+    os.replace(f'out/{kind}.docx.tmp', f'out/{kind}.docx')
     print(kind, 'ok')
 
 
