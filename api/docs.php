@@ -86,6 +86,62 @@ function dadata($path, $body) {
 
 if ($a === 'login' && $method === 'POST') { auth(); out(200, ['ok' => true, 'dadata' => dadata_key() !== '']); }
 
+// --- Банк по БИК (открытые данные ЦБ, без пароля) ---------------------------
+// Справочник БИК хостинг сам качает с cbr.ru раз в сутки и хранит в api/data/docs/bik.json.
+function bik_book() {
+    $cache = __DIR__ . '/data/docs/bik.json';
+    $fresh = is_file($cache) && filemtime($cache) > time() - 86400;
+    if (!$fresh && function_exists('curl_init') && class_exists('ZipArchive')) {
+        $ch = curl_init('https://www.cbr.ru/s/newbik');
+        curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => true, CURLOPT_TIMEOUT => 25,
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; agregatory.pro)']);
+        $zipData = curl_exec($ch);
+        $ok = curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200 && $zipData;
+        curl_close($ch);
+        if ($ok) {
+            $tmp = tempnam(sys_get_temp_dir(), 'bik');
+            file_put_contents($tmp, $zipData);
+            $z = new ZipArchive();
+            if ($z->open($tmp) === true) {
+                for ($i = 0; $i < $z->numFiles; $i++) {
+                    if (preg_match('/\.xml$/i', $z->getNameIndex($i))) { $xml = $z->getFromIndex($i); break; }
+                }
+                $z->close();
+            }
+            @unlink($tmp);
+            $book = isset($xml) ? bik_parse($xml) : [];
+            if (count($book) > 300) @file_put_contents($cache, json_encode($book, JSON_UNESCAPED_UNICODE), LOCK_EX);
+            elseif (is_file($cache)) @touch($cache); // ЦБ отдал странное: живём на старой копии ещё сутки
+        }
+    }
+    return @json_decode((string)@file_get_contents($cache), true) ?: [];
+}
+function bik_parse($xml) {
+    $out = [];
+    $r = new XMLReader();
+    if (!$r->XML($xml)) return $out;
+    $bik = null;
+    while (@$r->read()) {
+        if ($r->nodeType !== XMLReader::ELEMENT) continue;
+        if ($r->localName === 'BICDirectoryEntry') $bik = $r->getAttribute('BIC');
+        elseif ($bik && $r->localName === 'ParticipantInfo') $out[$bik] = [(string)$r->getAttribute('NameP'), $out[$bik][1] ?? ''];
+        elseif ($bik && $r->localName === 'Accounts' && $r->getAttribute('RegulationAccountType') === 'CRSA' && empty($out[$bik][1]))
+            $out[$bik] = [$out[$bik][0] ?? '', (string)$r->getAttribute('Account')];
+    }
+    return array_filter($out, fn($v) => $v[0] !== '');
+}
+if ($a === 'bank') {
+    $bik = preg_replace('/\D/', '', (string)($_GET['bik'] ?? ''));
+    if (strlen($bik) !== 9) out(400, ['error' => 'В БИК 9 цифр']);
+    $book = bik_book();
+    if (isset($book[$bik])) out(200, ['ok' => true, 'name' => $book[$bik][0], 'ks' => $book[$bik][1], 'source' => 'cbr']);
+    $dd = dadata('findById/bank', ['query' => $bik, 'count' => 1]);
+    $x = $dd['suggestions'][0]['data'] ?? null;
+    if ($x) out(200, ['ok' => true, 'name' => (string)($x['name']['payment'] ?? $dd['suggestions'][0]['value'] ?? ''),
+        'ks' => (string)($x['correspondent_account'] ?? ''), 'source' => 'dadata']);
+    out(404, ['error' => $book ? 'Такого БИК нет в справочнике Банка России. Проверьте цифры.' : 'Справочник БИК сейчас недоступен: впишите банк и корр. счёт вручную.']);
+}
+
 auth();
 
 // --- Реквизиты по ИНН -------------------------------------------------------
@@ -141,19 +197,6 @@ if ($a === 'lookup') {
         'head' => (string)($x['g'] ?? ''),
         'closed' => !empty($x['e']),
     ]]);
-}
-
-// --- Банк по БИК ---------------------------------------------------------------
-if ($a === 'bank') {
-    $bik = preg_replace('/\D/', '', (string)($_GET['bik'] ?? ''));
-    if (strlen($bik) !== 9) out(400, ['error' => 'В БИК 9 цифр']);
-    $book = @json_decode((string)@file_get_contents(__DIR__ . '/docs/bik.json'), true) ?: [];
-    if (isset($book[$bik])) out(200, ['ok' => true, 'name' => $book[$bik][0], 'ks' => $book[$bik][1], 'source' => 'cbr']);
-    $dd = dadata('findById/bank', ['query' => $bik, 'count' => 1]);
-    $x = $dd['suggestions'][0]['data'] ?? null;
-    if ($x) out(200, ['ok' => true, 'name' => (string)($x['name']['payment'] ?? $dd['suggestions'][0]['value'] ?? ''),
-        'ks' => (string)($x['correspondent_account'] ?? ''), 'source' => 'dadata']);
-    out(404, ['error' => 'Такого БИК нет в справочнике Банка России. Проверьте цифры.']);
 }
 
 // --- Подсказки адреса --------------------------------------------------------

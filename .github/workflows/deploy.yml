@@ -160,36 +160,11 @@ jobs:
           echo "39050443d3049b8c150187db433237a1" > site/dist/39050443d3049b8c150187db433237a1.txt
           echo "::notice::IndexNow: к отправке $(grep -c . .pagestate/changed.txt || true) страниц"
 
-      - name: Прошлый справочник БИК
-        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
-        uses: actions/cache/restore@v4
-        with:
-          path: .bik
-          key: bik-${{ github.run_id }}
-          restore-keys: bik-
-
-      - name: Справочник БИК Банка России (банк и корр. счёт по БИК на /dokumenty)
-        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
-        run: |
-          mkdir -p .bik
-          if python3 deploy/tools/bik.py .bik/new.json; then mv .bik/new.json .bik/bik.json; echo "::notice::БИК: справочник обновлён"
-          else echo "::warning::БИК: ЦБ не ответил, беру прошлую копию"; fi
-          [ -f .bik/bik.json ] || echo "{}" > .bik/bik.json
-          cp .bik/bik.json site/dist/api/docs/bik.json
-          python3 -c "import json;b=json.load(open('.bik/bik.json'));print('::notice::БИК в справочнике:', len(b), '044030653 =', b.get('044030653'))"
-
-      - name: Сохраняем справочник БИК
-        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
-        uses: actions/cache/save@v4
-        with:
-          path: .bik
-          key: bik-${{ github.run_id }}
-
       - name: Проверяем, что сборка полная
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/bik.json; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }
