@@ -98,6 +98,7 @@ def set_ppr_flag(p, flag):
 
 
 TEXT_W = 11906 - 1701 - 850  # ширина текста A4 при полях шаблона, twips
+TABLE_W = TEXT_W - 90  # таблицы чуть уже текста: правая рамка не срезается краем поля в просмотрщиках
 UPD_GRID = [450, 3255, 550, 500, 1050, 1050, 700, 700, 1100]
 
 
@@ -120,8 +121,9 @@ def fit_tables(d):
             new[-1] += TEXT_W - sum(new)
         else:
             return t
-        old2new = dict(zip(grid, new)) if len(set(grid)) == len(grid) else None
-        t = re.sub(r'<w:tblW w:w="\d+"', f'<w:tblW w:w="{TEXT_W}"', t, count=1)
+        new = [round(g * TABLE_W / sum(new)) for g in new]
+        new[new.index(max(new))] += TABLE_W - sum(new)
+        t = re.sub(r'<w:tblW w:w="\d+"', f'<w:tblW w:w="{TABLE_W}"', t, count=1)
         it = iter(new)
         t = re.sub(r'<w:gridCol w:w="\d+"/>', lambda _: f'<w:gridCol w:w="{next(it)}"/>', t)
         # ширины ячеек: по сетке строки с учётом gridSpan
@@ -137,13 +139,13 @@ def fit_tables(d):
                 return re.sub(r'<w:tcW w:w="\d+"', f'<w:tcW w:w="{w}"', c, count=1)
             return re.sub(r'<w:tc>.*?</w:tc>', cell, r, flags=re.S)
         t = re.sub(r'<w:tr[ >].*?</w:tr>', row, t, flags=re.S)
-        if new is UPD_GRID:
-            t = upd_total_row(t)
+        if 'Ед. изм.' in t and len(new) == len(UPD_GRID):
+            t = upd_total_row(t, new)
         return t
     return re.sub(r'<w:tbl>.*?</w:tbl>', fix, d, flags=re.S)
 
 
-def upd_total_row(t):
+def upd_total_row(t, g):
     """Строка «Всего к оплате» в образце УПД: суммы под своими колонками, без пустого хвоста."""
     rows = re.findall(r'<w:tr[ >].*?</w:tr>', t, flags=re.S)
     r = rows[-1]
@@ -151,7 +153,6 @@ def upd_total_row(t):
         return t
     cells = re.findall(r'<w:tc>.*?</w:tc>', r, flags=re.S)
     total, no_vat, dash, summ = cells
-    g = UPD_GRID
     w = lambda c, x: re.sub(r'<w:tcW w:w="\d+"', f'<w:tcW w:w="{x}"', c, count=1)
     total = w(total, sum(g[:5])).replace('</w:tcW>', '').replace('<w:tcBorders>', '<w:gridSpan w:val="5"/><w:tcBorders>', 1)
     new_cells = total + w(summ, g[5]) + w(no_vat, g[6]) + w(dash, g[7]) + w(summ, g[8])
