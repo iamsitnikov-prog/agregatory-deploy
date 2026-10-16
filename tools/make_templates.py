@@ -174,6 +174,37 @@ def points_table(doc):
     anchor._p.addprevious(gap)
 
 
+def executor(doc):
+    """Исполнитель выбирается на странице (Ситников или Малюта): его данные тоже метки."""
+    gender_p = lambda t: 'Ситников Юрий Сергеевич (ОГРНИП' in t
+    sub_all(doc, 'действующий', '{e_acting}', where=lambda t: gender_p(t) and 'действующий на основании записи' in t)
+    for p in paragraphs(doc):
+        if gender_p(p_text(p)):
+            replace_in_p(p, 'именуемый', '{e_named}', count=1)
+    for a, b in [
+        ('автоматизированной упрощённой системы налогообложения (АУСН) в соответствии с Федеральным законом от 25.02.2022 № 17-ФЗ', '{e_tax_law}'),
+        ('автоматизированной упрощённой системы налогообложения (АУСН)', '{e_tax_gen}'),
+        ('автоматизированную упрощённую систему налогообложения (АУСН)', '{e_tax_acc}'),
+        ('Ситников Юрий Сергеевич', '{e_fio}'), ('Ситников Ю.С.', '{e_short}'),
+        ('325632700100793', '{e_ogrnip}'), ('632509481120', '{e_inn}'),
+        ('192007 г.Санкт-Петербург, Лиговский 242 к.1 кв.30', '{e_address}'),
+        ('Северо-Западный банк ПАО Сбербанк', '{e_bank}'), ('40802810955710016483', '{e_rs}'),
+        ('044030653', '{e_bik}'), ('30101810500000000653', '{e_ks}'),
+        ('+7 931 002-82-22', '{e_phone}'), ('i.am.sitnikov@gmail.com', '{e_email}'),
+        ('2BEe17ee89c5e5341f08fd2890b3c14ad2a', '{e_edo_id}'),
+    ]:
+        sub_all(doc, a, b)
+    n = 0
+    for p in paragraphs(doc):
+        if p_text(p).strip() == 'СБИС':
+            n += replace_in_p(p, 'СБИС', '{e_edo}')
+    if n != 1:
+        raise SystemExit(f'оператор ЭДО исполнителя: {n}')
+    left = [p_text(p) for p in paragraphs(doc) if re.search(r'Ситников|632509481120|АУСН|Лиговск', p_text(p))]
+    if left:
+        raise SystemExit(f'остались данные исполнителя: {left[:3]}')
+
+
 def build(kind):
     doc = Document(f'src/{kind}.docx')
     remove_highlight(doc)
@@ -241,6 +272,7 @@ def build(kind):
 
     contacts(doc)
     points_table(doc)
+    executor(doc)
 
     left = [p_text(p) for p in paragraphs(doc) if re.search(r'\[[^\]]*\]', p_text(p))]
     if left:
