@@ -85,6 +85,7 @@ jobs:
           LEAD_EMAIL_TO: ${{ secrets.LEAD_EMAIL_TO }}
           YK_SHOP_ID: ${{ secrets.YK_SHOP_ID }}
           YK_SECRET_KEY: ${{ secrets.YK_SECRET_KEY }}
+          DADATA_KEY: ${{ secrets.DADATA_KEY }}
         run: |
           mkdir -p site/dist/api
           cp deploy/api/lead.php site/dist/api/lead.php
@@ -102,6 +103,7 @@ jobs:
             "email_to" => getenv("LEAD_EMAIL_TO") ?: "",
             "yk_shop_id" => getenv("YK_SHOP_ID") ?: "",
             "yk_secret" => getenv("YK_SECRET_KEY") ?: "",
+            "dadata_key" => getenv("DADATA_KEY") ?: "",
           ], true) . ";\n";' > site/dist/api/config.php
           php -l site/dist/api/lead.php
           php -l site/dist/api/config.php
@@ -111,6 +113,7 @@ jobs:
           php -l site/dist/api/yookassa.php
           php -l site/dist/api/docs.php
           [ -n "$YK_SHOP_ID" ] && [ -n "$YK_SECRET_KEY" ] && echo "Оплата ЮKassa: включена" || echo "Оплата ЮKassa: ключей нет, кнопки оплаты скрыты"
+          [ -n "$DADATA_KEY" ] && echo "::notice::DaData: ключ есть, адреса по ИНН и подсказки включены" || echo "::notice::DaData: ключа нет, адреса вручную"
           # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
           OLD='https://functions.poehali.dev/3df83e5c-d49d-4a84-8862-107cedfd17f0'
           files=$(grep -rlF "$OLD" site/dist --include='*.js' || true)

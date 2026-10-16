@@ -4,7 +4,9 @@
 // Договор собирает браузер из зашифрованного шаблона (api/docs/*.docx.enc,
 // ключ = пароль страницы). Здесь только то, что нужно делать на сервере:
 //   POST ?a=login              проверка пароля
-//   GET  ?a=lookup&inn=…       реквизиты по ИНН из ЕГРЮЛ/ЕГРИП (egrul.nalog.ru)
+//   GET  ?a=lookup&inn=…       реквизиты по ИНН: DaData (с адресом), если задан ключ, иначе ЕГРЮЛ/ЕГРИП
+//   GET  ?a=addr&q=…           подсказки адреса (DaData)
+//   GET  ?a=nextnum&prefix=…   следующий свободный номер договора: МОЛ01, МОЛ02…
 //   GET  ?a=journal            последние договоры из журнала
 //   GET  ?a=check&num=…        есть ли уже договор с таким номером
 //   POST ?a=save               сохранить договор, записать в журнал, отправить Юрию в Telegram
@@ -67,7 +69,21 @@ function cfg() {
 $a = (string)($_GET['a'] ?? '');
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
-if ($a === 'login' && $method === 'POST') { auth(); out(200, ['ok' => true]); }
+function dadata_key() { return trim((string)(cfg()['dadata_key'] ?? '')); }
+function dadata($path, $body) {
+    $key = dadata_key();
+    if ($key === '' || !function_exists('curl_init')) return null;
+    $ch = curl_init('https://suggestions.dadata.ru/suggestions/api/4_1/rs/' . $path);
+    curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10,
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Accept: application/json', 'Authorization: Token ' . $key],
+        CURLOPT_POSTFIELDS => json_encode($body, JSON_UNESCAPED_UNICODE)]);
+    $r = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return $code === 200 ? json_decode((string)$r, true) : null;
+}
+
+if ($a === 'login' && $method === 'POST') { auth(); out(200, ['ok' => true, 'dadata' => dadata_key() !== '']); }
 
 auth();
 
@@ -75,6 +91,25 @@ auth();
 if ($a === 'lookup') {
     $inn = preg_replace('/\D/', '', (string)($_GET['inn'] ?? ''));
     if (!in_array(strlen($inn), [10, 12], true)) out(400, ['error' => 'ИНН: 10 цифр у организации, 12 у ИП']);
+    // DaData: отдаёт и юридический адрес; если ключа нет или сервис не ответил, идём в налоговую
+    $dd = dadata('findById/party', ['query' => $inn, 'count' => 1]);
+    $x = $dd['suggestions'][0] ?? null;
+    if ($x) {
+        $d = $x['data'] ?? [];
+        $isIp = ($d['type'] ?? '') === 'INDIVIDUAL';
+        $m = $d['management'] ?? [];
+        out(200, ['ok' => true, 'source' => 'dadata', 'row' => [
+            'kind' => $isIp ? 'ip' : 'ooo',
+            'full' => (string)($isIp ? ($d['name']['full'] ?? '') : ($d['name']['full_with_opf'] ?? $x['value'] ?? '')),
+            'short' => (string)($d['name']['short_with_opf'] ?? $x['value'] ?? ''),
+            'ogrn' => (string)($d['ogrn'] ?? ''),
+            'inn' => (string)($d['inn'] ?? $inn),
+            'kpp' => (string)($d['kpp'] ?? ''),
+            'address' => (string)($d['address']['unrestricted_value'] ?? $d['address']['value'] ?? ''),
+            'head' => !empty($m['name']) ? mb_strtoupper((string)($m['post'] ?? 'ГЕНЕРАЛЬНЫЙ ДИРЕКТОР')) . ': ' . $m['name'] : '',
+            'closed' => !in_array($d['state']['status'] ?? 'ACTIVE', ['ACTIVE', 'REORGANIZING'], true),
+        ]]);
+    }
     $ua = 'Mozilla/5.0 (compatible; agregatory.pro)';
     $ch = curl_init('https://egrul.nalog.ru/');
     curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_POSTFIELDS => http_build_query(['query' => $inn]),
@@ -105,6 +140,24 @@ if ($a === 'lookup') {
         'head' => (string)($x['g'] ?? ''),
         'closed' => !empty($x['e']),
     ]]);
+}
+
+// --- Подсказки адреса --------------------------------------------------------
+if ($a === 'addr') {
+    $q = mb_substr(trim((string)($_GET['q'] ?? '')), 0, 200);
+    if (mb_strlen($q) < 3) out(200, ['items' => []]);
+    $dd = dadata('suggest/address', ['query' => $q, 'count' => 7]);
+    if ($dd === null) out(200, ['items' => [], 'off' => dadata_key() === '']);
+    $items = array_map(function ($x) {
+        $d = $x['data'] ?? [];
+        return [
+            'value' => (string)($x['value'] ?? ''),
+            'full' => (string)($x['unrestricted_value'] ?? $x['value'] ?? ''),
+            'city' => (string)($d['city'] ?? $d['settlement'] ?? $d['region'] ?? ''),
+            'city_part' => (string)($d['city_with_type'] ?? $d['settlement_with_type'] ?? ''),
+        ];
+    }, $dd['suggestions'] ?? []);
+    out(200, ['items' => $items]);
 }
 
 // --- Журнал -----------------------------------------------------------------
@@ -141,6 +194,18 @@ if ($a === 'file') {
     header('Content-Length: ' . filesize($path));
     readfile($path);
     exit;
+}
+
+// Следующий свободный номер: три буквы названия первой точки + порядковый номер (МОЛ01, МОЛ02…)
+if ($a === 'nextnum') {
+    $prefix = mb_strtoupper(preg_replace('/[^\p{L}]/u', '', (string)($_GET['prefix'] ?? '')));
+    $prefix = mb_substr($prefix, 0, 3);
+    if ($prefix === '') out(400, ['error' => 'Нет букв в названии']);
+    $max = 0;
+    foreach (journal_read($journal) as $r) {
+        if (preg_match('/^' . preg_quote($prefix, '/') . '(\d+)$/iu', trim((string)$r['num']), $mm)) $max = max($max, (int)$mm[1]);
+    }
+    out(200, ['num' => $prefix . str_pad((string)($max + 1), 2, '0', STR_PAD_LEFT)]);
 }
 
 if ($a === 'check') {
