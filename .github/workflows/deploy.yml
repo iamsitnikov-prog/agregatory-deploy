@@ -96,6 +96,7 @@ jobs:
           cp deploy/api/pay.php deploy/api/pay-lib.php deploy/api/yookassa.php site/dist/api/
           # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
           cp deploy/api/docs.php site/dist/api/
+          cp deploy/api/eda-probe.php site/dist/api/
           mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
