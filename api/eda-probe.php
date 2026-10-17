@@ -30,6 +30,17 @@ function get($url) {
 
 $out = ['slug' => $slug, 'time' => date('c')];
 
+// Режим разведки: произвольный путь на eda.yandex.ru (только GET, только этот домен)
+if (isset($_GET['path'])) {
+    $path = $_GET['path'];
+    if (!preg_match('#^/[A-Za-z0-9_\-/\.?=&%,]*$#', $path)) { echo json_encode(['error' => 'bad path']); exit; }
+    $r = get('https://eda.yandex.ru' . $path);
+    echo json_encode(['code' => $r['code'], 'final' => $r['final'], 'len' => $r['len'],
+        'captcha' => stripos($r['final'], 'captcha') !== false,
+        'head' => mb_substr($r['body'], 0, (int)($_GET['n'] ?? 3000))], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    exit;
+}
+
 $api = get("https://eda.yandex.ru/api/v2/menu/retrieve/$slug");
 $a = ['code' => $api['code'], 'final' => $api['final'], 'len' => $api['len'], 'err' => $api['err'],
       'captcha' => stripos($api['final'] . $api['body'], 'captcha') !== false];
