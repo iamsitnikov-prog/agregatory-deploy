@@ -97,7 +97,7 @@ jobs:
           # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
           cp deploy/api/docs.php site/dist/api/
           cp deploy/api/eda-probe.php site/dist/api/
-          mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/
+          mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/ && mkdir -p site/dist/api/docs/lilia && cp deploy/api/docs/lilia/*.docx.enc site/dist/api/docs/lilia/
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
             "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
@@ -165,7 +165,7 @@ jobs:
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/lilia/ooo.docx.enc api/docs/lilia/ip.docx.enc; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }

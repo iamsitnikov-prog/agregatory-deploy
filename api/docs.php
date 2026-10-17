@@ -17,7 +17,15 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Robots-Tag: noindex, nofollow');
 
-const DOCS_HASH = '$2y$11$rQ8HzcREARElUzMfyCkzu.bwIRFuHjR9Nq1.Bm3c.kVXN1m4bVWG6';
+// Кабинеты: у каждого свой пин-код (в репозитории только хеши).
+// all = видит весь журнал; tpl = папка шаблонов, зашифрованных этим пин-кодом.
+const DOCS_USERS = [
+    ['id' => 'alisa', 'name' => 'Алиса', 'all' => true, 'tpl' => '',
+     'hash' => '$2y$11$rQ8HzcREARElUzMfyCkzu.bwIRFuHjR9Nq1.Bm3c.kVXN1m4bVWG6'],
+    ['id' => 'lilia', 'name' => 'Лиля', 'all' => false, 'tpl' => 'lilia/',
+     'hash' => '$2y$11$DPM0rs5z2LhztLOtdcEI/.aI87ysjNcKp9jafo/xCruOCOMzzYq7y'],
+];
+$USER = null;
 
 function out($code, $data) {
     http_response_code($code);
@@ -52,10 +60,12 @@ function note_fail() {
 function auth() {
     if (too_many_fails()) out(429, ['error' => 'Слишком много попыток. Попробуйте через час.']);
     $key = rawurldecode((string)($_SERVER['HTTP_X_DOCS_KEY'] ?? ''));
-    if ($key === '' || !password_verify($key, DOCS_HASH)) {
-        note_fail();
-        out(401, ['error' => 'Неверный пин-код']);
+    global $USER;
+    foreach (DOCS_USERS as $u) {
+        if ($key !== '' && password_verify($key, $u['hash'])) { $USER = $u; return; }
     }
+    note_fail();
+    out(401, ['error' => 'Неверный пин-код']);
 }
 
 function cfg() {
@@ -84,7 +94,11 @@ function dadata($path, $body) {
     return $code === 200 ? json_decode((string)$r, true) : null;
 }
 
-if ($a === 'login' && $method === 'POST') { auth(); out(200, ['ok' => true, 'dadata' => dadata_key() !== '']); }
+if ($a === 'login' && $method === 'POST') {
+    auth();
+    out(200, ['ok' => true, 'dadata' => dadata_key() !== '',
+        'user' => ['id' => $USER['id'], 'name' => $USER['name'], 'all' => $USER['all'], 'tpl' => $USER['tpl']]]);
+}
 
 // --- Банк по БИК (открытые данные ЦБ, без пароля) ---------------------------
 // Справочник БИК хостинг сам качает с cbr.ru раз в сутки и хранит в api/data/docs/bik.json.
@@ -220,15 +234,19 @@ if ($a === 'addr') {
 // --- Журнал -----------------------------------------------------------------
 $journal = $docsDir . '/journal.json';
 function journal_read($f) { return @json_decode((string)@file_get_contents($f), true) ?: []; }
+// Лиля видит только свои договоры, Алиса и Юрий весь журнал
+function visible($r) { global $USER; return $USER['all'] || ($r['user'] ?? '') === $USER['id']; }
 
 if ($a === 'journal') {
     $j = journal_read($journal);
-    $items = array_map(function ($r, $i) {
+    $items = [];
+    foreach ($j as $i => $r) {
+        if (!visible($r)) continue;
         $r['id'] = $i;
         unset($r['form']);
         $r['has_form'] = true;
-        return $r;
-    }, $j, array_keys($j));
+        $items[] = $r;
+    }
     out(200, ['items' => array_slice(array_reverse($items), 0, 50)]);
 }
 
@@ -236,7 +254,7 @@ if ($a === 'journal') {
 if ($a === 'form') {
     $j = journal_read($journal);
     $i = (int)($_GET['id'] ?? -1);
-    if (!isset($j[$i]['form'])) out(404, ['error' => 'Данных формы нет']);
+    if (!isset($j[$i]['form']) || !visible($j[$i])) out(404, ['error' => 'Данных формы нет']);
     out(200, ['form' => $j[$i]['form']]);
 }
 
@@ -244,6 +262,7 @@ if ($a === 'form') {
 if ($a === 'file') {
     $j = journal_read($journal);
     $i = (int)($_GET['id'] ?? -1);
+    if (!isset($j[$i]) || !visible($j[$i])) out(404, ['error' => 'Файл не найден']);
     $name = basename((string)($j[$i]['file'] ?? ''));
     $path = $docsDir . '/' . $name;
     if ($name === '' || !is_file($path)) out(404, ['error' => 'Файл не найден']);
@@ -268,7 +287,9 @@ if ($a === 'nextnum') {
 if ($a === 'check') {
     $num = trim((string)($_GET['num'] ?? ''));
     $found = array_values(array_filter(journal_read($journal), fn($r) => mb_strtolower($r['num']) === mb_strtolower($num)));
-    $last = $found ? end($found) : null;
+    $mine = array_values(array_filter($found, 'visible'));
+    if ($found && !$mine) out(200, ['exists' => true, 'other' => true, 'versions' => count($found)]);
+    $last = $mine ? end($mine) : null;
     if ($last) unset($last['form']);
     out(200, ['exists' => (bool)$found, 'versions' => count($found), 'item' => $last]);
 }
@@ -294,7 +315,8 @@ if ($a === 'save' && $method === 'POST') {
     $j[] = [
         'num' => $num, 'version' => $version, 'client' => $client,
         'executor' => mb_substr((string)($meta['executor'] ?? ''), 0, 80),
-        'author' => mb_substr(trim((string)($meta['author'] ?? '')), 0, 40),
+        'author' => $USER['all'] ? mb_substr(trim((string)($meta['author'] ?? $USER['name'])), 0, 40) : $USER['name'],
+        'user' => $USER['id'],
         'form' => is_array($form) ? $form : null, 'inn' => mb_substr((string)($meta['inn'] ?? ''), 0, 12),
         'total' => (int)($meta['total'] ?? 0), 'points' => (int)($meta['points'] ?? 0),
         'date' => mb_substr((string)($meta['date'] ?? ''), 0, 40), 'file' => $name,
