@@ -317,6 +317,7 @@ if ($a === 'save' && $method === 'POST') {
         'executor' => mb_substr((string)($meta['executor'] ?? ''), 0, 80),
         'author' => $USER['all'] ? mb_substr(trim((string)($meta['author'] ?? $USER['name'])), 0, 40) : $USER['name'],
         'user' => $USER['id'],
+        'doc' => mb_substr((string)($meta['doc'] ?? ''), 0, 20),
         'form' => is_array($form) ? $form : null, 'inn' => mb_substr((string)($meta['inn'] ?? ''), 0, 12),
         'total' => (int)($meta['total'] ?? 0), 'points' => (int)($meta['points'] ?? 0),
         'date' => mb_substr((string)($meta['date'] ?? ''), 0, 40), 'file' => $name,
@@ -334,7 +335,9 @@ if ($a === 'save' && $method === 'POST') {
     if ($token !== '' && $chat !== '' && function_exists('curl_init')) {
         $e = fn($s) => htmlspecialchars((string)$s, ENT_NOQUOTES, 'UTF-8');
         $cap = "<b>Договор № {$e($num)}</b>" . ($version > 1 ? " (версия {$version})" : '') . "\n{$e($client)}, ИНН {$e($meta['inn'] ?? '')}\nИсполнитель: {$e($meta['executor'] ?? '')}\nОформил(а): {$e($meta['author'] ?? '')}\n"
-            . 'Точек: ' . (int)($meta['points'] ?? 0) . ', в месяц: ' . number_format((int)($meta['total'] ?? 0), 0, ',', ' ') . ' ₽';
+            . (($meta['doc'] ?? '') === 'проект'
+            ? 'Консалтинговый проект: ' . number_format((int)($meta['total'] ?? 0), 0, ',', ' ') . ' ₽'
+            : 'Точек: ' . (int)($meta['points'] ?? 0) . ', в месяц: ' . number_format((int)($meta['total'] ?? 0), 0, ',', ' ') . ' ₽');
         $ch = curl_init("https://api.telegram.org/bot{$token}/sendDocument");
         curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 30,
             CURLOPT_POSTFIELDS => ['chat_id' => $chat, 'caption' => $cap, 'parse_mode' => 'HTML',
