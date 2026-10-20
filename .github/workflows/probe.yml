@@ -43,8 +43,42 @@ jobs:
           done
           n "Ссылок в sitemap: $(curl -s -A "$UA" https://agregatory.pro/sitemap.xml | grep -c '<loc>')"
           n "meta yandex-verification на главной: $(curl -s -A "$UA" https://agregatory.pro/ | grep -o '<meta[^>]*yandex-verification[^>]*>' || echo нет)"
-          n "DNS A: $(dig +short A agregatory.pro | tr '\n' ' ') | www: $(dig +short A www.agregatory.pro | tr '\n' ' ')"
-          n "DNS AAAA: $(dig +short AAAA agregatory.pro | tr '\n' ' ')"
-          n "DNS TXT: $(dig +short TXT agregatory.pro | tr '\n' ' ')"
-          n "DNS NS: $(dig +short NS agregatory.pro | tr '\n' ' ')"
+          n "DNS A: $(dig +short A agregatory.pro | tr '\n' ' ') | www: $(dig +short A www.agregatory.pro | tr '\n' ' ') | AAAA: $(dig +short AAAA agregatory.pro | tr '\n' ' ') | NS: $(dig +short NS agregatory.pro | tr '\n' ' ') | TXT: $(dig +short TXT agregatory.pro | tr '\n' ' ')"
           n "SSL: $(echo | openssl s_client -servername agregatory.pro -connect agregatory.pro:443 2>/dev/null | openssl x509 -noout -subject -issuer -enddate -ext subjectAltName 2>/dev/null | tr '\n' ' ')"
+
+      - name: Все страницы из sitemap глазами робота Яндекса
+        run: |
+          python3 - <<'PY'
+          import re, urllib.request, concurrent.futures as cf, collections
+          UA = 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)'
+          class NoRedir(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *a, **k): return None
+          op = urllib.request.build_opener(NoRedir)
+          def get(u):
+              try:
+                  r = op.open(urllib.request.Request(u, headers={'User-Agent': UA}), timeout=40)
+                  return r.status, r.read().decode('utf-8', 'ignore')
+              except urllib.error.HTTPError as e: return e.code, ''
+              except Exception as e: return repr(e)[:60], ''
+          _, sm = get('https://agregatory.pro/sitemap.xml')
+          urls = re.findall(r'<loc>(.*?)</loc>', sm)
+          probs = collections.defaultdict(list); titles = collections.defaultdict(list)
+          def chk(u):
+              c, h = get(u); return u, c, h
+          with cf.ThreadPoolExecutor(8) as ex:
+              for u, c, h in ex.map(chk, urls):
+                  if c != 200: probs[f'код {c}'].append(u); continue
+                  if len(re.findall(r'<h1[\s>]', h, re.I)) != 1: probs['h1 не один'].append(u)
+                  cn = re.search(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)', h)
+                  if not cn or cn.group(1).rstrip('/') != u.rstrip('/'): probs['canonical не на себя'].append(u)
+                  if re.search(r'<meta[^>]+robots[^>]+noindex', h, re.I): probs['noindex'].append(u)
+                  t = re.search(r'<title[^>]*>(.*?)</title>', h, re.S)
+                  if not t: probs['нет title'].append(u)
+                  else: titles[t.group(1).strip()].append(u)
+                  if not re.search(r'<meta[^>]+name="description"', h): probs['нет description'].append(u)
+          for t, us in titles.items():
+              if len(us) > 1: probs['дубль title'].extend(us)
+          print(f'::notice::Проверено страниц из sitemap: {len(urls)}; проблем: {sum(len(v) for v in probs.values())}')
+          for k, v in probs.items():
+              print(f'::notice::{k}: {len(v)} — ' + ' '.join(v[:8]))
+          PY
