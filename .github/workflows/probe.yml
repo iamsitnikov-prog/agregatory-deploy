@@ -36,7 +36,7 @@ jobs:
             https://agregatory.pro/robots.txt \
             https://agregatory.pro/sitemap.xml \
             https://agregatory.pro/yandex_c56586e766dee187.html \
-            http://agregatory.pro/yandex_c56586e766dee187.html \
+            "https://agregatory.pro/api/pay.php?check=1" \
             https://agregatory.pro/39050443d3049b8c150187db433237a1.txt ; do
             r=$(curl -s -o /tmp/b -A "$UA" -w '%{http_code} %{content_type} %{size_download}b %{time_total}s ip=%{remote_ip}' --max-time 30 "$u")
             n "$u  $r  [$(head -c 160 /tmp/b | tr -d '\n' | tr -s ' ')]"
