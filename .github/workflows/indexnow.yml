@@ -1,0 +1,43 @@
+name: Отправить страницы в Яндекс и Bing (IndexNow)
+
+# Ручная отправка адресов на переобход, когда «Переобход страниц» в Вебмастере
+# недоступен. Actions → «Отправить страницы…» → Run workflow → адреса через пробел
+# (пусто = отправить все страницы из sitemap.xml).
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Адреса через пробел (пусто = весь sitemap.xml)'
+        required: false
+        default: ''
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Отправляем
+        env:
+          URLS: ${{ inputs.urls }}
+          INDEXNOW_KEY: 39050443d3049b8c150187db433237a1
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.request
+          urls = os.environ.get('URLS', '').split()
+          if not urls:
+              sm = urllib.request.urlopen('https://agregatory.pro/sitemap.xml', timeout=30).read().decode()
+              urls = re.findall(r'<loc>(.*?)</loc>', sm)
+          urls = [u for u in urls if u.startswith('https://agregatory.pro')]
+          key = os.environ['INDEXNOW_KEY']
+          body = json.dumps({'host': 'agregatory.pro', 'key': key,
+                             'keyLocation': f'https://agregatory.pro/{key}.txt', 'urlList': urls}).encode()
+          for ep in ['https://yandex.com/indexnow', 'https://api.indexnow.org/indexnow']:
+              req = urllib.request.Request(ep, data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+              try:
+                  code = urllib.request.urlopen(req, timeout=30).status
+              except urllib.error.HTTPError as e:
+                  code = f'{e.code} {e.read()[:200]!r}'
+              except Exception as e:
+                  code = repr(e)
+              print(f'::notice::IndexNow {ep}: {len(urls)} адресов, ответ {code}')
+          PY
