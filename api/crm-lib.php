@@ -27,8 +27,22 @@ function crm_now() {
     return (new DateTime('now', new DateTimeZone('Europe/Moscow')))->format('Y-m-d H:i:s');
 }
 
+// Этапы можно менять в кабинете (добавить в любое место, переименовать, переставить, удалить).
+// Хранятся в api/data/crm/statuses.json; пока файла нет, действуют этапы по умолчанию.
+// new, contract, paid системные: в них сайт сам кладёт заявки, поэтому их нельзя удалить.
+const CRM_SYSTEM = ['new', 'contract', 'paid'];
+function crm_statuses() {
+    $f = crm_dir() . '/statuses.json';
+    $list = is_file($f) ? json_decode((string)@file_get_contents($f), true) : null;
+    return is_array($list) && $list ? $list : CRM_STATUSES;
+}
+function crm_statuses_save($list) {
+    return @file_put_contents(crm_dir() . '/statuses.json', json_encode(array_values($list), JSON_UNESCAPED_UNICODE), LOCK_EX) !== false;
+}
 function crm_status_title($id) {
-    foreach (CRM_STATUSES as $s) if ($s['id'] === $id) return $s['title'];
+    static $cache = null;
+    if ($cache === null) $cache = crm_statuses();
+    foreach ($cache as $s) if ($s['id'] === $id) return $s['title'];
     return $id;
 }
 

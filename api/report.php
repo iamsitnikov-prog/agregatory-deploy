@@ -71,7 +71,7 @@ $caption = "Заявки с сайта agregatory.pro\n"
     . ($crmRows !== null ? "По статусам: " . implode(', ', array_filter(array_map(function ($st) use ($rows) {
         $n = count(array_filter($rows, fn($r) => $r[8] === $st['title']));
         return $n ? "{$st['title']} {$n}" : '';
-    }, CRM_STATUSES))) . "\n" : '')
+    }, crm_statuses()))) . "\n" : '')
     . "Выгрузка на " . $now->format('d.m.Y H:i') . " МСК";
 
 $fileName = 'zayavki_agregatory_' . $now->format('Y-m-d') . '.csv';

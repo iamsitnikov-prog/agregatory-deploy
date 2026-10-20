@@ -90,7 +90,8 @@ if ($a === 'list') {
     $tg = tg_read();
     out(200, [
         'items' => array_map('public_item', array_reverse($db['items'])),
-        'statuses' => CRM_STATUSES,
+        'statuses' => crm_statuses(),
+        'system' => CRM_SYSTEM,
         'users' => array_map(fn($u) => ['id' => $u['id'], 'name' => $u['name'],
             'tg' => !empty($tg['users'][$u['id']]['chat'])], $TEAM),
         'me' => ['id' => $USER['id'], 'name' => $USER['name'], 'admin' => !empty($USER['admin'])],
@@ -105,7 +106,7 @@ if ($a === 'update') {
     $status = $in('status', 20);
     $owner = array_key_exists('owner', $body) ? $in('owner', 20) : null;
     $note = $in('note', 3000);
-    $valid = array_column(CRM_STATUSES, 'id');
+    $valid = array_column(crm_statuses(), 'id');
     if ($status !== '' && !in_array($status, $valid, true)) out(400, ['error' => 'Нет такого статуса']);
     if ($owner !== null && $owner !== '' && !isset($NAMES[$owner])) out(400, ['error' => 'Нет такого сотрудника']);
     $me = $USER;
@@ -139,6 +140,73 @@ if ($a === 'update') {
         $notified = tg_dm($res['assigned'], "{$USER['name']} передаёт тебе заявку\n\n" . lead_line($res['item']));
     }
     out(200, ['ok' => true, 'item' => public_item($res['item']), 'notified' => $notified]);
+}
+
+// --- Этапы: добавить в любое место, переименовать, переставить, удалить -----
+if ($a === 'stages') {
+    $op = $in('op', 20);
+    $list = crm_statuses();
+    $ids = array_column($list, 'id');
+    $id = $in('id', 20);
+    $pos = array_search($id, $ids, true);
+    $title = preg_replace('/\s+/u', ' ', $in('title', 40));
+    $clash = fn($t, $skip = '') => (bool)array_filter($list, fn($x) => $x['id'] !== $skip && mb_strtolower($x['title']) === mb_strtolower($t));
+    $who = $USER['name'];
+    $log = '';
+    if ($op === 'add') {
+        if ($title === '') out(400, ['error' => 'Напиши название этапа']);
+        if ($clash($title)) out(400, ['error' => 'Такой этап уже есть']);
+        if (count($list) >= 20) out(400, ['error' => 'Этапов уже 20, больше не нужно']);
+        $after = $in('after', 20);
+        $at = $after === '' ? 0 : array_search($after, $ids, true);
+        if ($at === false) out(400, ['error' => 'Нет этапа, после которого вставить']);
+        $at = $after === '' ? 0 : $at + 1;
+        array_splice($list, $at, 0, [['id' => 's' . bin2hex(random_bytes(3)), 'title' => $title]]);
+        $log = "добавлен этап «{$title}»";
+    } elseif ($pos === false) {
+        out(404, ['error' => 'Нет такого этапа']);
+    } elseif ($op === 'rename') {
+        if ($title === '') out(400, ['error' => 'Напиши название этапа']);
+        if ($clash($title, $id)) out(400, ['error' => 'Такой этап уже есть']);
+        $log = "этап «{$list[$pos]['title']}» переименован в «{$title}»";
+        $list[$pos]['title'] = $title;
+    } elseif ($op === 'move') {
+        $to = $pos + ((int)($body['dir'] ?? 0) < 0 ? -1 : 1);
+        if ($to < 0 || $to >= count($list)) out(400, ['error' => 'Дальше двигать некуда']);
+        [$list[$pos], $list[$to]] = [$list[$to], $list[$pos]];
+    } elseif ($op === 'delete') {
+        if (in_array($id, CRM_SYSTEM, true)) out(400, ['error' => 'Этот этап нужен сайту: в него заявки попадают сами. Его можно переименовать, но не удалить']);
+        $move = $in('to', 20);
+        $gone = $list[$pos]['title'];
+        if ($move === $id || ($move !== '' && !in_array($move, $ids, true))) out(400, ['error' => 'Выбери, куда перенести заявки']);
+        $n = crm_update(function (&$db) use ($id, $move, $gone, $who) {
+            $c = 0;
+            foreach ($db['items'] as &$l) if ($l['status'] === $id) $c++;
+            unset($l);
+            if ($c && $move === '') return -$c;
+            foreach ($db['items'] as &$l) {
+                if ($l['status'] !== $id) continue;
+                $l['history'][] = ['at' => crm_now(), 'who' => $who, 'text' => "этап «{$gone}» удалён, заявка перенесена в «" . crm_status_title($move) . '»'];
+                $l['status'] = $move;
+                $l['updated'] = crm_now();
+            }
+            unset($l);
+            return $c;
+        });
+        if ($n < 0) out(409, ['error' => 'В этапе есть заявки (' . -$n . '). Выбери, куда их перенести', 'count' => -$n]);
+        array_splice($list, $pos, 1);
+        $log = "удалён этап «{$gone}»" . ($n ? ", заявок перенесено: {$n}" : '');
+    } else {
+        out(400, ['error' => 'Неизвестное действие с этапом']);
+    }
+    if (!crm_statuses_save($list)) out(500, ['error' => 'Не удалось сохранить этапы']);
+    if ($log !== '') {
+        $f = crm_dir() . '/stages-log.json';
+        $j = @json_decode((string)@file_get_contents($f), true) ?: [];
+        $j[] = ['at' => crm_now(), 'who' => $who, 'text' => $log];
+        @file_put_contents($f, json_encode(array_slice($j, -200), JSON_UNESCAPED_UNICODE), LOCK_EX);
+    }
+    out(200, ['ok' => true, 'statuses' => $list]);
 }
 
 if ($a === 'add') {
