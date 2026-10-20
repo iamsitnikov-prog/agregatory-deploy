@@ -106,12 +106,13 @@ if ($a === 'update') {
     $status = $in('status', 20);
     $owner = array_key_exists('owner', $body) ? $in('owner', 20) : null;
     $note = $in('note', 3000);
+    $channel = array_key_exists('channel', $body) ? $in('channel', 50) : null;
     $reason = array_key_exists('reason', $body) ? preg_replace('/\s+/u', ' ', $in('reason', 200)) : null;
     $valid = array_column(crm_statuses(), 'id');
     if ($status !== '' && !in_array($status, $valid, true)) out(400, ['error' => 'Нет такого статуса']);
     if ($owner !== null && $owner !== '' && !isset($NAMES[$owner])) out(400, ['error' => 'Нет такого сотрудника']);
     $me = $USER;
-    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $reason, $me, $NAMES) {
+    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $reason, $channel, $me, $NAMES) {
         foreach ($db['items'] as &$l) {
             if ((int)$l['id'] !== $id) continue;
             $now = crm_now();
@@ -134,6 +135,10 @@ if ($a === 'update') {
                 $l['history'][] = ['at' => $now, 'who' => $me['name'],
                     'text' => $owner === '' ? 'больше никто не ведёт' : 'ведёт: ' . $NAMES[$owner]];
                 $l['owner'] = $owner;
+            }
+            if ($channel !== null && $channel !== '' && $channel !== $l['channel']) {
+                $l['history'][] = ['at' => $now, 'who' => $me['name'], 'text' => 'связь: ' . ($l['channel'] ?: 'не указана') . ' → ' . $channel];
+                $l['channel'] = $channel;
             }
             if ($note !== '') {
                 $l['notes'][] = ['at' => $now, 'who' => $me['name'], 'text' => $note];
