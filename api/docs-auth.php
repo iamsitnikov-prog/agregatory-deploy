@@ -46,6 +46,8 @@ function note_fail() {
 function auth() {
     if (too_many_fails()) out(429, ['error' => 'Слишком много попыток. Попробуйте через час.']);
     $key = rawurldecode((string)($_SERVER['HTTP_X_DOCS_KEY'] ?? ''));
+    // запрос без пин-кода (страница ещё не вошла) попыткой подбора не считаем
+    if ($key === '') out(401, ['error' => 'Введите пин-код']);
     global $USER, $TK, $MUST_CHANGE;
     $pins = pins_read();
     foreach (DOCS_USERS as $u) {

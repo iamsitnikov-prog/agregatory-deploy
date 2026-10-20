@@ -1,0 +1,29 @@
+name: Сброс входа в кабинет документов
+
+# Снимает блокировку «Слишком много попыток» и, если выбран человек,
+# возвращает ему выданный пин (при входе кабинет попросит придумать свой).
+on:
+  workflow_dispatch:
+    inputs:
+      user:
+        description: 'Кому сбросить пин: yuri, alisa, lilia или пусто (только снять блокировку)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Просим сайт сбросить вход
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          WHO: ${{ inputs.user }}
+        run: |
+          KEY=$(printf '%s' "${TG_BOT_TOKEN}pin-reset" | sha256sum | cut -d' ' -f1)
+          code=$(curl -s -o resp.json -w '%{http_code}' -m 60 -X POST -d "k=$KEY" -d "user=$WHO" https://agregatory.pro/api/pin-reset.php)
+          echo "::notice::Ответ сайта $code: $(cat resp.json)"
+          [ "$code" = 200 ]

@@ -97,7 +97,7 @@ jobs:
           # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
           cp deploy/api/docs.php site/dist/api/
           # Раздел «Заявки» (CRM) в том же кабинете: общий вход по пин-кодам и база заявок
-          cp deploy/api/docs-auth.php deploy/api/crm.php deploy/api/crm-lib.php site/dist/api/
+          cp deploy/api/docs-auth.php deploy/api/crm.php deploy/api/crm-lib.php deploy/api/pin-reset.php site/dist/api/
           cp deploy/api/eda-probe.php site/dist/api/
           mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/ && mkdir -p site/dist/api/docs/lilia && cp deploy/api/docs/lilia/*.docx.enc site/dist/api/docs/lilia/ && mkdir -p site/dist/api/docs/yuri && cp deploy/api/docs/yuri/*.docx.enc site/dist/api/docs/yuri/
           php -r 'echo "<?php\nreturn " . var_export([
@@ -118,6 +118,7 @@ jobs:
           php -l site/dist/api/docs-auth.php
           php -l site/dist/api/crm.php
           php -l site/dist/api/crm-lib.php
+          php -l site/dist/api/pin-reset.php
           [ -n "$YK_SHOP_ID" ] && [ -n "$YK_SECRET_KEY" ] && echo "Оплата ЮKassa: включена" || echo "Оплата ЮKassa: ключей нет, кнопки оплаты скрыты"
           [ -n "$DADATA_KEY" ] && echo "::notice::DaData: ключ есть, адреса по ИНН и подсказки включены" || echo "::notice::DaData: ключа нет, адреса вручную"
           # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
