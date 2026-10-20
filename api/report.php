@@ -34,6 +34,22 @@ if (is_readable($csv) && ($fh = fopen($csv, 'r'))) {
     fclose($fh);
 }
 
+// Если работает раздел «Заявки» (CRM), берём заявки оттуда: со статусом и ответственной
+$crmRows = null;
+if (is_file(__DIR__ . '/crm-lib.php')) {
+    require_once __DIR__ . '/crm-lib.php';
+    $db = crm_read();
+    if (is_array($db)) {
+        $names = ['alisa' => 'Алиса', 'lilia' => 'Лиля', 'yuri' => 'Юрий'];
+        $crmRows = [];
+        foreach ($db['items'] as $l) {
+            $crmRows[] = [$l['created'], $l['name'], $l['phone'], $l['place'], $l['service'], $l['channel'], $l['comment'], $l['page'],
+                crm_status_title($l['status']), $names[$l['owner']] ?? '', $l['source']];
+        }
+        $rows = $crmRows;
+    }
+}
+
 $tz = new DateTimeZone('Europe/Moscow');
 $now = new DateTime('now', $tz);
 $weekAgo = (clone $now)->modify('-7 days')->format('Y-m-d H:i:s');
@@ -43,13 +59,19 @@ $week = array_values(array_filter($rows, fn($r) => ($r[0] ?? '') >= $weekAgo));
 $tmp = tempnam(sys_get_temp_dir(), 'leads');
 $o = fopen($tmp, 'w');
 fwrite($o, "\xEF\xBB\xBF");
-fputcsv($o, ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница'], ';');
-foreach (array_reverse($rows) as $r) fputcsv($o, array_slice(array_pad($r, 8, ''), 0, 8), ';');
+$cols = ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница'];
+if ($crmRows !== null) $cols = array_merge($cols, ['статус', 'ответственная', 'откуда']);
+fputcsv($o, $cols, ';');
+foreach (array_reverse($rows) as $r) fputcsv($o, array_slice(array_pad($r, count($cols), ''), 0, count($cols)), ';');
 fclose($o);
 
 $caption = "Заявки с сайта agregatory.pro\n"
     . "За последние 7 дней: " . count($week) . "\n"
     . "Всего в базе: " . count($rows) . "\n"
+    . ($crmRows !== null ? "По статусам: " . implode(', ', array_filter(array_map(function ($st) use ($rows) {
+        $n = count(array_filter($rows, fn($r) => $r[8] === $st['title']));
+        return $n ? "{$st['title']} {$n}" : '';
+    }, CRM_STATUSES))) . "\n" : '')
     . "Выгрузка на " . $now->format('d.m.Y H:i') . " МСК";
 
 $fileName = 'zayavki_agregatory_' . $now->format('Y-m-d') . '.csv';

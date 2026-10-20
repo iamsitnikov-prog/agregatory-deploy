@@ -96,6 +96,8 @@ jobs:
           cp deploy/api/pay.php deploy/api/pay-lib.php deploy/api/yookassa.php site/dist/api/
           # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
           cp deploy/api/docs.php site/dist/api/
+          # Раздел «Заявки» (CRM) в том же кабинете: общий вход по пин-кодам и база заявок
+          cp deploy/api/docs-auth.php deploy/api/crm.php deploy/api/crm-lib.php site/dist/api/
           cp deploy/api/eda-probe.php site/dist/api/
           mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/ && mkdir -p site/dist/api/docs/lilia && cp deploy/api/docs/lilia/*.docx.enc site/dist/api/docs/lilia/ && mkdir -p site/dist/api/docs/yuri && cp deploy/api/docs/yuri/*.docx.enc site/dist/api/docs/yuri/
           php -r 'echo "<?php\nreturn " . var_export([
@@ -113,6 +115,9 @@ jobs:
           php -l site/dist/api/pay-lib.php
           php -l site/dist/api/yookassa.php
           php -l site/dist/api/docs.php
+          php -l site/dist/api/docs-auth.php
+          php -l site/dist/api/crm.php
+          php -l site/dist/api/crm-lib.php
           [ -n "$YK_SHOP_ID" ] && [ -n "$YK_SECRET_KEY" ] && echo "Оплата ЮKassa: включена" || echo "Оплата ЮKassa: ключей нет, кнопки оплаты скрыты"
           [ -n "$DADATA_KEY" ] && echo "::notice::DaData: ключ есть, адреса по ИНН и подсказки включены" || echo "::notice::DaData: ключа нет, адреса вручную"
           # Форма сайта: вместо функции poehali.dev шлём заявки на свой обработчик.
@@ -165,7 +170,7 @@ jobs:
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/lilia/ooo.docx.enc api/docs/lilia/ip.docx.enc api/docs/lilia/consult.docx.enc api/docs/yuri/ooo.docx.enc api/docs/yuri/ip.docx.enc; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs-auth.php api/crm.php api/crm-lib.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/lilia/ooo.docx.enc api/docs/lilia/ip.docx.enc api/docs/lilia/consult.docx.enc api/docs/yuri/ooo.docx.enc api/docs/yuri/ip.docx.enc; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }

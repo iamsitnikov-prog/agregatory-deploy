@@ -92,6 +92,17 @@ if ($fh) {
     if ($tooMany) reply(429, ['error' => 'too many requests']);
 }
 
+// --- В раздел «Заявки» кабинета (до записи в журнал: при первом запуске
+// раздел сам переносит старый журнал, и эта заявка не должна задвоиться) ---
+$crm = null;
+if (is_file(__DIR__ . '/crm-lib.php')) {
+    require_once __DIR__ . '/crm-lib.php';
+    $crm = crm_add([
+        'name' => $name, 'phone' => $phone, 'place' => $place, 'service' => $status, 'channel' => $channel,
+        'comment' => $comment, 'page' => $page, 'source' => $status === 'скачал чек-лист' ? 'чек-лист' : 'форма',
+    ]);
+}
+
 $saved = false;
 $csv = $dataDir . '/leads.csv';
 $isNew = !is_file($csv);
@@ -109,12 +120,13 @@ if ($out) {
 
 // --- Текст сообщения --------------------------------------------------------
 $e = fn($s) => htmlspecialchars($s, ENT_NOQUOTES, 'UTF-8');
-$lines = ['<b>Новая заявка с сайта</b>', '', "<b>Имя:</b> {$e($name)}", "<b>Телефон:</b> {$e($phone)}"];
+$lines = ['<b>Новая заявка с сайта</b>' . ($crm ? " № {$crm['id']}" : ''), '', "<b>Имя:</b> {$e($name)}", "<b>Телефон:</b> {$e($phone)}"];
 if ($place !== '') $lines[] = "<b>Заведение:</b> {$e($place)}";
 if ($status !== '') $lines[] = "<b>Услуга:</b> {$e($status)}";
 if ($channel !== '') $lines[] = "<b>Связь:</b> {$e($channel)}";
 if ($comment !== '') $lines[] = "<b>Комментарий:</b> {$e($comment)}";
 if (strpos($page, 'http') === 0) $lines[] = "<b>Страница:</b> {$e($page)}";
+if ($crm) $lines[] = '<b>В кабинете:</b> https://agregatory.pro/dokumenty?tab=zayavki';
 $html = implode("\n", $lines);
 $plain = html_entity_decode(strip_tags($html), ENT_QUOTES, 'UTF-8');
 
@@ -187,9 +199,9 @@ if (!$tg && !$mailed && $BACKUP_URL !== '' && function_exists('curl_init')) {
     curl_close($ch);
 }
 
-if (!$saved && !$tg && !$mailed && !$poehali) {
+if (!$saved && !$crm && !$tg && !$mailed && !$poehali) {
     error_log('LEAD LOST: ' . $plain);
     reply(502, ['ok' => false, 'error' => 'delivery failed']);
 }
 
-reply(200, ['ok' => true, 'telegram' => $tg, 'email' => $mailed, 'backup' => $poehali, 'saved' => $saved]);
+reply(200, ['ok' => true, 'telegram' => $tg, 'email' => $mailed, 'backup' => $poehali, 'saved' => $saved, 'crm' => (bool)$crm]);

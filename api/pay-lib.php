@@ -206,6 +206,16 @@ function pay_notify($cfg, $order) {
     ];
     if (!empty($order['company'])) $lines[] = "<b>Организация:</b> {$e($order['company'])}";
     $lines[] = "<b>Заказ:</b> {$e($order['id'])}";
+    // В раздел «Заявки» кабинета: сразу в колонку «Оплачено»
+    if (is_file(__DIR__ . '/crm-lib.php')) {
+        require_once __DIR__ . '/crm-lib.php';
+        crm_add([
+            'name' => $order['name'], 'phone' => '+' . $order['phone'], 'email' => $order['email'],
+            'place' => $order['company'] ?? '', 'service' => $order['title'], 'amount' => (int)$order['amount'],
+            'comment' => 'Заказ ' . $order['id'] . ', ' . pay_money($order['amount']), 'page' => $order['page'] ?? '',
+            'source' => 'оплата',
+        ], 'paid', 'оплата на сайте ' . pay_money($order['amount']));
+    }
     $html = implode("\n", $lines);
     $plain = html_entity_decode(strip_tags($html), ENT_QUOTES, 'UTF-8');
 
