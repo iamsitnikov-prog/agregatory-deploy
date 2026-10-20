@@ -1,0 +1,50 @@
+name: Карта внутренних ссылок
+
+# Ручная диагностика: обходит сайт по ссылкам с главной, как поисковый робот,
+# и показывает страницы из sitemap, до которых трудно или нельзя дойти.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linkmap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Обход сайта
+        run: |
+          python3 - <<'PY'
+          import re, urllib.request, collections, json
+          from urllib.parse import urljoin, urlparse
+          UA = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          B = 'https://agregatory.pro'
+          def get(u):
+              try: return urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': UA}), timeout=40).read().decode('utf-8','ignore')
+              except Exception: return ''
+          norm = lambda u: (B + urlparse(u).path).rstrip('/') or B
+          sm = [norm(u) for u in re.findall(r'<loc>(.*?)</loc>', get(B + '/sitemap.xml'))]
+          smset = set(sm)
+          depth = {norm(B + '/'): 0}; inbound = collections.Counter(); q = [norm(B + '/')]; i = 0
+          while i < len(q):
+              u = q[i]; i += 1
+              h = get(u if u != B else B + '/')
+              for href in set(re.findall(r'<a[^>]+href="([^"#?]+)', h)):
+                  v = urljoin(u + '/', href) if not href.startswith(('http', '/')) else urljoin(B, href)
+                  if urlparse(v).netloc != 'agregatory.pro': continue
+                  if re.search(r'\.(png|jpe?g|webp|svg|pdf|xml|txt|ico|css|js|docx)$', v): continue
+                  v = norm(v)
+                  if v != u: inbound[v] += 1
+                  if v not in depth and v in smset:
+                      depth[v] = depth[u] + 1; q.append(v)
+          orphans = [u for u in sm if u not in depth]
+          d = collections.Counter(depth.get(u, -1) for u in sm)
+          print(f'::notice::В sitemap {len(sm)}; дошёл по ссылкам до {len(sm)-len(orphans)}; недостижимо {len(orphans)}')
+          print('::notice::Глубина (кликов от главной): ' + ', '.join(f'{k}: {v}' for k, v in sorted(d.items())))
+          few = sorted([u for u in sm if inbound[u] <= 2], key=lambda u: inbound[u])
+          print(f'::notice::Страниц с 0–2 входящими ссылками: {len(few)}')
+          by = collections.Counter(urlparse(u).path.split('/')[1] for u in few)
+          print('::notice::Мало ссылок по разделам: ' + ', '.join(f'{k}: {v}' for k, v in by.most_common()))
+          print('::notice::Недостижимые: ' + ' '.join(o.replace(B,'') for o in orphans[:40]))
+          deep = [u.replace(B,'') for u in sm if depth.get(u, 0) >= 4]
+          print(f'::notice::Глубже 3 кликов ({len(deep)}): ' + ' '.join(deep[:40]))
+          print('::notice::Пример мало ссылок: ' + ' '.join(f"{u.replace(B,'')}({inbound[u]})" for u in few[:40]))
+          PY
