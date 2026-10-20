@@ -1,6 +1,7 @@
 name: Проверка адресов (http, www, слэш)
 
-# Ручная диагностика: как сервер отвечает на разные варианты адреса.
+# Ручная диагностика: как сервер отвечает на разные варианты адреса
+# и что видит робот Яндекса (подтверждение прав, robots.txt, sitemap, DNS, SSL).
 # Ничего не меняет на сайте. Actions → «Проверка адресов» → Run workflow.
 
 on:
@@ -25,3 +26,25 @@ jobs:
             line=$(curl -s -o /dev/null -A "Mozilla/5.0 (compatible; YandexBot/3.0)" -w '%{http_code} -> %{redirect_url}' --max-time 20 "$u")
             echo "$u  $line"; echo "::notice::$u  $line"
           done
+
+      - name: Что видит Яндекс Вебмастер
+        run: |
+          UA="Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)"
+          n() { echo "$1"; echo "::notice::$1"; }
+          for u in \
+            https://agregatory.pro/ \
+            https://agregatory.pro/robots.txt \
+            https://agregatory.pro/sitemap.xml \
+            https://agregatory.pro/yandex_c56586e766dee187.html \
+            http://agregatory.pro/yandex_c56586e766dee187.html \
+            https://agregatory.pro/39050443d3049b8c150187db433237a1.txt ; do
+            r=$(curl -s -o /tmp/b -A "$UA" -w '%{http_code} %{content_type} %{size_download}b %{time_total}s ip=%{remote_ip}' --max-time 30 "$u")
+            n "$u  $r  [$(head -c 160 /tmp/b | tr -d '\n' | tr -s ' ')]"
+          done
+          n "Ссылок в sitemap: $(curl -s -A "$UA" https://agregatory.pro/sitemap.xml | grep -c '<loc>')"
+          n "meta yandex-verification на главной: $(curl -s -A "$UA" https://agregatory.pro/ | grep -o '<meta[^>]*yandex-verification[^>]*>' || echo нет)"
+          n "DNS A: $(dig +short A agregatory.pro | tr '\n' ' ') | www: $(dig +short A www.agregatory.pro | tr '\n' ' ')"
+          n "DNS AAAA: $(dig +short AAAA agregatory.pro | tr '\n' ' ')"
+          n "DNS TXT: $(dig +short TXT agregatory.pro | tr '\n' ' ')"
+          n "DNS NS: $(dig +short NS agregatory.pro | tr '\n' ' ')"
+          n "SSL: $(echo | openssl s_client -servername agregatory.pro -connect agregatory.pro:443 2>/dev/null | openssl x509 -noout -subject -issuer -enddate -ext subjectAltName 2>/dev/null | tr '\n' ' ')"
