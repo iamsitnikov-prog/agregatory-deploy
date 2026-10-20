@@ -44,7 +44,7 @@ if (is_file(__DIR__ . '/crm-lib.php')) {
         $crmRows = [];
         foreach ($db['items'] as $l) {
             $crmRows[] = [$l['created'], $l['name'], $l['phone'], $l['place'], $l['service'], $l['channel'], $l['comment'], $l['page'],
-                crm_status_title($l['status']), $names[$l['owner']] ?? '', $l['source']];
+                crm_status_title($l['status']), $names[$l['owner']] ?? '', $l['source'], (string)($l['reason'] ?? '')];
         }
         $rows = $crmRows;
     }
@@ -60,7 +60,7 @@ $tmp = tempnam(sys_get_temp_dir(), 'leads');
 $o = fopen($tmp, 'w');
 fwrite($o, "\xEF\xBB\xBF");
 $cols = ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница'];
-if ($crmRows !== null) $cols = array_merge($cols, ['статус', 'ответственная', 'откуда']);
+if ($crmRows !== null) $cols = array_merge($cols, ['статус', 'ведёт', 'откуда', 'причина отказа']);
 fputcsv($o, $cols, ';');
 foreach (array_reverse($rows) as $r) fputcsv($o, array_slice(array_pad($r, count($cols), ''), 0, count($cols)), ';');
 fclose($o);

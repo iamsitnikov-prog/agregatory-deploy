@@ -30,7 +30,8 @@ function crm_now() {
 // Этапы можно менять в кабинете (добавить в любое место, переименовать, переставить, удалить).
 // Хранятся в api/data/crm/statuses.json; пока файла нет, действуют этапы по умолчанию.
 // new, contract, paid системные: в них сайт сам кладёт заявки, поэтому их нельзя удалить.
-const CRM_SYSTEM = ['new', 'contract', 'paid'];
+// refused тоже: к нему привязаны причины отказа
+const CRM_SYSTEM = ['new', 'contract', 'paid', 'refused'];
 function crm_statuses() {
     $f = crm_dir() . '/statuses.json';
     $list = is_file($f) ? json_decode((string)@file_get_contents($f), true) : null;
@@ -91,6 +92,7 @@ function crm_new_item(&$db, $l, $status = 'new', $historyText = 'заявка с
         'amount' => (int)($l['amount'] ?? 0),
         'status' => $status,
         'owner' => '',
+        'reason' => '',
         'updated' => $created,
         'notes' => [],
         'history' => [['at' => $created, 'who' => (string)($l['who'] ?? 'сайт'), 'text' => $historyText]],

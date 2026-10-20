@@ -106,15 +106,25 @@ if ($a === 'update') {
     $status = $in('status', 20);
     $owner = array_key_exists('owner', $body) ? $in('owner', 20) : null;
     $note = $in('note', 3000);
+    $reason = array_key_exists('reason', $body) ? preg_replace('/\s+/u', ' ', $in('reason', 200)) : null;
     $valid = array_column(crm_statuses(), 'id');
     if ($status !== '' && !in_array($status, $valid, true)) out(400, ['error' => 'Нет такого статуса']);
     if ($owner !== null && $owner !== '' && !isset($NAMES[$owner])) out(400, ['error' => 'Нет такого сотрудника']);
     $me = $USER;
-    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $me, $NAMES) {
+    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $reason, $me, $NAMES) {
         foreach ($db['items'] as &$l) {
             if ((int)$l['id'] !== $id) continue;
             $now = crm_now();
             $was = $l['owner'];
+            $l['reason'] = (string)($l['reason'] ?? '');
+            $toRefused = $status === 'refused' || ($status === '' && $l['status'] === 'refused');
+            if ($status === 'refused' && $l['status'] !== 'refused' && ($reason ?? '') === '') return ['error' => 'Укажи причину отказа'];
+            if ($reason !== null && $toRefused && $reason !== $l['reason']) {
+                if ($reason === '') return ['error' => 'Укажи причину отказа'];
+                $l['history'][] = ['at' => crm_now(), 'who' => $me['name'], 'text' => 'причина отказа: ' . $reason];
+                $l['reason'] = $reason;
+            }
+            if ($status !== '' && $status !== 'refused') $l['reason'] = ''; // вернули в работу: причина больше не актуальна
             if ($status !== '' && $status !== $l['status']) {
                 $l['history'][] = ['at' => $now, 'who' => $me['name'],
                     'text' => 'статус: ' . crm_status_title($l['status']) . ' → ' . crm_status_title($status)];
@@ -122,7 +132,7 @@ if ($a === 'update') {
             }
             if ($owner !== null && $owner !== $l['owner']) {
                 $l['history'][] = ['at' => $now, 'who' => $me['name'],
-                    'text' => $owner === '' ? 'ответственная снята' : 'ответственная: ' . $NAMES[$owner]];
+                    'text' => $owner === '' ? 'больше никто не ведёт' : 'ведёт: ' . $NAMES[$owner]];
                 $l['owner'] = $owner;
             }
             if ($note !== '') {
@@ -135,6 +145,7 @@ if ($a === 'update') {
         return null;
     });
     if (!$res) out(404, ['error' => 'Заявка не найдена']);
+    if (isset($res['error'])) out(400, ['error' => $res['error']]);
     $notified = false;
     if ($res['assigned'] !== '' && $res['assigned'] !== $USER['id']) {
         $notified = tg_dm($res['assigned'], "{$USER['name']} передаёт тебе заявку\n\n" . lead_line($res['item']));
@@ -225,7 +236,7 @@ if ($a === 'add') {
         if ($owner !== '') {
             $k = count($db['items']) - 1;
             $db['items'][$k]['owner'] = $owner;
-            $db['items'][$k]['history'][] = ['at' => crm_now(), 'who' => $me['name'], 'text' => 'ответственная: ' . $NAMES[$owner]];
+            $db['items'][$k]['history'][] = ['at' => crm_now(), 'who' => $me['name'], 'text' => 'ведёт: ' . $NAMES[$owner]];
             $l = $db['items'][$k];
         }
         return $l;
