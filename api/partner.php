@@ -54,6 +54,7 @@ $d = [
     'vizitka' => $f('vizitka', 2),
     'prices' => $f('prices', 1000),
     'public_tg' => $f('public_tg', 80),
+    'services' => $f('services', 1000),
 ];
 if ($d['site'] === '' && $d['vizitka'] === '1' && $d['public_tg'] !== '') $d['site'] = $d['public_tg'];
 foreach (['name', 'site', 'section', 'geo', 'tagline', 'contact_name'] as $k) {
@@ -135,6 +136,7 @@ $L[] = "<b>Название:</b> {$e($d['name'])}";
 $L[] = "<b>Сайт:</b> {$e($d['site'])}";
 $L[] = "<b>Раздел:</b> {$e($d['section'])}" . ($d['section_other'] !== '' ? " ({$e($d['section_other'])})" : '');
 $L[] = "<b>География:</b> {$e($d['geo'])}";
+if ($d['services'] !== '') $L[] = "<b>Услуги:</b> {$e($d['services'])}";
 $L[] = "<b>Одной строкой:</b> {$e($d['tagline'])}";
 if ($d['description'] !== '') $L[] = "<b>Описание:</b> {$e($d['description'])}";
 if ($d['points'] !== '') $L[] = "<b>Что входит:</b>\n{$e($d['points'])}";
