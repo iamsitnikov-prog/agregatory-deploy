@@ -55,7 +55,7 @@ $d = [
 foreach (['name', 'site', 'section', 'geo', 'tagline', 'contact_name'] as $k) {
     if ($d[$k] === '') reply(400, ['error' => 'required', 'field' => $k]);
 }
-if ($d['contact_phone'] === '' && $d['contact_tg'] === '' && $d['contact_email'] === '') reply(400, ['error' => 'required', 'field' => 'contact']);
+if ($d['contact_tg'] === '') reply(400, ['error' => 'required', 'field' => 'contact_tg']);
 if ($d['consent'] !== '1') reply(400, ['error' => 'consent']);
 
 $dir = __DIR__ . '/data';
@@ -118,7 +118,7 @@ if ($d['utm_url'] !== '') $L[] = "<b>Ссылка с метками:</b> {$e($d[
 $L[] = '';
 $L[] = '<b>Контакт (не публикуем):</b> ' . $e(trim($d['contact_name'] . ($d['contact_role'] !== '' ? ', ' . $d['contact_role'] : '')));
 if ($d['contact_phone'] !== '') $L[] = "Телефон: {$e($d['contact_phone'])}";
-if ($d['contact_tg'] !== '') $L[] = "Telegram: {$e($d['contact_tg'])}";
+$L[] = "Telegram (сюда пишем, когда карточка появится): {$e($d['contact_tg'])}";
 if ($d['contact_email'] !== '') $L[] = "Почта: {$e($d['contact_email'])}";
 $L[] = "<b>Готовы приводить к нам клиентов:</b> {$e($ref)}";
 $L[] = $logoName !== '' ? '<b>Логотип:</b> файл ниже' : '<b>Логотип:</b> нет, на сайте будет знак с первой буквой';
