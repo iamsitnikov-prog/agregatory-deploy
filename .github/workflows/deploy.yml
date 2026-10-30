@@ -92,6 +92,7 @@ jobs:
           cp deploy/api/report.php site/dist/api/report.php
           cp deploy/api/reactions.php site/dist/api/reactions.php
           cp deploy/api/reactions-seed.json site/dist/api/reactions-seed.json
+          cp deploy/api/go.php site/dist/api/go.php
           # Онлайн оплата (ЮKassa): включается сама, когда заданы секреты YK_SHOP_ID и YK_SECRET_KEY
           cp deploy/api/pay.php deploy/api/pay-lib.php deploy/api/yookassa.php site/dist/api/
           # Договоры для бухгалтера (страница /dokumenty): обработчик и зашифрованные шаблоны
@@ -111,6 +112,7 @@ jobs:
           php -l site/dist/api/lead.php
           php -l site/dist/api/config.php
           php -l site/dist/api/reactions.php
+          php -l site/dist/api/go.php
           php -l site/dist/api/pay.php
           php -l site/dist/api/pay-lib.php
           php -l site/dist/api/yookassa.php
@@ -171,7 +173,7 @@ jobs:
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
         working-directory: site
         run: |
-          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs-auth.php api/crm.php api/crm-lib.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/lilia/ooo.docx.enc api/docs/lilia/ip.docx.enc api/docs/lilia/consult.docx.enc api/docs/yuri/ooo.docx.enc api/docs/yuri/ip.docx.enc; do
+          for f in index.html 404.html sitemap.xml robots.txt .htaccess api/lead.php api/report.php api/config.php api/reactions.php api/go.php partners-links.json api/pay.php api/pay-lib.php api/yookassa.php api/docs.php api/docs-auth.php api/crm.php api/crm-lib.php api/docs/ooo.docx.enc api/docs/ip.docx.enc api/docs/lilia/ooo.docx.enc api/docs/lilia/ip.docx.enc api/docs/lilia/consult.docx.enc api/docs/yuri/ooo.docx.enc api/docs/yuri/ip.docx.enc; do
             test -f "dist/$f" || { echo "Нет dist/$f — выкладку отменяю"; exit 1; }
           done
           grep -q "DirectorySlash Off" dist/.htaccess || { echo ".htaccess не тот — отменяю"; exit 1; }

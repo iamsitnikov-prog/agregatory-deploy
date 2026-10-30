@@ -32,6 +32,9 @@ RewriteRule ^api/(data(/|$)|config\.php|pay-lib\.php|crm-lib\.php|docs-auth\.php
 # чтобы поисковики быстрее выкинули их из отчётов
 RewriteRule ^(static\d*\.tildacdn\.com|css/fonts-tilda|js/tilda) - [G,L]
 
+# Переходы на сайты партнёров через наш адрес (считаем клики): /go/starter
+RewriteRule ^go/([a-z0-9-]+)$ /api/go.php?p=$1 [L,QSA]
+
 # --- 1в. Слэш на конце -> адрес без слэша (один канонический адрес) --------
 # на нашем домене сразу на https (Apache за прокси сам подставил бы http)
 RewriteCond %{HTTP_HOST} ^(www\.)?agregatory\.pro$ [NC]
