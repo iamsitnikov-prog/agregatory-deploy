@@ -51,7 +51,11 @@ $d = [
     'contact_email' => $f('contact_email', 160),
     'referral' => $f('referral', 40),
     'consent' => $f('consent', 10),
+    'vizitka' => $f('vizitka', 2),
+    'prices' => $f('prices', 1000),
+    'public_tg' => $f('public_tg', 80),
 ];
+if ($d['site'] === '' && $d['vizitka'] === '1' && $d['public_tg'] !== '') $d['site'] = $d['public_tg'];
 foreach (['name', 'site', 'section', 'geo', 'tagline', 'contact_name'] as $k) {
     if ($d[$k] === '') reply(400, ['error' => 'required', 'field' => $k]);
 }
@@ -95,6 +99,28 @@ if (!empty($_FILES['logo']) && ($_FILES['logo']['error'] ?? UPLOAD_ERR_NO_FILE) 
     if (!move_uploaded_file($tmp, $logoPath)) { $logoPath = ''; $logoName = ''; }
 }
 
+// Работы для страницы‑визитки (до 10 картинок по 5 МБ).
+$workPaths = [];
+if ($d['vizitka'] === '1' && !empty($_FILES['works']['tmp_name']) && is_array($_FILES['works']['tmp_name'])) {
+    $wdir = $dir . '/partner-works';
+    if (!is_dir($wdir)) @mkdir($wdir, 0750, true);
+    $lat = function_exists('transliterator_transliterate') ? (string)transliterator_transliterate('Any-Latin; Latin-ASCII', $d['name']) : '';
+    $base = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($lat !== '' ? $lat : 'partner')), '-') ?: 'partner';
+    $stamp = date('Ymd-His');
+    foreach ($_FILES['works']['tmp_name'] as $i => $tmp) {
+        if (count($workPaths) >= 10) break;
+        if (($_FILES['works']['error'][$i] ?? 1) !== UPLOAD_ERR_OK || filesize($tmp) > 5 * 1024 * 1024) continue;
+        $head = file_get_contents($tmp, false, null, 0, 16);
+        $ext = '';
+        if (strncmp($head, "\x89PNG", 4) === 0) $ext = 'png';
+        elseif (strncmp($head, "\xFF\xD8\xFF", 3) === 0) $ext = 'jpg';
+        elseif (substr($head, 0, 4) === 'RIFF' && substr($head, 8, 4) === 'WEBP') $ext = 'webp';
+        if ($ext === '') continue;
+        $path = $wdir . '/' . $base . '-' . $stamp . '-' . ($i + 1) . '.' . $ext;
+        if (move_uploaded_file($tmp, $path)) $workPaths[] = $path;
+    }
+}
+$d['works'] = array_map('basename', $workPaths);
 $d['logo'] = $logoName;
 $d['created'] = date('c');
 @file_put_contents($dir . '/partner-requests.jsonl', json_encode($d, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
@@ -121,6 +147,12 @@ if ($d['contact_phone'] !== '') $L[] = "Телефон: {$e($d['contact_phone'])
 $L[] = "Telegram (сюда пишем, когда карточка появится): {$e($d['contact_tg'])}";
 if ($d['contact_email'] !== '') $L[] = "Почта: {$e($d['contact_email'])}";
 $L[] = "<b>Готовы приводить к нам клиентов:</b> {$e($ref)}";
+if ($d['vizitka'] === '1') {
+    $L[] = '';
+    $L[] = '<b>Хочет страницу‑визитку</b> (работ: ' . count($workPaths) . ', файлы ниже)';
+    if ($d['public_tg'] !== '') $L[] = "Telegram для кнопки (публикуем): {$e($d['public_tg'])}";
+    if ($d['prices'] !== '') $L[] = "<b>Цены:</b>\n{$e($d['prices'])}";
+}
 $L[] = $logoName !== '' ? '<b>Логотип:</b> файл ниже' : '<b>Логотип:</b> нет, на сайте будет знак с первой буквой';
 $html = implode("\n", $L);
 
@@ -158,6 +190,7 @@ if ($token !== '' && $chats && function_exists('curl_init')) {
         $okChat = true;
         foreach ($parts as $p) $okChat = tg_call($token, 'sendMessage', http_build_query(['chat_id' => $chat, 'text' => $p, 'parse_mode' => 'HTML', 'disable_web_page_preview' => 'true'])) && $okChat;
         if ($logoPath !== '') tg_call($token, 'sendDocument', ['chat_id' => $chat, 'caption' => 'Логотип: ' . $d['name'], 'document' => new CURLFile($logoPath, '', $logoName)]);
+        foreach ($workPaths as $n => $wp) tg_call($token, 'sendDocument', ['chat_id' => $chat, 'caption' => 'Работа ' . ($n + 1) . ': ' . $d['name'], 'document' => new CURLFile($wp, '', basename($wp))]);
         if ($okChat) $tg = true;
     }
 }
