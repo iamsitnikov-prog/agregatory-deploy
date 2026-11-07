@@ -113,7 +113,30 @@ m['search0'] = sum(n for s_, n in (safe('Метрика, источники не
 m['engines'] = [x for x in (safe('Метрика, поисковики', lambda: clients('ym:s:lastSearchEngineRoot')) or []) if x[0]]
 m['sites'] = [x for x in (safe('Метрика, сайты', lambda: clients('ym:s:lastReferalSource')) or []) if x[0]]
 m['social'] = [x for x in (safe('Метрика, соцсети', lambda: clients('ym:s:lastSocialNetwork')) or []) if x[0]]
-m['entry'] = (safe('Метрика, страницы входа', lambda: clients('ym:s:startURLPathFull', limit=30)) or [])[:5]
+def page_name(path):
+    if path in ('', '/'):
+        return 'Главная'
+    try:
+        req = urllib.request.Request(HOST_URL + path, headers={'User-Agent': 'agregatory-report'})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            h = r.read().decode('utf-8', 'ignore')
+        t = re.search(r'<h1[^>]*>(.*?)</h1>', h, re.S) or re.search(r'<title>(.*?)</title>', h, re.S)
+        name = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', t.group(1)))).strip()
+        return (name[:60] + '…') if len(name) > 60 else name
+    except Exception:
+        return path
+
+
+def entry_pages():
+    agg = {}
+    for path, n in clients('ym:s:startURLPathFull', limit=40):
+        path = path.split('#')[0].split('?')[0] or '/'
+        agg[path] = agg.get(path, 0) + n
+    top = sorted(agg.items(), key=lambda x: -x[1])[:5]
+    return [(page_name(p_), n) for p_, n in top]
+
+
+m['entry'] = safe('Метрика, страницы входа', entry_pages) or []
 m['phrases'] = safe('Метрика, поисковые фразы', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSearchPhrase', limit=100))) or []
 
 
