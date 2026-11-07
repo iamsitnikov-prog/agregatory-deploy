@@ -1,0 +1,35 @@
+name: Утренний отчёт в рабочую группу (без Claude)
+
+# Цифры за вчера из Яндекс Метрики и Вебмастера по API (секрет YANDEX_TOKEN,
+# действует до мая 2027), сайт, оплата и SSL. Отправка ботом @Claudesitnikov_bot.
+# Пока на согласовании у Юрия: только ручной запуск, пробный выпуск уходит ему в личку.
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Пробный выпуск Юрию в личку вместо группы"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
+      BOT: ${{ secrets.CLAUDE_BOT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Собираем и отправляем
+        run: |
+          [ -n "$YANDEX_TOKEN" ] || { echo "::error::нет секрета YANDEX_TOKEN"; exit 1; }
+          python3 scripts/morning-report.py report.html
+          CHAT=-5022978987
+          [ "${{ inputs.test }}" = "true" ] && CHAT=979925834
+          r=$(curl -sS -m 30 "https://api.telegram.org/bot${BOT}/sendMessage" --data-urlencode chat_id=$CHAT \
+               --data-urlencode parse_mode=HTML --data-urlencode disable_web_page_preview=true --data-urlencode "text@report.html")
+          echo "$r" | grep -q '"ok":true' && echo "::notice::отправлено в $CHAT" || { echo "::error::Telegram: $r"; exit 1; }
