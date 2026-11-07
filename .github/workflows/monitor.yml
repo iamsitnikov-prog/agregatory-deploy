@@ -1,0 +1,121 @@
+name: Сторож сайта (Telegram без Claude)
+
+# Работает сам на GitHub, без Claude и без компьютера Юрия.
+# Каждые 30 минут проверяет, что сайт открывается и онлайн оплата включена.
+# Раз в день проверяет SSL сертификаты и в нужные даты напоминает про оплату хостинга и домена.
+# Пишет только в личку Юрия (первый номер из секрета TG_CHAT_ID) через бота сайта (TG_BOT_TOKEN).
+# Пишет только при поломке и при починке, а не каждые полчаса.
+# Проверить вручную: Actions → «Сторож сайта» → Run workflow (с галочкой test придёт пробное сообщение).
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Прислать пробное сообщение"
+        type: boolean
+        default: false
+  schedule:
+    - cron: '7,37 * * * *'
+
+permissions:
+  contents: read
+  actions: write   # только чтобы GitHub не выключил расписание через 60 дней
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+      TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+    steps:
+      - name: Прошлое состояние
+        uses: actions/cache/restore@v4
+        with:
+          path: state
+          key: monitor-state-${{ github.run_id }}
+          restore-keys: monitor-state-
+
+      - name: Проверки и сообщения
+        env:
+          TEST: ${{ inputs.test }}
+        run: |
+          set -u
+          mkdir -p state
+          CHAT="${TG_CHAT_ID%%,*}"
+          send() {
+            [ -n "$TG_BOT_TOKEN" ] && [ -n "$CHAT" ] || { echo "::warning::нет секретов для Telegram"; return; }
+            r=$(curl -sS -m 30 "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+                 --data-urlencode chat_id="$CHAT" --data-urlencode disable_web_page_preview=true --data-urlencode text="$1")
+            echo "$r" | grep -q '"ok":true' && echo "::notice::отправлено: $1" || echo "::warning::Telegram не принял: $r"
+          }
+
+          if [ "${TEST:-false}" = "true" ]; then
+            send "Сторож сайта agregatory.pro работает. Он пишет сам, без Claude: если сайт не открывается или отключилась онлайн оплата, если скоро истекает SSL, и напоминает про оплату хостинга и домена."
+          fi
+
+          # 1. Сайт открывается (две попытки, чтобы не поднимать шум из за одной осечки)
+          site_ok=0
+          for i in 1 2; do
+            code=$(curl -s -o page.html -w '%{http_code}' -m 30 -A "Mozilla/5.0 agregatory-monitor" "https://agregatory.pro/?m=$(date +%s)")
+            if [ "$code" = 200 ] && grep -q "agregatory" page.html; then site_ok=1; break; fi
+            sleep 45
+          done
+          echo "::notice::сайт: код $code, ok=$site_ok"
+
+          # 2. Онлайн оплата включена
+          pay_ok=0
+          pay=$(curl -s -m 30 "https://agregatory.pro/api/pay.php?check=1" || true)
+          echo "$pay" | grep -q '"enabled":true' && pay_ok=1
+          echo "::notice::оплата: ok=$pay_ok"
+
+          # Сообщаем только когда состояние поменялось
+          check() { # имя, текущее(1/0), текст поломки, текст починки
+            prev=$(cat "state/$1" 2>/dev/null || echo 1)
+            if [ "$2" = 0 ] && [ "$prev" = 1 ]; then send "$3"; fi
+            if [ "$2" = 1 ] && [ "$prev" = 0 ]; then send "$4"; fi
+            echo "$2" > "state/$1"
+          }
+          check site "$site_ok" \
+            "Сайт agregatory.pro не открывается (ответ сервера: $code). Проверил дважды. Напишите Claude, он посмотрит хостинг reg.ru." \
+            "Сайт agregatory.pro снова открывается."
+          if [ "$site_ok" = 1 ]; then
+            check pay "$pay_ok" \
+              "На сайте agregatory.pro отключилась онлайн оплата: кнопки «оплатить онлайн» скрыты. Напишите Claude, он проверит ЮKassa." \
+              "Онлайн оплата на сайте agregatory.pro снова работает."
+          fi
+
+          # 3. Раз в день, в 10:07 МСК: SSL и напоминания по датам
+          today=$(TZ=Europe/Moscow date +%F); hour=$(TZ=Europe/Moscow date +%H)
+          last=$(cat state/daily 2>/dev/null || echo "")
+          if [ "$hour" -ge 10 ] && [ "$last" != "$today" ]; then
+            echo "$today" > state/daily
+            for host in agregatory.pro www.agregatory.pro; do
+              end=$(echo | openssl s_client -servername "$host" -connect "$host:443" 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+              if [ -z "$end" ]; then send "Не удалось проверить SSL сертификат $host. Напишите Claude."; continue; fi
+              days=$(( ( $(date -d "$end" +%s) - $(date +%s) ) / 86400 ))
+              echo "::notice::SSL $host: осталось $days дн."
+              if [ "$days" -le 20 ]; then
+                send "SSL сертификат $host истекает через $days дн. Обычно он продлевается сам. Если не продлится, сайт будет показывать предупреждение. Напишите Claude, он проверит в панели reg.ru."
+              fi
+            done
+            case "$today" in
+              2027-03-01) send "Хостинг сайта agregatory.pro на reg.ru оплачен до 22 марта 2027. Автопродление 15 марта сработает, только если в reg.ru привязана карта или хватает денег на балансе. Проверьте личный кабинет reg.ru." ;;
+              2027-06-06) send "Домен agregatory.pro оплачен до 4 июля 2027 (автопродление 20 июня), домен grecco.delivery до 17 июля 2027. Проверьте баланс или карту в reg.ru, иначе сайт и почта перестанут работать." ;;
+            esac
+          fi
+
+      - name: Запоминаем состояние
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: state
+          key: monitor-state-${{ github.run_id }}
+
+      - name: Не даём GitHub выключить расписание
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1
