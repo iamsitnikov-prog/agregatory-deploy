@@ -42,6 +42,7 @@ jobs:
         with:
           repository: iamsitnikov-prog/food-delivery-site-10
           path: site
+          fetch-depth: 0   # история нужна, чтобы написать в группу, что поменялось
 
       - name: Что выкладываем
         id: ver
@@ -226,6 +227,22 @@ jobs:
                   code = repr(e)
               print(f'::notice::IndexNow {ep}: {len(urls)} адресов, ответ {code}')
           PY
+
+      - name: Пишем в рабочую группу, что поменялось на сайте
+        # С 8.11.2026 по просьбе Юрия: все изменения сайта видны в рабочей группе.
+        # Пишет только когда есть новые правки кода или новые страницы, а не при каждой ночной пересборке.
+        if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'
+        continue-on-error: true
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+        run: |
+          python3 deploy/scripts/site-news.py site site/dist .pagestate news.html
+          if [ -s news.html ] && [ -n "$TG_BOT_TOKEN" ]; then
+            r=$(curl -sS -m 30 "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+                 --data-urlencode chat_id=-5022978987 --data-urlencode parse_mode=HTML \
+                 --data-urlencode disable_web_page_preview=true --data-urlencode "text@news.html")
+            echo "$r" | grep -q '"ok":true' && echo "::notice::в группу отправлено" || echo "::warning::Telegram не принял: $r"
+          fi
 
       - name: Сохраняем отпечатки страниц
         if: steps.last.outputs.cache-hit != 'true' || github.event_name != 'schedule'

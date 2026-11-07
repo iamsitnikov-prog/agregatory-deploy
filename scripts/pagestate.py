@@ -45,7 +45,7 @@ def fingerprint(route):
     return hashlib.sha1(key.encode('utf-8')).hexdigest()
 
 
-new, changed = {}, []
+new, changed, added = {}, [], []
 
 
 def fix(m):
@@ -62,6 +62,8 @@ def fix(m):
         # запуске — сегодняшнюю (раньше даты не хранились).
         d = built if (first_run or not prev) and built < today else today
         changed.append(loc)
+        if not prev and not first_run:
+            added.append(loc)
     new[loc] = {'h': fp or '', 'd': d}
     return re.sub(r'<lastmod>[^<]+</lastmod>', f'<lastmod>{d}</lastmod>', block) if lastmod else block
 
@@ -70,6 +72,7 @@ sm = re.sub(r'<url>.*?</url>', fix, sm, flags=re.S)
 open(sm_path, 'w', encoding='utf-8').write(sm)
 json.dump(new, open(state_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
 open(os.path.join(state_dir, 'changed.txt'), 'w').write('\n'.join(changed) + ('\n' if changed else ''))
+open(os.path.join(state_dir, 'added.txt'), 'w').write('\n'.join(added) + ('\n' if added else ''))
 kept = len(new) - len(changed)
 print(f'Страниц в карте: {len(new)}, изменились или новые: {len(changed)}, без изменений: {kept}'
       + (' (первый запуск)' if first_run else ''))
