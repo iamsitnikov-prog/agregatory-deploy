@@ -322,7 +322,7 @@ if ($a === 'save' && $method === 'POST') {
     fwrite($fh, json_encode($j, JSON_UNESCAPED_UNICODE));
     flock($fh, LOCK_UN); fclose($fh);
 
-    // Копия Юрию в личный Telegram (первый чат из настроек, без рабочей группы)
+    // Копия договора в рабочую группу (с 8.11.2026, tg_chat в настройках выкладки)
     $c = cfg();
     $token = trim((string)($c['tg_token'] ?? ''));
     $chat = trim(explode(',', (string)($c['tg_chat'] ?? ''))[0] ?? '');

@@ -3,7 +3,7 @@ name: Сторож сайта (Telegram без Claude)
 # Работает сам на GitHub, без Claude и без компьютера Юрия.
 # Каждые 30 минут проверяет, что сайт открывается и онлайн оплата включена.
 # Раз в день проверяет SSL сертификаты и в нужные даты напоминает про оплату хостинга и домена.
-# Пишет только в личку Юрия (первый номер из секрета TG_CHAT_ID) через бота сайта (TG_BOT_TOKEN).
+# Пишет Юрию в личку (первый номер из секрета TG_CHAT_ID) и в рабочую группу через бота сайта (TG_BOT_TOKEN).
 # Пишет только при поломке и при починке, а не каждые полчаса.
 # Проверить вручную: Actions → «Сторож сайта» → Run workflow (с галочкой test придёт пробное сообщение).
 
@@ -46,12 +46,14 @@ jobs:
         run: |
           set -u
           mkdir -p state
-          CHAT="${TG_CHAT_ID%%,*}"
+          CHATS="${TG_CHAT_ID%%,*} -5022978987"
           send() {
-            [ -n "$TG_BOT_TOKEN" ] && [ -n "$CHAT" ] || { echo "::warning::нет секретов для Telegram"; return; }
-            r=$(curl -sS -m 30 "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
-                 --data-urlencode chat_id="$CHAT" --data-urlencode disable_web_page_preview=true --data-urlencode text="$1")
-            echo "$r" | grep -q '"ok":true' && echo "::notice::отправлено: $1" || echo "::warning::Telegram не принял: $r"
+            [ -n "$TG_BOT_TOKEN" ] || { echo "::warning::нет секрета для Telegram"; return; }
+            for CHAT in $CHATS; do
+              r=$(curl -sS -m 30 "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+                   --data-urlencode chat_id="$CHAT" --data-urlencode disable_web_page_preview=true --data-urlencode text="$1")
+              echo "$r" | grep -q '"ok":true' && echo "::notice::отправлено в $CHAT: $1" || echo "::warning::Telegram не принял ($CHAT): $r"
+            done
           }
 
           if [ "${TEST:-false}" = "true" ]; then

@@ -67,6 +67,15 @@ function tg_api($method, $params = []) {
 function tg_dm($userId, $html) {
     $chat = tg_read()['users'][$userId]['chat'] ?? '';
     if ($chat === '') return false;
+    return tg_send_chat($chat, $html);
+}
+// С 8.11.2026 (решение Юрия) передача заявки пишется в рабочую группу, а не лично.
+function tg_group($html) {
+    $chat = trim(explode(',', (string)(cfg()['tg_chat'] ?? ''))[0] ?? '');
+    if ($chat === '') return false;
+    return tg_send_chat($chat, $html);
+}
+function tg_send_chat($chat, $html) {
     $r = tg_api('sendMessage', ['chat_id' => $chat, 'text' => $html, 'parse_mode' => 'HTML', 'disable_web_page_preview' => 'true']);
     return ($r['code'] ?? 0) === 200;
 }
@@ -153,7 +162,7 @@ if ($a === 'update') {
     if (isset($res['error'])) out(400, ['error' => $res['error']]);
     $notified = false;
     if ($res['assigned'] !== '' && $res['assigned'] !== $USER['id']) {
-        $notified = tg_dm($res['assigned'], "{$USER['name']} передаёт тебе заявку\n\n" . lead_line($res['item']));
+        $notified = tg_group(($NAMES[$res['assigned']] ?? $res['assigned']) . ", {$USER['name']} передаёт тебе заявку\n\n" . lead_line($res['item']));
     }
     out(200, ['ok' => true, 'item' => public_item($res['item']), 'notified' => $notified]);
 }
@@ -247,7 +256,7 @@ if ($a === 'add') {
         return $l;
     });
     if (!$item) out(500, ['error' => 'Не удалось сохранить']);
-    if ($owner !== '' && $owner !== $USER['id']) tg_dm($owner, "{$USER['name']} передаёт тебе заявку\n\n" . lead_line($item));
+    if ($owner !== '' && $owner !== $USER['id']) tg_group(($NAMES[$owner] ?? $owner) . ", {$USER['name']} передаёт тебе заявку\n\n" . lead_line($item));
     out(200, ['ok' => true, 'item' => public_item($item)]);
 }
 

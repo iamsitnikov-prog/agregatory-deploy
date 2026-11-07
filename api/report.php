@@ -2,7 +2,7 @@
 // Еженедельная выгрузка заявок в Telegram (вызывает GitHub Actions, workflow report.yml).
 // Ключ доступа не хранится в репозитории: это sha256 от токена бота + 'leads-report',
 // его знают только хостинг (config.php) и секреты GitHub.
-// Файл уходит только в первый чат из TG_CHAT_ID (личный чат Юрия), не в группу.
+// С 8.11.2026 файл уходит в рабочую группу (tg_chat в настройках выкладки).
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
