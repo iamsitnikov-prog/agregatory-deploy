@@ -25,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      BOT: ${{ secrets.CLAUDE_BOT_TOKEN || secrets.TG_BOT_TOKEN }}
+      BOT: ${{ secrets.CLAUDE_BOT_TOKEN }}
       TEST: ${{ inputs.test }}
     steps:
       - name: Смотрим закреплённый отчёт
         run: |
           set -u
-          [ -n "$BOT" ] || { echo "::error::нет секрета CLAUDE_BOT_TOKEN"; exit 1; }
+          [ -n "$BOT" ] || { echo "::warning::ключа @Claudesitnikov_bot (секрет CLAUDE_BOT_TOKEN) ещё нет, пропускаю"; exit 0; }
           me=$(curl -sS -m 30 "https://api.telegram.org/bot${BOT}/getMe" | python3 -c 'import json,sys;print(json.load(sys.stdin)["result"]["username"])')
           echo "::notice::бот: $me"
           # Отчёт закрепляется в личке именно @Claudesitnikov_bot: другим ботом его не увидеть
