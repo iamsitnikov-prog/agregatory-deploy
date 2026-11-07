@@ -66,41 +66,59 @@ def plural(n, one, few, many):
 
 # ---------- Метрика ----------
 m = {}
-try:
-    STAFF = "ym:s:paramsLevel1!='staff'"
-    v, u, pv = total('ym:s:visits,ym:s:users,ym:s:pageviews')
-    v0, u0, _ = total('ym:s:visits,ym:s:users,ym:s:pageviews', date=wago)
+STAFF = "ym:s:paramsLevel1!='staff'"
+
+
+def safe(name, fn):
     try:
-        cv, cu = total('ym:s:visits,ym:s:users', filters=STAFF)
-    except Exception:
-        cv, cu = v, u
-    m.update(visits=v, users=u, views=pv, visits0=v0, users0=u0, staff=max(v - cv, 0))
+        return fn()
+    except Exception as ex:
+        msg = str(ex)
+        if hasattr(ex, 'read'):
+            try:
+                msg += ' ' + ex.read().decode()[:200]
+            except Exception:
+                pass
+        print(f'::warning::{name}: {msg}', file=sys.stderr)
+        problems.append(f'{name}: не получилось')
+        return None
 
-    src = metrika('ym:s:visits', 'ym:s:lastTrafficSource', limit=20)
-    m['sources'] = [(r['dimensions'][0]['name'], round(r['metrics'][0])) for r in src['data']]
-    se = metrika('ym:s:visits', 'ym:s:lastSearchEngineRoot', limit=10)
-    m['engines'] = [(r['dimensions'][0]['name'], round(r['metrics'][0])) for r in se['data'] if r['dimensions'][0]['name']]
-    s0 = metrika('ym:s:visits', 'ym:s:lastTrafficSource', date=wago, limit=20)
-    m['search0'] = sum(round(r['metrics'][0]) for r in s0['data'] if 'поиск' in (r['dimensions'][0]['name'] or '').lower())
-    ref = metrika('ym:s:visits', 'ym:s:lastReferalDomain', limit=10)
-    m['sites'] = [(r['dimensions'][0]['name'], round(r['metrics'][0])) for r in ref['data'] if r['dimensions'][0]['name']]
-    soc = metrika('ym:s:visits', 'ym:s:lastSocialNetwork', limit=10)
-    m['social'] = [(r['dimensions'][0]['name'], round(r['metrics'][0])) for r in soc['data'] if r['dimensions'][0]['name']]
-    ent = metrika('ym:s:visits', 'ym:s:startURLPath', limit=5, sort='-ym:s:visits')
-    m['entry'] = [(r['dimensions'][0]['name'], round(r['metrics'][0])) for r in ent['data']]
-    ph = metrika('ym:s:visits', 'ym:s:lastSearchPhrase', limit=100)
-    m['phrases'] = [(r['dimensions'][0]['name'] or '', round(r['metrics'][0])) for r in ph['data']]
 
+def rows_of(d):
+    return [(r['dimensions'][0]['name'] or '', round(r['metrics'][0])) for r in d['data']]
+
+
+def base():
+    v, u, pv = total('ym:s:visits,ym:s:users,ym:s:pageviews')
+    cv, cu = total('ym:s:visits,ym:s:users', filters=STAFF)
+    cv0, cu0 = total('ym:s:visits,ym:s:users', date=wago, filters=STAFF)
+    m.update(visits=cv, users=cu, visits0=cv0, users0=cu0, staff=max(v - cv, 0))
+
+
+safe('Метрика, посещаемость', base)
+m['sources'] = safe('Метрика, источники', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastTrafficSource', filters=STAFF))) or []
+m['search0'] = sum(n for s_, n in (safe('Метрика, источники неделю назад', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastTrafficSource', date=wago, filters=STAFF))) or []) if 'поиск' in s_.lower())
+m['engines'] = [x for x in (safe('Метрика, поисковики', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSearchEngineRoot', filters=STAFF))) or []) if x[0]]
+m['sites'] = [x for x in (safe('Метрика, сайты', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastReferalDomain', filters=STAFF))) or []) if x[0]]
+m['social'] = [x for x in (safe('Метрика, соцсети', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSocialNetwork', filters=STAFF))) or []) if x[0]]
+m['entry'] = (safe('Метрика, страницы входа', lambda: rows_of(metrika('ym:s:visits', 'ym:s:startURLPathFull', limit=5, sort='-ym:s:visits', filters=STAFF))) or [])[:5]
+m['phrases'] = safe('Метрика, поисковые фразы', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSearchPhrase', limit=100))) or []
+
+
+def goals_fn():
     goals = get(f'https://api-metrika.yandex.net/management/v1/counter/{COUNTER}/goals')['goals']
-    gl = [g for g in goals if g.get('type') == 'action']  # только свои JS цели, без автоцелей
-    m['goals'] = {}
+    print('ЦЕЛИ:', [(g['id'], g['name'], g.get('type')) for g in goals], file=sys.stderr)
+    gl = [g for g in goals if g.get('type') in ('action', 'js')]
+    res = {}
     for i in range(0, len(gl), 20):
         part = gl[i:i + 20]
-        t = total(','.join(f'ym:s:goal{g["id"]}reaches' for g in part))
+        t = total(','.join(f'ym:s:goal{g["id"]}reaches' for g in part), filters=STAFF)
         for g, n in zip(part, t):
-            m['goals'][g['name']] = n
-except Exception as ex:
-    problems.append(f'Метрика не ответила: {e(str(ex)[:120])}')
+            res[g['name']] = n
+    return res
+
+
+m['goals'] = safe('Метрика, цели', goals_fn)
 
 # ---------- Вебмастер ----------
 w = {}
@@ -116,13 +134,14 @@ try:
     w['excluded'] = s.get('excluded_pages_count')
     w['problems'] = {k: v for k, v in (s.get('site_problems') or {}).items() if v}
     q = get(base + '/search-queries/popular', {
-        'order_by': 'TOTAL_SHOWS', 'query_indicator': ['TOTAL_SHOWS', 'TOTAL_CLICKS', 'AVG_SHOW_POSITION'],
-        'date_from': (yday - dt.timedelta(days=6)).isoformat(), 'date_to': yday.isoformat(), 'limit': 6})
+        'order_by': 'TOTAL_SHOWS', 'query_indicator': ['TOTAL_SHOWS', 'TOTAL_CLICKS', 'AVG_SHOW_POSITION'], 'limit': 6})
+    print('ЗАПРОСЫ:', json.dumps(q, ensure_ascii=False)[:600], file=sys.stderr)
+    d_to = dt.date.fromisoformat(q['date_from'][:10]) - dt.timedelta(days=1)
     q0 = get(base + '/search-queries/popular', {
         'order_by': 'TOTAL_SHOWS', 'query_indicator': ['AVG_SHOW_POSITION'],
-        'date_from': (yday - dt.timedelta(days=13)).isoformat(), 'date_to': (yday - dt.timedelta(days=7)).isoformat(),
-        'limit': 500})
+        'date_from': (d_to - dt.timedelta(days=6)).isoformat(), 'date_to': d_to.isoformat(), 'limit': 500})
     prev = {x['query_text']: x['indicators'].get('AVG_SHOW_POSITION') for x in q0.get('queries', [])}
+    w['qto'] = '.'.join(reversed(q['date_to'][:10].split('-')[1:]))
     w['queries'] = []
     for x in q.get('queries', []):
         pos = x['indicators'].get('AVG_SHOW_POSITION')
@@ -167,18 +186,18 @@ def line(icon, name, n):
 
 
 def goal_sum(*keys):
-    g = m.get('goals', {})
+    g = m.get('goals') or {}
     return sum(n for name, n in g.items() if any(k in name.lower() for k in keys))
 
 
 out = [f'📊 <b>agregatory.pro · утренний отчёт</b>',
        f'<i>{DAYS[today.weekday()]}, {today.day} {MONTHS[today.month - 1]} · цифры за {DAYS_ACC[yday.weekday()]}</i>', '']
 
-leads = goal_sum('заявк') - goal_sum('ошибк')
+leads = sum(n for name, n in (m.get('goals') or {}).items() if 'заявк' in name.lower() and 'ошибк' not in name.lower())
 pays = goal_sum('оплата прошла', 'оплатил', 'pay_success')
 search = sum(n for s, n in m.get('sources', []) if 'поиск' in (s or '').lower())
 main = ['⚡️ <b>ГЛАВНОЕ ЗА ДЕНЬ</b>', '']
-if m.get('visits') is not None:
+if m.get('users') is not None:
     main.append(f'👥 Посетители: <b>{m["users"]}</b>   {pct(m["users"], m["users0"])} к прошлой неделе')
     main.append(f'📩 Заявки: <b>{max(leads, 0)}</b>')
     main.append(f'💳 Оплаты: <b>{pays}</b>')
@@ -196,7 +215,7 @@ else:
     main.append('Метрика не ответила, цифр за день нет')
 out.append('<blockquote>' + '\n'.join(main) + '</blockquote>')
 
-g = m.get('goals', {})
+g = m.get('goals')
 if g is not None:
     rows = [line('▫️', name, n) for name, n in sorted(g.items(), key=lambda x: -x[1]) if n]
     if not any('заявк' in k.lower() for k, n in g.items() if n):
@@ -235,7 +254,7 @@ if w.get('queries'):
         if p0 is None:
             sh = '🆕'
         rows.append(f'{e(qt)} · <b>{pos:.0f}</b>  {sh}')
-    rows.append('<i>средняя позиция за 7 дней, сдвиг к прошлым 7</i>')
+    rows.append(f'<i>средняя позиция за неделю по {w.get("qto", "")}, сдвиг к неделе раньше</i>')
     out += ['', '🔎 <b>ПОЗИЦИИ В ПОИСКЕ</b>', '<blockquote expandable>' + '\n'.join(rows) + '</blockquote>']
 
 rows = [f'{"✅" if ok_site else "❌"} Сайт {"открывается" if ok_site else "не открывается"}   '
@@ -244,7 +263,7 @@ if days is not None:
     rows.append(f'🔒 SSL ещё {days} {plural(days, "день", "дня", "дней")}')
 if w.get('in_search') is not None:
     rows.append(f'📚 В поиске Яндекса · <b>{w["in_search"]}</b> страниц, исключено {w.get("excluded", 0)}')
-if w.get('sqi') is not None:
+if w.get('sqi'):
     rows.append(f'⭐️ ИКС · {w["sqi"]}')
 if w.get('problems'):
     rows.append('⚠️ Вебмастер видит проблемы: ' + e(', '.join(f'{k.lower()} {v}' for k, v in w['problems'].items())))
