@@ -1,0 +1,60 @@
+name: Проверка резервной копии (Telegram без Claude)
+
+# Работает сам на GitHub, без Claude. Каждый день в 8:17 МСК смотрит,
+# когда в личке бота @Claudesitnikov_bot последний раз закрепился отчёт
+# «Копия за ...». Если отчёта нет или он старше 30 часов, пишет Юрию.
+# Пишет только когда что то не так. С 8.11.2026 вместо задачи Claude.
+# Проверить вручную: Actions → «Проверка резервной копии» → Run workflow (с галочкой test придёт пробное сообщение).
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Прислать пробное сообщение"
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17 5 * * *'
+
+permissions:
+  contents: read
+  actions: write   # только чтобы GitHub не выключил расписание через 60 дней
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BOT: ${{ secrets.CLAUDE_BOT_TOKEN || secrets.TG_BOT_TOKEN }}
+      TEST: ${{ inputs.test }}
+    steps:
+      - name: Смотрим закреплённый отчёт
+        run: |
+          set -u
+          [ -n "$BOT" ] || { echo "::error::нет секрета CLAUDE_BOT_TOKEN"; exit 1; }
+          me=$(curl -sS -m 30 "https://api.telegram.org/bot${BOT}/getMe" | python3 -c 'import json,sys;print(json.load(sys.stdin)["result"]["username"])')
+          echo "::notice::бот: $me"
+          # Отчёт закрепляется в личке именно @Claudesitnikov_bot: другим ботом его не увидеть
+          [ "$me" = "Claudesitnikov_bot" ] || { echo "::error::нужен ключ @Claudesitnikov_bot в секрете CLAUDE_BOT_TOKEN, сейчас $me"; exit 1; }
+          send() {
+            r=$(curl -sS -m 30 "https://api.telegram.org/bot${BOT}/sendMessage" --data-urlencode chat_id=979925834 --data-urlencode text="$1")
+            echo "$r" | grep -q '"ok":true' && echo "::notice::отправлено: $1" || echo "::warning::Telegram не принял: $r"
+          }
+          chat=$(curl -sS -m 30 "https://api.telegram.org/bot${BOT}/getChat?chat_id=979925834")
+          read -r date text < <(echo "$chat" | python3 -c 'import json,sys
+          d=json.load(sys.stdin).get("result",{}).get("pinned_message") or {}
+          print(d.get("date",0), (d.get("text") or d.get("caption") or "").split("\n")[0][:60])')
+          now=$(date +%s); age=$(( (now - date) / 3600 ))
+          echo "::notice::закреплено: «$text», $age ч назад"
+          if [ "${TEST:-false}" = "true" ]; then
+            send "Проверка резервной копии теперь работает сама, без Claude. Последний отчёт: «$text», $age ч назад."
+          fi
+          if [ "$date" = 0 ] || ! echo "$text" | grep -q "Копия"; then
+            send "Резервная копия: закреплённого отчёта нет. Проверьте, что мак включён и открыто приложение Claude."
+          elif [ "$age" -gt 30 ]; then
+            send "Резервная копия не приходила больше суток (последняя $age ч назад). Проверьте, что мак включён и открыто приложение Claude."
+          fi
+
+      - name: Не даём GitHub выключить расписание
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1
