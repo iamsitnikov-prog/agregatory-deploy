@@ -66,7 +66,7 @@ def plural(n, one, few, many):
 
 # ---------- Метрика ----------
 m = {}
-STAFF = "ym:s:paramsLevel1!='staff'"
+STAFF = "ym:s:paramsLevel1=='staff'"  # наши заходы (Юрий, Алиса, Лиля): вычитаем их
 
 
 def safe(name, fn):
@@ -88,31 +88,42 @@ def rows_of(d):
     return [(r['dimensions'][0]['name'] or '', round(r['metrics'][0])) for r in d['data']]
 
 
+def clients(dim, date=yday, limit=20):
+    """Разбивка визитов без наших заходов: всего минус staff по каждой строке."""
+    allr = rows_of(metrika('ym:s:visits', dim, date=date, limit=limit, sort='-ym:s:visits'))
+    try:
+        st = dict(rows_of(metrika('ym:s:visits', dim, date=date, limit=100, filters=STAFF)))
+    except Exception:
+        st = {}
+    res = [(k, n - st.get(k, 0)) for k, n in allr]
+    return [x for x in sorted(res, key=lambda x: -x[1]) if x[1] > 0]
+
+
 def base():
-    v, u, pv = total('ym:s:visits,ym:s:users,ym:s:pageviews')
-    cv, cu = total('ym:s:visits,ym:s:users', filters=STAFF)
-    cv0, cu0 = total('ym:s:visits,ym:s:users', date=wago, filters=STAFF)
-    m.update(visits=cv, users=cu, visits0=cv0, users0=cu0, staff=max(v - cv, 0))
+    v, u = total('ym:s:visits,ym:s:users')
+    sv, su = total('ym:s:visits,ym:s:users', filters=STAFF)
+    v0, u0 = total('ym:s:visits,ym:s:users', date=wago)
+    sv0, su0 = total('ym:s:visits,ym:s:users', date=wago, filters=STAFF)
+    m.update(visits=v - sv, users=u - su, visits0=v0 - sv0, users0=u0 - su0, staff=sv)
 
 
 safe('Метрика, посещаемость', base)
-m['sources'] = safe('Метрика, источники', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastTrafficSource', filters=STAFF))) or []
-m['search0'] = sum(n for s_, n in (safe('Метрика, источники неделю назад', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastTrafficSource', date=wago, filters=STAFF))) or []) if 'поиск' in s_.lower())
-m['engines'] = [x for x in (safe('Метрика, поисковики', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSearchEngineRoot', filters=STAFF))) or []) if x[0]]
-m['sites'] = [x for x in (safe('Метрика, сайты', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastReferalDomain', filters=STAFF))) or []) if x[0]]
-m['social'] = [x for x in (safe('Метрика, соцсети', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSocialNetwork', filters=STAFF))) or []) if x[0]]
-m['entry'] = (safe('Метрика, страницы входа', lambda: rows_of(metrika('ym:s:visits', 'ym:s:startURLPathFull', limit=5, sort='-ym:s:visits', filters=STAFF))) or [])[:5]
+m['sources'] = safe('Метрика, источники', lambda: clients('ym:s:lastTrafficSource')) or []
+m['search0'] = sum(n for s_, n in (safe('Метрика, источники неделю назад', lambda: clients('ym:s:lastTrafficSource', date=wago)) or []) if 'поиск' in s_.lower())
+m['engines'] = [x for x in (safe('Метрика, поисковики', lambda: clients('ym:s:lastSearchEngineRoot')) or []) if x[0]]
+m['sites'] = [x for x in (safe('Метрика, сайты', lambda: clients('ym:s:lastReferalSource')) or []) if x[0]]
+m['social'] = [x for x in (safe('Метрика, соцсети', lambda: clients('ym:s:lastSocialNetwork')) or []) if x[0]]
+m['entry'] = (safe('Метрика, страницы входа', lambda: clients('ym:s:startURLPathFull', limit=30)) or [])[:5]
 m['phrases'] = safe('Метрика, поисковые фразы', lambda: rows_of(metrika('ym:s:visits', 'ym:s:lastSearchPhrase', limit=100))) or []
 
 
 def goals_fn():
     goals = get(f'https://api-metrika.yandex.net/management/v1/counter/{COUNTER}/goals')['goals']
-    print('ЦЕЛИ:', [(g['id'], g['name'], g.get('type')) for g in goals], file=sys.stderr)
     gl = [g for g in goals if g.get('type') in ('action', 'js')]
     res = {}
     for i in range(0, len(gl), 20):
         part = gl[i:i + 20]
-        t = total(','.join(f'ym:s:goal{g["id"]}reaches' for g in part), filters=STAFF)
+        t = total(','.join(f'ym:s:goal{g["id"]}reaches' for g in part))
         for g, n in zip(part, t):
             res[g['name']] = n
     return res
@@ -135,13 +146,14 @@ try:
     w['problems'] = {k: v for k, v in (s.get('site_problems') or {}).items() if v}
     q = get(base + '/search-queries/popular', {
         'order_by': 'TOTAL_SHOWS', 'query_indicator': ['TOTAL_SHOWS', 'TOTAL_CLICKS', 'AVG_SHOW_POSITION'], 'limit': 6})
-    print('ЗАПРОСЫ:', json.dumps(q, ensure_ascii=False)[:600], file=sys.stderr)
     d_to = dt.date.fromisoformat(q['date_from'][:10]) - dt.timedelta(days=1)
     q0 = get(base + '/search-queries/popular', {
         'order_by': 'TOTAL_SHOWS', 'query_indicator': ['AVG_SHOW_POSITION'],
         'date_from': (d_to - dt.timedelta(days=6)).isoformat(), 'date_to': d_to.isoformat(), 'limit': 500})
     prev = {x['query_text']: x['indicators'].get('AVG_SHOW_POSITION') for x in q0.get('queries', [])}
     w['qto'] = '.'.join(reversed(q['date_to'][:10].split('-')[1:]))
+    if (yday - dt.date.fromisoformat(q['date_to'][:10])).days > 7:
+        problems.append(f'Вебмастер не обновлял статистику запросов с {w["qto"]}, позиции старые')
     w['queries'] = []
     for x in q.get('queries', []):
         pos = x['indicators'].get('AVG_SHOW_POSITION')
