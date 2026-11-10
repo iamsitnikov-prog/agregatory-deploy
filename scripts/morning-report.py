@@ -32,6 +32,10 @@ def get(url, params=None, auth=True):
         return json.loads(r.read().decode())
 
 
+NO_ROBOTS = "ym:s:isRobot=='No'"
+ROBOTS_OFF = True
+
+
 def metrika(metrics, dims=None, date=yday, limit=20, sort=None, filters=None):
     p = {'ids': COUNTER, 'metrics': metrics, 'date1': date.isoformat(), 'date2': date.isoformat(),
          'limit': limit, 'accuracy': 'full', 'lang': 'ru'}
@@ -39,6 +43,16 @@ def metrika(metrics, dims=None, date=yday, limit=20, sort=None, filters=None):
         p['dimensions'] = dims
     if sort:
         p['sort'] = sort
+    # Роботов (по строгим правилам и по поведению) в отчёт не берём (решение Юрия 10.11.2026).
+    # Если API не примет фильтр, считаем как раньше, чтобы отчёт не сломался.
+    global ROBOTS_OFF
+    if ROBOTS_OFF:
+        try:
+            q = dict(p, filters=f'({filters}) AND {NO_ROBOTS}' if filters else NO_ROBOTS)
+            return get('https://api-metrika.yandex.net/stat/v1/data', q)
+        except Exception as ex:
+            ROBOTS_OFF = False
+            print(f'::warning::фильтр роботов не принят, считаю с роботами: {ex}', file=sys.stderr)
     if filters:
         p['filters'] = filters
     return get('https://api-metrika.yandex.net/stat/v1/data', p)
