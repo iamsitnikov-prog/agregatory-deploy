@@ -152,10 +152,18 @@ def ai_fn():
     pages = []
     if res:
         try:
+            # Без фильтров в запросе: берём пары «источник, страница входа» и отбираем нейросети сами.
             agg = {}
-            for flt in (f"ym:s:lastUTMSource=~'{AI_RE}'", f"ym:s:lastReferalSource=~'{AI_RE}'"):
-                for path, n in rows_of(metrika('ym:s:visits', 'ym:s:startURLPathFull', limit=20, filters=flt)):
-                    path = path.split('#')[0].split('?')[0] or '/'
+            for dim in ('ym:s:lastUTMSource', 'ym:s:lastReferalSource'):
+                part = {}
+                d = metrika('ym:s:visits', f'{dim},ym:s:startURLPathFull', limit=300, sort='-ym:s:visits')
+                for r in d['data']:
+                    src = (r['dimensions'][0]['name'] or '').lower()
+                    if not re.search(AI_RE, src):
+                        continue
+                    path = (r['dimensions'][1]['name'] or '').split('#')[0].split('?')[0] or '/'
+                    part[path] = part.get(path, 0) + round(r['metrics'][0])
+                for path, n in part.items():
                     agg[path] = max(agg.get(path, 0), n)
             pages = [(page_name(p_), n) for p_, n in sorted(agg.items(), key=lambda x: -x[1])[:3]]
         except Exception as ex:
