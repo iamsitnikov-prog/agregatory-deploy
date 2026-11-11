@@ -4,15 +4,13 @@
 // Пин-коды одни и те же, сменённые хранятся в api/data/docs/users.json.
 // Файл, который подключает этот, сам определяет функцию out($code, $data).
 
-// Кабинеты: у каждого свой пин-код (в репозитории только хеши).
-// all = видит весь журнал; tpl = папка шаблонов, зашифрованных этим пин-кодом.
+// Кабинеты. Пин-кодов и их отпечатков в коде нет (с 12.11.2026): свой пин-код каждого хранится только
+// на хостинге (api/data/docs/users.json), временный выдаёт бот заявок командой /pin в личном чате.
+// all = видит весь журнал; tpl = прежняя папка шаблонов (до переезда в api/data/docs/tpl/).
 const DOCS_USERS = [
-    ['id' => 'alisa', 'name' => 'Алиса', 'all' => true, 'tpl' => '',
-     'hash' => '$2y$11$rQ8HzcREARElUzMfyCkzu.bwIRFuHjR9Nq1.Bm3c.kVXN1m4bVWG6'],
-    ['id' => 'yuri', 'name' => 'Юрий', 'all' => true, 'tpl' => 'yuri/', 'admin' => true,
-     'hash' => '$2y$11$KJcooU2DCiWyxaG8FmOJJuMr778dHWQdzSkVYjeAqEGHKEvJ7Y1D.'],
-    ['id' => 'lilia', 'name' => 'Лиля', 'all' => false, 'tpl' => 'lilia/',
-     'hash' => '$2y$11$DPM0rs5z2LhztLOtdcEI/.aI87ysjNcKp9jafo/xCruOCOMzzYq7y'],
+    ['id' => 'alisa', 'name' => 'Алиса', 'all' => true, 'tpl' => ''],
+    ['id' => 'yuri', 'name' => 'Юрий', 'all' => true, 'tpl' => 'yuri/', 'admin' => true],
+    ['id' => 'lilia', 'name' => 'Лиля', 'all' => false, 'tpl' => 'lilia/'],
 ];
 $USER = null;
 $TK = '';          // ключ шаблонов: первый пин-код кабинета (шаблоны зашифрованы им)
@@ -104,7 +102,10 @@ function tpl_migrate_known() {
     foreach (DOCS_USERS as $u) {
         $old = (string)($pins[$u['id']]['tk'] ?? '');
         if ($old !== '' && tpl_key($u['id']) === '' && tpl_migrate($u, $old)) $done[] = $u['id'];
+        // шаблоны переехали: прежний короткий ключ больше не нужен, стираем
+        if ($old !== '' && tpl_key($u['id']) !== '') { $pins[$u['id']]['tk'] = ''; $dirty = true; }
     }
+    if (!empty($dirty)) pins_write($pins);
     return $done;
 }
 // Что уже сделано (без секретов): у кого свой пин-код и у кого шаблоны переехали
