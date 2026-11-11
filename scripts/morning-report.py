@@ -127,6 +127,43 @@ m['search0'] = sum(n for s_, n in (safe('Метрика, источники не
 m['engines'] = [x for x in (safe('Метрика, поисковики', lambda: clients('ym:s:lastSearchEngineRoot')) or []) if x[0]]
 m['sites'] = [x for x in (safe('Метрика, сайты', lambda: clients('ym:s:lastReferalSource')) or []) if x[0]]
 m['social'] = [x for x in (safe('Метрика, соцсети', lambda: clients('ym:s:lastSocialNetwork')) or []) if x[0]]
+
+# ---------- Заходы из нейросетей (ChatGPT, Perplexity, Алиса и другие) ----------
+# Ловим двумя способами: по сайту, с которого пришли, и по метке utm_source (ChatGPT ставит её сам).
+AI = [('ChatGPT', r'chatgpt|openai'), ('Perplexity', r'perplexity'), ('Claude', r'claude\.ai|anthropic'),
+      ('Gemini', r'gemini\.google|bard\.google'), ('Copilot', r'copilot'), ('DeepSeek', r'deepseek'),
+      ('Алиса', r'alice\.yandex|ya\.ru/alice|alisa'), ('GigaChat', r'giga\.chat|gigachat')]
+AI_RE = '|'.join(r for _, r in AI)
+
+
+def ai_fn():
+    ref = clients('ym:s:lastReferalSource', limit=100)
+    try:
+        utm = clients('ym:s:lastUTMSource', limit=100)
+    except Exception as ex:
+        utm = []
+        print(f'::warning::метки utm_source не получены: {ex}', file=sys.stderr)
+    res = []
+    for name, rx in AI:
+        a = sum(n for k, n in ref if re.search(rx, (k or '').lower()))
+        b_ = sum(n for k, n in utm if re.search(rx, (k or '').lower()))
+        if max(a, b_):
+            res.append((name, max(a, b_)))
+    pages = []
+    if res:
+        try:
+            agg = {}
+            for flt in (f"ym:s:lastUTMSource=~'{AI_RE}'", f"ym:s:lastReferalSource=~'{AI_RE}'"):
+                for path, n in rows_of(metrika('ym:s:visits', 'ym:s:startURLPathFull', limit=20, filters=flt)):
+                    path = path.split('#')[0].split('?')[0] or '/'
+                    agg[path] = max(agg.get(path, 0), n)
+            pages = [(page_name(p_), n) for p_, n in sorted(agg.items(), key=lambda x: -x[1])[:3]]
+        except Exception as ex:
+            print(f'::warning::страницы входа из нейросетей не получены: {ex}', file=sys.stderr)
+    return res, pages
+
+
+m['ai'] = safe('Метрика, нейросети', ai_fn)
 def page_name(path):
     if path in ('', '/'):
         return 'Главная'
@@ -284,6 +321,13 @@ if m.get('sources'):
     for name, n in m['sources']:
         if 'прям' in (name or '').lower():
             rows.append(line('↪️', 'Прямые заходы', n))
+    if m.get('ai') is not None:
+        ai_rows, ai_pages = m['ai']
+        n_ai = sum(n for _, n in ai_rows)
+        det = ', '.join(f'{name} {n}' for name, n in ai_rows)
+        rows.append(f'🤖 Из нейросетей · <b>{n_ai}</b>' + (f' ({e(det)})' if det else ''))
+        for p_, n in ai_pages:
+            rows.append(f'      ↳ {e(p_)} · {n}')
     if m.get('staff'):
         rows.append(f'👤 Свои заходы · {m["staff"]} (не считаем)')
     if m.get('entry'):
