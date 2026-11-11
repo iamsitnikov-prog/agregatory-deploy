@@ -1,0 +1,46 @@
+name: Цели Метрики (создать недостающие)
+
+# Создаёт в счётчике agregatory.pro цели типа «JavaScript-событие», которых ещё нет.
+# Запуск вручную: в поле goals список «идентификатор=Название», по одной на строку через «;».
+# Существующие цели не трогает. Результат виден в аннотациях запуска.
+
+on:
+  workflow_dispatch:
+    inputs:
+      goals:
+        description: "идентификатор=Название; идентификатор=Название"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  goals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
+      GOALS: ${{ inputs.goals }}
+    steps:
+      - name: Создаём цели
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.error
+          C = 112965538
+          H = {'Authorization': 'OAuth ' + os.environ['YANDEX_TOKEN'], 'Content-Type': 'application/json'}
+          base = f'https://api-metrika.yandex.net/management/v1/counter/{C}/goals'
+          have = json.load(urllib.request.urlopen(urllib.request.Request(base, headers=H), timeout=40))['goals']
+          ids = {c.get('url') for g in have for c in g.get('conditions', [])}
+          print(f'::notice::Целей в счётчике: {len(have)}')
+          for item in os.environ['GOALS'].split(';'):
+              if '=' not in item: continue
+              ident, name = [x.strip() for x in item.split('=', 1)]
+              if ident in ids:
+                  print(f'::notice::{ident}: уже есть'); continue
+              body = json.dumps({'goal': {'name': name, 'type': 'action', 'conditions': [{'type': 'exact', 'url': ident}]}}).encode()
+              try:
+                  r = json.load(urllib.request.urlopen(urllib.request.Request(base, data=body, headers=H, method='POST'), timeout=40))
+                  print(f'::notice::{ident}: создана, id {r["goal"]["id"]}')
+              except urllib.error.HTTPError as ex:
+                  print(f'::error::{ident}: {ex.code} {ex.read().decode()[:200]}')
+          PY
