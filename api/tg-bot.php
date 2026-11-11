@@ -114,17 +114,6 @@ function bot_ensure_hook() {
             ['command' => 'zayavki', 'description' => 'Невзятые заявки'],
         ], JSON_UNESCAPED_UNICODE), 'scope' => json_encode(['type' => 'all_group_chats'])]);
         bot_state_update(function (&$d) { $d['hook'] = BOT_HOOK_VERSION; });
-        // один раз рассказываем группе, что появилось (без звука)
-        if (empty(bot_state()['announced']) && bot_group() !== '') {
-            $ok2 = bot_send(bot_group(), "🆕 <b>Под новыми заявками теперь кнопки</b>\n\n"
-                . "✋ <b>Взять заявку</b>: кто нажал, тот ведёт её в кабинете, шапка из красной станет зелёной\n"
-                . "✖️ <b>Отказ</b>: причина кнопкой или своим текстом\n"
-                . "⏰ Если заявка висит невзятой дольше часа (с 10 до 21), бот напомнит\n"
-                . "🌙 В 22:00 сводка дня и список невзятых\n\n"
-                . "Команды: /otkazy покажет отказы за 30 дней, /zayavki покажет невзятые.\n"
-                . "При первом нажатии бот один раз спросит, кто ты.", ['disable_notification' => 'true']);
-            if ($ok2) bot_state_update(function (&$d) { $d['announced'] = 1; });
-        }
     }
     return $ok;
 }
@@ -364,6 +353,7 @@ function bot_tick() {
     $log = [];
     if (bot_token() === '' || bot_group() === '') return $log;
     if (!bot_ensure_hook()) $log[] = 'бот: не удалось включить приём нажатий';
+    try { foreach (bot_intro() as $x) $log[] = $x; } catch (Throwable $e) { $log[] = 'бот: памятка не ушла: ' . $e->getMessage(); }
     $now = bot_msk();
     $hm = (int)$now->format('Hi');
     $today = $now->format('Y-m-d');
@@ -398,5 +388,77 @@ function bot_tick() {
             $log[] = 'бот: вечерняя сводка не ушла';
         }
     }
+    return $log;
+}
+
+// --- Один раз (11.11.2026, просьба Юрия): памятка для группы, образец заявки и вчерашние заявки с кнопками ---
+function bot_intro() {
+    $chat = bot_group();
+    if ($chat === '' || (int)(bot_state()['hook'] ?? 0) !== BOT_HOOK_VERSION) return [];
+    $first = bot_state_update(function (&$d) { if (!empty($d['intro'])) return false; $d['intro'] = crm_now(); return true; });
+    if (!$first) return [];
+    $quiet = ['disable_notification' => 'true'];
+    $log = [];
+
+    $ok = bot_send($chat, "🆕 <b>Заявки теперь разбираем прямо здесь</b>\n\n"
+        . "Алиса, Лиля, привет! Под каждой новой заявкой появились кнопки. В кабинет заходить не обязательно, всё само туда запишется.\n\n"
+        . "🔴 <b>Красная шапка</b>\nЗаявку ещё никто не взял.\n\n"
+        . "✋ <b>Взять заявку</b>\nКто нажал, тот её и ведёт. Шапка станет зелёной, и всем видно, чья заявка.\n\n"
+        . "✖️ <b>Отказ</b>\nВыбери причину кнопкой. Нет подходящей? Нажми «Своя причина» и напиши её ответом боту.\n\n"
+        . "⏰ <b>Напоминание</b>\nЗаявка висит без хозяина дольше часа? Бот напомнит. Только с 10 до 21.\n\n"
+        . "🌙 <b>Сводка в 22:00</b>\nСколько пришло, кто что взял, какие отказы и что осталось висеть.\n\n"
+        . "⌨️ <b>Команды</b>\n/zayavki  невзятые заявки\n/otkazy  отказы за 30 дней\n\n"
+        . "☝️ При первом нажатии бот один раз спросит, кто ты. Нажми своё имя, и дальше всё работает.", $quiet);
+    if (!$ok) { // попробуем ещё раз при следующей проверке
+        bot_state_update(function (&$d) { unset($d['intro']); });
+        return ['бот: памятка не ушла, повторю'];
+    }
+    $log[] = 'бот: памятка отправлена';
+    usleep(400000);
+
+    $demo = ['inline_keyboard' => [
+        [['text' => '✋ Взять заявку', 'callback_data' => 'd'], ['text' => '✖️ Отказ', 'callback_data' => 'd']],
+        [['text' => '📂 В кабинете', 'url' => 'https://agregatory.pro/dokumenty?tab=zayavki']],
+    ]];
+    bot_send($chat, "👇 <b>Так выглядит новая заявка</b>\n<i>Это образец, не настоящая заявка</i>\n\n"
+        . "🔴🔴🔴 <b>НОВАЯ ЗАЯВКА № 00</b> 🔴🔴🔴\n\n"
+        . "👤 <b>Имя:</b> Мария\n📞 <b>Телефон:</b> +7 900 000-00-00\n<b>Заведение:</b> Кафе «Пример», Казань\n"
+        . "<b>Услуга:</b> Аудит кабинета\n<b>Связь:</b> Telegram\n<b>Комментарий:</b> Хотим поднять рейтинг\n\n"
+        . "После «Взять заявку» шапка станет такой:\n🟢 <b>Заявка № 00</b> · ведёт Алиса, с 10:15\n\n"
+        . "После отказа такой:\n⚪ <b>Заявка № 00</b> · отказ: Не дозвонились (Лиля)",
+        $quiet + ['reply_markup' => json_encode($demo, JSON_UNESCAPED_UNICODE)]);
+    usleep(400000);
+
+    // заявки за вчера и за сегодня: невзятые выкладываем заново, уже с кнопками
+    $y = bot_msk()->modify('-1 day')->format('Y-m-d');
+    $db = crm_read();
+    $open = []; $done = 0;
+    foreach (($db['items'] ?? []) as $l) {
+        if (substr((string)$l['created'], 0, 10) < $y) continue;
+        if (bot_is_open($l) && empty($l['tg']['mid'])) $open[] = $l; elseif (!bot_is_open($l)) $done++;
+    }
+    $dm = substr($y, 8, 2) . '.' . substr($y, 5, 2);
+    if (!$open) {
+        bot_send($chat, "📋 <b>Заявки со вчера, {$dm}</b>\n\n✅ Неразобранных нет" . ($done ? ", {$done} уже в работе или закрыты" : '') . '. Новые будут приходить сюда уже с кнопками.', $quiet);
+        $log[] = 'бот: вчерашних невзятых нет';
+        return $log;
+    }
+    $n = count($open);
+    $open = array_slice($open, -15);
+    bot_send($chat, "📋 <b>Разберите, пожалуйста, заявки со вчера, {$dm}</b>\n\n"
+        . "🔴 Без хозяина: <b>{$n}</b>" . ($done ? "\n🟢 Уже в работе или закрыты: {$done}" : '') . "\n\n"
+        . "Они ниже, под каждой кнопки. Нажмите «Взять заявку» или «Отказ» на каждой, чтобы красных не осталось. Спасибо! 🙌", $quiet);
+    $sent = 0;
+    foreach ($open as $l) {
+        usleep(400000);
+        $mid = bot_send($chat, bot_lead_text($l) . "\n\n<i>Пришла " . substr($l['created'], 8, 2) . '.' . substr($l['created'], 5, 2) . ' в ' . bot_hm($l['created']) . '</i>',
+            $quiet + ['reply_markup' => json_encode(bot_lead_kb($l), JSON_UNESCAPED_UNICODE)]);
+        if (!$mid) continue;
+        $id = (int)$l['id']; $sent++;
+        crm_update(function (&$db) use ($id, $chat, $mid) {
+            foreach ($db['items'] as &$x) if ((int)$x['id'] === $id) { $x['tg'] = ['chat' => $chat, 'mid' => $mid]; break; }
+        });
+    }
+    $log[] = "бот: вчерашних заявок выложено {$sent} из {$n}";
     return $log;
 }

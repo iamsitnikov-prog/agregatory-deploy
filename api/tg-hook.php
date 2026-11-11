@@ -46,6 +46,8 @@ function hook_callback($cq) {
     $act = $p[0];
     $tgId = (string)($from['id'] ?? '');
 
+    if ($act === 'd') { hook_answer($cq, 'Это образец. Под настоящей заявкой кнопка сработает.', true); return; }
+
     // «Кто ты в кабинете»: один раз для каждого
     if ($act === 'i') {
         $uid = (string)($p[1] ?? '');
