@@ -160,6 +160,15 @@ if ($a === 'update') {
     });
     if (!$res) out(404, ['error' => 'Заявка не найдена']);
     if (isset($res['error'])) out(400, ['error' => $res['error']]);
+    // сообщение о заявке в рабочей группе показывает то же, что кабинет
+    try {
+        require_once __DIR__ . '/tg-bot.php';
+        $it = $res['item'];
+        if (!empty($it['tg']['mid'])) {
+            if ($it['status'] === 'refused') $it['tg']['by'] = $it['tg']['by'] ?? $USER['name'];
+            bot_refresh($it);
+        }
+    } catch (Throwable $e) { error_log('TG REFRESH: ' . $e->getMessage()); }
     $notified = false;
     if ($res['assigned'] !== '' && $res['assigned'] !== $USER['id']) {
         $notified = tg_group(($NAMES[$res['assigned']] ?? $res['assigned']) . ", {$USER['name']} передаёт тебе заявку\n\n" . lead_line($res['item']));
@@ -275,23 +284,13 @@ if ($a === 'tglink') {
 if ($a === 'tgcheck') {
     $tg = tg_read();
     $p = $tg['pending'][$USER['id']] ?? null;
+    if (!empty($tg['users'][$USER['id']]['chat'])) out(200, ['ok' => true]);
     if (!$p || $p['at'] < time() - 86400) out(400, ['error' => 'Сначала нажми «подключить уведомления»']);
-    $r = tg_api('getUpdates', ['limit' => 100, 'allowed_updates' => json_encode(['message'])]);
-    if (($r['code'] ?? 0) === 409) out(502, ['error' => 'Бот занят другой программой, личные уведомления так не подключить. Напиши Юрию.']);
-    if (($r['code'] ?? 0) !== 200) out(502, ['error' => 'Бот заявок сейчас не отвечает, попробуй через минуту']);
-    $chat = '';
-    foreach ($r['body']['result'] ?? [] as $u) {
-        $m = $u['message'] ?? [];
-        if (trim((string)($m['text'] ?? '')) === '/start crm' . $p['code'] && ($m['chat']['type'] ?? '') === 'private') {
-            $chat = (string)$m['chat']['id'];
-        }
-    }
-    if ($chat === '') out(200, ['ok' => false, 'error' => 'Бот пока не видит «Старт». Открой ссылку, нажми «Старт» и проверь ещё раз']);
-    unset($tg['pending'][$USER['id']]);
-    $tg['users'][$USER['id']] = ['chat' => $chat, 'at' => crm_now()];
-    tg_write($tg);
-    tg_dm($USER['id'], "Готово, {$USER['name']}! Сюда будут приходить заявки, которые передают тебе в кабинете agregatory.pro.");
-    out(200, ['ok' => true]);
+    // С 11.11.2026 «Старт» ловит api/tg-hook.php и сам записывает человека в tg.json
+    if (!empty($tg['users'][$USER['id']]['chat'])) out(200, ['ok' => true]);
+    require_once __DIR__ . '/tg-bot.php';
+    bot_ensure_hook();
+    out(200, ['ok' => false, 'error' => 'Бот пока не видит «Старт». Открой ссылку, нажми «Старт» и проверь ещё раз']);
 }
 
 if ($a === 'tgoff') {

@@ -157,7 +157,20 @@ $tg = false;
 $token = trim((string)($cfg['tg_token'] ?? ''));
 $chats = array_filter(array_map('trim', explode(',', (string)($cfg['tg_chat'] ?? ''))));
 if ($token !== '' && $chats && function_exists('curl_init')) {
-    foreach ($chats as $chat) {
+    // В рабочую группу заявка уходит с кнопками «Взять заявку» и «Отказ» (api/tg-bot.php).
+    // Если с кнопками не вышло, шлём обычным сообщением, чтобы заявка не потерялась.
+    $withButtons = false;
+    if ($crm && is_file(__DIR__ . '/tg-bot.php')) {
+        try {
+            require_once __DIR__ . '/tg-bot.php';
+            $withButtons = bot_post_lead($crm);
+        } catch (Throwable $e) {
+            error_log('TG BUTTONS FAILED: ' . $e->getMessage());
+        }
+    }
+    if ($withButtons) $tg = true;
+    foreach (array_values($chats) as $i => $chat) {
+        if ($withButtons && $i === 0) continue;
         if (tg_send($token, $chat, $html)) $tg = true;
     }
 }

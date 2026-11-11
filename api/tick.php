@@ -26,6 +26,19 @@ if (!$cli) {
         http_response_code(404); echo "not found\n"; exit;
     }
 }
+// Бот заявок: напоминания о невзятых и вечерняя сводка в 22:00 (api/tg-bot.php)
+try {
+    require_once __DIR__ . '/tg-bot.php';
+    $botLog = bot_tick();
+    if ($botLog) {
+        if (!is_dir(__DIR__ . '/data')) @mkdir(__DIR__ . '/data', 0700, true);
+        file_put_contents(__DIR__ . '/data/tick.log', implode("\n", array_map(fn($x) => date('c') . ' ' . $x, $botLog)) . "\n", FILE_APPEND);
+        echo implode("\n", $botLog) . "\n";
+    }
+} catch (Throwable $e) {
+    echo 'бот: ' . $e->getMessage() . "\n";
+}
+
 $gh = trim((string)($cfg['gh_token'] ?? ''));
 if ($gh === '') { echo "нет ключа GitHub (GH_DISPATCH_TOKEN)\n"; exit; }
 
