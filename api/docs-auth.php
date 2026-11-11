@@ -26,15 +26,30 @@ function pins_write($p) { @file_put_contents(pins_file(), json_encode($p, JSON_U
 
 // --- Защита от подбора пин-кода: 5 ошибок за час с одного адреса ----------
 function client_ip() {
-    $ip = (string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '');
-    return substr(trim(explode(',', $ip)[0]), 0, 64);
+    // Адрес берём только из того, что выставляет сам хостинг: настоящий адрес соединения,
+    // а если запрос пришёл через внутренний прокси хостинга — X-Real-IP или последний адрес
+    // в X-Forwarded-For (его дописывает прокси). Первый адрес из X-Forwarded-For присылает
+    // посетитель, по нему считать ошибки входа нельзя.
+    $pub = fn($ip) => (bool)filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+    $ra = trim((string)($_SERVER['REMOTE_ADDR'] ?? ''));
+    if ($pub($ra)) return substr($ra, 0, 64);
+    $real = trim((string)($_SERVER['HTTP_X_REAL_IP'] ?? ''));
+    if ($pub($real)) return substr($real, 0, 64);
+    $xff = array_map('trim', explode(',', (string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')));
+    $last = (string)end($xff);
+    if ($pub($last)) return substr($last, 0, 64);
+    return substr($ra !== '' ? $ra : 'unknown', 0, 64);
 }
 function fails_file() { return __DIR__ . '/data/docs/fails.json'; }
 function too_many_fails() {
     $f = @json_decode((string)@file_get_contents(fails_file()), true) ?: [];
     $ip = client_ip();
     $list = array_filter($f[$ip] ?? [], fn($t) => $t > time() - 3600);
-    return count($list) >= 5;
+    if (count($list) >= 5) return true;
+    // Общий предел на кабинет: больше 60 ошибок за час со всех адресов — вход закрыт для всех до конца часа.
+    $all = 0;
+    foreach ($f as $ts) foreach ((array)$ts as $t) if ($t > time() - 3600) $all++;
+    return $all >= 60;
 }
 function note_fail() {
     $f = @json_decode((string)@file_get_contents(fails_file()), true) ?: [];

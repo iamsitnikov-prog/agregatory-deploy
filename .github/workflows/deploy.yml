@@ -102,7 +102,6 @@ jobs:
           cp deploy/api/docs.php site/dist/api/
           # Раздел «Заявки» (CRM) в том же кабинете: общий вход по пин-кодам и база заявок
           cp deploy/api/docs-auth.php deploy/api/crm.php deploy/api/crm-lib.php deploy/api/pin-reset.php site/dist/api/
-          cp deploy/api/eda-probe.php site/dist/api/
           # Будильник: cron хостинга раз в 30 минут запускает задачи на GitHub (с 8.11.2026)
           cp deploy/api/tick.php site/dist/api/
           mkdir -p site/dist/api/docs && cp deploy/api/docs/*.docx.enc site/dist/api/docs/ && mkdir -p site/dist/api/docs/lilia && cp deploy/api/docs/lilia/*.docx.enc site/dist/api/docs/lilia/ && mkdir -p site/dist/api/docs/yuri && cp deploy/api/docs/yuri/*.docx.enc site/dist/api/docs/yuri/
