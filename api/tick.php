@@ -39,6 +39,19 @@ try {
     echo 'бот: ' . $e->getMessage() . "\n";
 }
 
+// Шаблоны договоров: перекладываем в закрытую папку у тех, чей прежний ключ уже лежит на хостинге
+try {
+    require_once __DIR__ . '/docs-auth.php';
+    $moved = tpl_migrate_known();
+    if ($moved) {
+        $line = date('c') . ' шаблоны переехали: ' . implode(', ', $moved);
+        file_put_contents(__DIR__ . '/data/tick.log', $line . "\n", FILE_APPEND);
+        echo $line . "\n";
+    }
+} catch (Throwable $e) {
+    echo 'шаблоны: ' . $e->getMessage() . "\n";
+}
+
 $gh = trim((string)($cfg['gh_token'] ?? ''));
 if ($gh === '') { echo "нет ключа GitHub (GH_DISPATCH_TOKEN)\n"; exit; }
 

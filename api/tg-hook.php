@@ -53,6 +53,8 @@ function hook_callback($cq) {
         $uid = (string)($p[1] ?? '');
         if (($p[2] ?? '') !== $tgId) { hook_answer($cq, 'Этот вопрос не тебе', true); return; }
         if (!isset(BOT_TEAM[$uid])) { hook_answer($cq); return; }
+        // имя с известным ником может занять только этот ник
+        if (isset(BOT_NICKS[$uid]) && strcasecmp((string)($from['username'] ?? ''), BOT_NICKS[$uid]) !== 0) { hook_answer($cq, BOT_TEAM[$uid] . ' это @' . BOT_NICKS[$uid] . '. Выбери своё имя.', true); return; }
         $res = bot_state_update(function (&$d) use ($uid, $tgId) {
             foreach (($d['ids'] ?? []) as $tg => $x) if ($x === $uid && (string)$tg !== $tgId) return 'busy';
             foreach (($d['users'] ?? []) as $x => $v) if ($x === $uid && (string)($v['chat'] ?? '') !== '' && (string)$v['chat'] !== $tgId) return 'busy';
@@ -137,6 +139,7 @@ function hook_message($m) {
 
     // Личные уведомления кабинета: человек открыл бота по ссылке и нажал «Старт»
     if ($type === 'private') {
+        if (preg_match('~^/pin(@\w+)?$~', $text)) { hook_pin($chat, $from); return; }
         if (preg_match('~^/start crm([0-9a-f]{12})$~', $text, $mm)) {
             $uid = bot_state_update(function (&$d) use ($mm, $chat) {
                 foreach (($d['pending'] ?? []) as $id => $p) {
@@ -177,4 +180,29 @@ function hook_message($m) {
     if (preg_match('~^/(otkazy|zayavki)(@\w+)?(\s|$)~u', $text, $mm)) {
         bot_send($chat, $mm[1] === 'otkazy' ? bot_refusals_text() : bot_open_text());
     }
+}
+
+// /pin в личном чате: временный пин-код для кабинета. Бот шлёт его только самому человеку,
+// в коде и в переписке с разработчиком пин-кодов нет.
+function hook_pin($chat, $from) {
+    require_once __DIR__ . '/docs-auth.php';
+    $uid = bot_user_by_tg($chat);
+    if ($uid === '' ) {
+        foreach (BOT_NICKS as $id => $nick) if (strcasecmp((string)($from['username'] ?? ''), $nick) === 0) $uid = $id;
+        if ($uid !== '') bot_state_update(function (&$d) use ($uid, $chat) { $d['ids'][(string)$chat] = $uid; });
+    }
+    if ($uid === '') { bot_send($chat, 'Не узнаю тебя. Нажми любую кнопку под заявкой в рабочей группе, бот спросит имя, и после этого напиши /pin ещё раз.'); return; }
+    if (isset(BOT_NICKS[$uid]) && strcasecmp((string)($from['username'] ?? ''), BOT_NICKS[$uid]) !== 0) { bot_send($chat, 'Пин-код для этого кабинета выдаётся только аккаунту @' . BOT_NICKS[$uid] . '.'); return; }
+    $pins = pins_read();
+    $own = $pins[$uid] ?? null;
+    if (!$own && tpl_key($uid) === '') {
+        bot_send($chat, 'Сначала один раз войди в кабинет по своему нынешнему пин-коду: agregatory.pro/dokumenty. После этого /pin заработает. Не помнишь пин-код? Напиши Юрию.');
+        return;
+    }
+    if (($own['temp']['at'] ?? 0) > time() - 600) { bot_send($chat, 'Временный пин-код я уже присылал меньше 10 минут назад, он выше в этом чате и ещё действует.'); return; }
+    do { $pin = (string)random_int(100000, 999999); } while (preg_match('/^(\d)\1+$/', $pin) || strpos('0123456789', $pin) !== false || strpos('9876543210', $pin) !== false);
+    $pins[$uid] = ($own ?: ['hash' => '', 'tk' => '', 'at' => date('c')]);
+    $pins[$uid]['temp'] = ['hash' => password_hash($pin, PASSWORD_BCRYPT, ['cost' => 11]), 'at' => time()];
+    pins_write($pins);
+    bot_send($chat, "🔑 <b>Временный пин-код для кабинета</b>\n\n<code>{$pin}</code>\n\nДействует 24 часа. Войди на agregatory.pro/dokumenty, кабинет сразу попросит придумать свой пин-код: от 6 до 8 цифр.\n\nТвой прежний пин-код продолжает работать, пока ты не задашь новый.", ['protect_content' => 'true']);
 }

@@ -60,20 +60,39 @@ function dadata($path, $body) {
 if ($a === 'login' && $method === 'POST') {
     auth();
     out(200, ['ok' => true, 'dadata' => dadata_key() !== '', 'tk' => $TK, 'must_change' => $MUST_CHANGE,
+        'tpl_new' => tpl_key($USER['id']) !== '', 'pin_min' => PIN_MIN,
         'user' => ['id' => $USER['id'], 'name' => $USER['name'], 'all' => $USER['all'], 'tpl' => $USER['tpl'], 'admin' => !empty($USER['admin'])]]);
+}
+
+// Что уже сделано по переезду (без секретов, только да/нет)
+if ($a === 'secstate') out(200, ['state' => sec_state()]);
+
+// Шаблон договора из закрытой папки хостинга (после переезда), только после входа
+if ($a === 'tpl' && $method === 'GET') {
+    auth();
+    $name = (string)($_GET['name'] ?? '');
+    if (!in_array($name, ['ip', 'ooo', 'consult'], true)) out(400, ['error' => 'Нет такого шаблона']);
+    $f = tpl_dir($USER['id']) . '/' . $name . '.docx.enc';
+    if (tpl_key($USER['id']) === '' || !is_file($f)) out(404, ['error' => 'Шаблон ещё не переехал']);
+    header('Content-Type: application/octet-stream');
+    header('Content-Length: ' . filesize($f));
+    readfile($f);
+    exit;
 }
 
 // Смена пин-кода на свой
 if ($a === 'setpin' && $method === 'POST') {
     auth();
     $new = preg_replace('/\D/', '', (string)($_POST['pin'] ?? ''));
-    if (strlen($new) < 4 || strlen($new) > 8) out(400, ['error' => 'Пин-код: от 4 до 8 цифр']);
+    if (strlen($new) < PIN_MIN || strlen($new) > 8) out(400, ['error' => 'Пин-код: от ' . PIN_MIN . ' до 8 цифр']);
     if (preg_match('/^(\d)\1+$/', $new) || strpos('0123456789', $new) !== false || strpos('9876543210', $new) !== false)
         out(400, ['error' => 'Слишком простой пин-код (одинаковые цифры или подряд). Придумайте другой']);
-    foreach (DOCS_USERS as $u) if (password_verify($new, $u['hash'])) out(400, ['error' => 'Этот пин-код уже выдан. Придумайте свой']);
+    foreach (DOCS_USERS as $u) if (!empty($u['hash']) && password_verify($new, $u['hash'])) out(400, ['error' => 'Этот пин-код уже выдан. Придумайте свой']);
     $pins = pins_read();
-    foreach ($pins as $id => $p) if ($id !== $USER['id'] && password_verify($new, $p['hash'])) out(400, ['error' => 'Такой пин-код уже занят. Придумайте другой']);
-    $pins[$USER['id']] = ['hash' => password_hash($new, PASSWORD_BCRYPT, ['cost' => 11]), 'tk' => $TK, 'at' => date('c')];
+    foreach ($pins as $id => $p) if ($id !== $USER['id'] && !empty($p['hash']) && password_verify($new, $p['hash'])) out(400, ['error' => 'Такой пин-код уже занят. Придумайте другой']);
+    // прежний ключ шаблонов храним, пока шаблоны этого кабинета не переехали; временный пин-код гасим
+    $oldTk = (string)($pins[$USER['id']]['tk'] ?? (tpl_key($USER['id']) === '' ? $TK : ''));
+    $pins[$USER['id']] = ['hash' => password_hash($new, PASSWORD_BCRYPT, ['cost' => 11]), 'tk' => tpl_key($USER['id']) !== '' ? '' : $oldTk, 'at' => date('c')];
     pins_write($pins);
     out(200, ['ok' => true]);
 }
@@ -84,7 +103,10 @@ if ($a === 'resetpin' && $method === 'POST') {
     if (empty($USER['admin'])) out(403, ['error' => 'Нет доступа']);
     $id = (string)($_POST['id'] ?? '');
     $pins = pins_read();
-    unset($pins[$id]);
+    if (!isset($pins[$id])) out(200, ['ok' => true]);
+    // гасим только сам пин-код: ключ шаблонов остаётся. Новый временный пин-код человек берёт у бота: /pin в личном чате
+    $pins[$id]['hash'] = '';
+    unset($pins[$id]['temp']);
     pins_write($pins);
     out(200, ['ok' => true]);
 }
@@ -92,7 +114,7 @@ if ($a === 'pins' && $method === 'GET') {
     auth();
     if (empty($USER['admin'])) out(403, ['error' => 'Нет доступа']);
     $pins = pins_read();
-    out(200, ['users' => array_map(fn($u) => ['id' => $u['id'], 'name' => $u['name'], 'own' => isset($pins[$u['id']]), 'at' => $pins[$u['id']]['at'] ?? ''], DOCS_USERS)]);
+    out(200, ['users' => array_map(fn($u) => ['id' => $u['id'], 'name' => $u['name'], 'own' => !empty($pins[$u['id']]['hash']), 'tpl' => tpl_key($u['id']) !== '', 'at' => $pins[$u['id']]['at'] ?? ''], DOCS_USERS)]);
 }
 
 // --- Банк по БИК (открытые данные ЦБ, без пароля) ---------------------------
