@@ -400,7 +400,7 @@ function bot_intro() {
     if ($chat === '' || (int)(bot_state()['hook'] ?? 0) !== BOT_HOOK_VERSION) return [];
     $first = bot_state_update(function (&$d) { if (!empty($d['intro'])) return false; $d['intro'] = crm_now(); return true; });
     if (!$first) return [];
-    $quiet = ['disable_notification' => 'true'];
+    $quiet = []; // со звуком (Юрий, 11.11)
     $log = [];
 
     $ok = bot_send($chat, "🆕 <b>Заявки теперь разбираем прямо здесь</b>\n\n"
