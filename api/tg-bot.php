@@ -11,6 +11,8 @@
 require_once __DIR__ . '/crm-lib.php';
 
 const BOT_TEAM = ['lilia' => 'Лиля', 'alisa' => 'Алиса', 'yuri' => 'Юрий'];
+// Ники в Telegram (назвал Юрий 11.11.2026): по ним бот тегает, пока человек сам не нажал кнопку и бот не узнал его аккаунт
+const BOT_NICKS = ['alisa' => 'agregatoryandex', 'lilia' => 'LK728'];
 const BOT_REASONS = ['Не дозвонились', 'Не наш профиль', 'Дорого', 'Передумал', 'Дубль', 'Спам'];
 const BOT_HOOK_VERSION = 1;
 const BOT_REPORT_AT = 2200;      // вечерняя сводка, МСК
@@ -91,7 +93,8 @@ function bot_tg_of($userId) {
 function bot_mention($userId) {
     $name = BOT_TEAM[$userId] ?? $userId;
     $tg = bot_tg_of($userId);
-    return $tg !== '' ? "<a href=\"tg://user?id={$tg}\">" . bot_e($name) . '</a>' : bot_e($name);
+    if ($tg !== '') return "<a href=\"tg://user?id={$tg}\">" . bot_e($name) . '</a>';
+    return isset(BOT_NICKS[$userId]) ? bot_e($name) . ' @' . BOT_NICKS[$userId] : bot_e($name);
 }
 function bot_mention_all() {
     return implode(', ', array_map('bot_mention', array_keys(BOT_TEAM)));
@@ -401,7 +404,7 @@ function bot_intro() {
     $log = [];
 
     $ok = bot_send($chat, "🆕 <b>Заявки теперь разбираем прямо здесь</b>\n\n"
-        . "Алиса, Лиля, привет! Под каждой новой заявкой появились кнопки. В кабинет заходить не обязательно, всё само туда запишется.\n\n"
+        . "Алиса @agregatoryandex, Лиля @LK728, привет! Под каждой новой заявкой появились кнопки. В кабинет заходить не обязательно, всё само туда запишется.\n\n"
         . "🔴 <b>Красная шапка</b>\nЗаявку ещё никто не взял.\n\n"
         . "✋ <b>Взять заявку</b>\nКто нажал, тот её и ведёт. Шапка станет зелёной, и всем видно, чья заявка.\n\n"
         . "✖️ <b>Отказ</b>\nВыбери причину кнопкой. Нет подходящей? Нажми «Своя причина» и напиши её ответом боту.\n\n"
