@@ -1,0 +1,26 @@
+name: Данные для позиций (Вебмастер и Метрика, только чтение)
+
+# 13.11.2026: выгрузка запросов, позиций и поисковых фраз в ветку seo-data (для работы над топом выдачи).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Выгружаю
+        run: |
+          python3 tools/seo-pull.py /tmp/seo | tee /tmp/log.txt
+          while IFS= read -r l; do echo "::notice::$l"; done < /tmp/log.txt
+      - name: Кладу в ветку seo-data
+        run: |
+          git config user.name "seo-pull"; git config user.email "seo-pull@users.noreply.github.com"
+          git checkout --orphan seo-data && git rm -rqf . && cp /tmp/seo/*.json . && git add *.json
+          git commit -qm "Данные для позиций $(date -u +%F)" && git push -qf origin seo-data
