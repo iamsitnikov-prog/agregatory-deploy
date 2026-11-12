@@ -134,6 +134,8 @@ function bot_ensure_hook() {
 
 // --- Сообщение о заявке ---
 function bot_is_open($l) { return ($l['status'] ?? '') === 'new' && ($l['owner'] ?? '') === ''; }
+// Скачанный чек-лист (12.11.2026): не заявка, без напоминаний и без «висят невзятые» в сводке
+function bot_is_checklist($l) { return ($l['source'] ?? '') === 'чек-лист'; }
 function bot_hm($at) { return substr((string)$at, 11, 5); }
 
 function bot_lead_text($l) {
@@ -147,6 +149,8 @@ function bot_lead_text($l) {
         if (!in_array($l['status'], ['new', 'work'], true)) $head .= ' · ' . bot_e(crm_status_title($l['status']));
     } elseif (($l['status'] ?? '') !== 'new') {
         $head = "🟡 <b>Заявка № {$id}</b> · " . bot_e(crm_status_title($l['status'])) . ', никто не ведёт';
+    } elseif (bot_is_checklist($l)) {
+        $head = "📥 <b>Скачали чек-лист</b> · № {$id}";
     } else {
         $head = "🔴🔴🔴 <b>НОВАЯ ЗАЯВКА № {$id}</b> 🔴🔴🔴";
     }
@@ -155,7 +159,7 @@ function bot_lead_text($l) {
     if (($l['city'] ?? '') !== '') $lines[] = '🏙 <b>Город:</b> ' . bot_e($l['city']);
     elseif (in_array($l['source'] ?? '', ['форма', 'вручную'], true)) $lines[] = '🏙 <b>Город:</b> не указан';
     if (($l['place'] ?? '') !== '') $lines[] = '<b>Заведение:</b> ' . bot_e($l['place']);
-    if (($l['service'] ?? '') !== '') $lines[] = '<b>Услуга:</b> ' . bot_e($l['service']);
+    if (($l['service'] ?? '') !== '' && !bot_is_checklist($l)) $lines[] = '<b>Услуга:</b> ' . bot_e($l['service']);
     if (($l['channel'] ?? '') !== '') $lines[] = '<b>Связь:</b> ' . bot_e($l['channel']);
     if (($l['comment'] ?? '') !== '') $lines[] = '<b>Комментарий:</b> ' . bot_e(mb_substr($l['comment'], 0, 1500));
     if (strpos((string)($l['page'] ?? ''), 'http') === 0) $lines[] = '<b>Страница:</b> ' . bot_e($l['page']);
@@ -324,7 +328,7 @@ function bot_short($l) {
 function bot_open_leads($db) {
     $fresh = []; $old = 0;
     foreach (($db['items'] ?? []) as $l) {
-        if (!bot_is_open($l)) continue;
+        if (!bot_is_open($l) || bot_is_checklist($l)) continue;
         if (!empty($l['tg']['mid'])) $fresh[] = $l; else $old++;
     }
     return [$fresh, $old];
@@ -365,10 +369,10 @@ function bot_open_text() {
 function bot_evening_text() {
     $db = crm_read();
     $today = bot_msk()->format('Y-m-d');
-    $came = 0; $taken = []; $refused = [];
+    $came = 0; $lists = 0; $taken = []; $refused = [];
     // считаем по истории заявки, чтобы попадало и сделанное в кабинете, и сделанное кнопками
     foreach (($db['items'] ?? []) as $l) {
-        if (strpos((string)$l['created'], $today) === 0) $came++;
+        if (strpos((string)$l['created'], $today) === 0) { if (bot_is_checklist($l)) $lists++; else $came++; }
         $tookBy = ''; $refAt = '';
         foreach (($l['history'] ?? []) as $h) {
             if (strpos((string)$h['at'], $today) !== 0) continue;
@@ -379,7 +383,8 @@ function bot_evening_text() {
         if ($refAt !== '' && ($l['status'] ?? '') === 'refused') $refused[] = "№ {$l['id']}: " . bot_e($l['reason']);
     }
     [$fresh, $old] = bot_open_leads($db);
-    $t = '🌙 <b>Заявки за ' . bot_msk()->format('d.m') . "</b>\n\n📥 Пришло: {$came}";
+    $t = '🌙 <b>Заявки за ' . bot_msk()->format('d.m') . "</b>\n\n📨 Пришло заявок: {$came}";
+    if ($lists) $t .= "\n📥 Скачали чек-лист: {$lists}";
     $tk = [];
     foreach ($taken as $n => $c) $tk[] = bot_e($n) . " {$c}";
     $t .= "\n✋ Взято: " . array_sum($taken) . ($tk ? ' (' . implode(', ', $tk) . ')' : '');
@@ -414,8 +419,10 @@ function bot_tick() {
             $age = time() - strtotime($l['created'] . ' Europe/Moscow');
             $last = (int)($l['tg']['reminded'] ?? 0);
             if ($age < BOT_REMIND_FIRST || ($last && time() - $last < BOT_REMIND_NEXT)) continue;
+            // кнопки «Взять» и «Отказ» прямо под напоминанием (12.11.2026), чтобы не искать заявку выше
             $ok = bot_send($l['tg']['chat'], "⏰ Заявка № {$l['id']} висит невзятой " . trim(bot_age($l['created'])) . ".\n" . bot_mention_all() . ', кто берёт?',
-                ['reply_to_message_id' => $l['tg']['mid'], 'allow_sending_without_reply' => 'true']);
+                ['reply_to_message_id' => $l['tg']['mid'], 'allow_sending_without_reply' => 'true',
+                 'reply_markup' => json_encode(bot_lead_kb($l), JSON_UNESCAPED_UNICODE)]);
             if ($ok) {
                 $id = (int)$l['id'];
                 crm_update(function (&$db) use ($id) {

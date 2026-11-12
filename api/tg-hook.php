@@ -80,22 +80,38 @@ function hook_callback($cq) {
 
     if ($act === 'L') { hook_answer($cq); bot_send($chat, bot_refusals_text()); return; }
 
+    // Кнопка нажата под напоминанием «⏰ висит невзятой», а не под самой заявкой (с 12.11.2026)
+    $mid = (int)($msg['message_id'] ?? 0);
+    $isRem = function ($l) use ($mid) { return $l && $mid && $mid !== (int)($l['tg']['mid'] ?? 0); };
+    $remDone = function ($l) use ($chat, $mid) {
+        $s = ($l['status'] ?? '') === 'refused' ? '⚪ отказ: ' . bot_e($l['reason'] ?: 'причина не указана')
+            : (($l['owner'] ?? '') !== '' ? '🟢 ведёт ' . bot_e(BOT_TEAM[$l['owner']] ?? $l['owner']) : '🟡 ' . bot_e(crm_status_title($l['status'])));
+        bot_api('editMessageText', ['chat_id' => $chat, 'message_id' => $mid, 'parse_mode' => 'HTML',
+            'text' => "⏰ Заявка № {$l['id']}: {$s}",
+            'reply_markup' => json_encode(['inline_keyboard' => []])]);
+    };
+
     $id = (int)($p[1] ?? 0);
     if ($id <= 0) { hook_answer($cq); return; }
 
     if ($act === 't') {
         $r = bot_take($id, $me);
         if (!$r) { hook_answer($cq, 'Заявка не найдена', true); return; }
-        if (isset($r['error'])) { hook_answer($cq, $r['error'], true); bot_refresh($r['item']); return; }
+        if (isset($r['error'])) { hook_answer($cq, $r['error'], true); bot_refresh($r['item']); if ($isRem($r['item'])) $remDone($r['item']); return; }
         hook_answer($cq, 'Заявка твоя');
         bot_refresh($r['item']);
+        if ($isRem($r['item'])) $remDone($r['item']);
         return;
     }
     if ($act === 'r' || $act === 'b') {
         $l = bot_find($id);
         if (!$l) { hook_answer($cq, 'Заявка не найдена', true); return; }
         hook_answer($cq, $act === 'r' ? 'Выбери причину' : '');
-        bot_refresh($l, $act === 'r' && $l['status'] !== 'refused' ? 'reasons' : '');
+        $mode = $act === 'r' && $l['status'] !== 'refused' ? 'reasons' : '';
+        // под напоминанием причины открываются там же, сама заявка не меняется
+        if ($isRem($l)) bot_api('editMessageReplyMarkup', ['chat_id' => $chat, 'message_id' => $mid,
+            'reply_markup' => json_encode(bot_lead_kb($l, $mode), JSON_UNESCAPED_UNICODE)]);
+        else bot_refresh($l, $mode);
         return;
     }
     if ($act === 'x') {
@@ -105,6 +121,7 @@ function hook_callback($cq) {
         if (!$r || isset($r['error'])) { hook_answer($cq, $r['error'] ?? 'Заявка не найдена', true); return; }
         hook_answer($cq, 'Отказ записан');
         bot_refresh($r['item']);
+        if ($isRem($r['item'])) $remDone($r['item']);
         return;
     }
     if ($act === 'c') {
