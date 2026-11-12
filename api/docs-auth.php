@@ -111,7 +111,9 @@ function tpl_migrate_known() {
 // Что уже сделано (без секретов): у кого свой пин-код и у кого шаблоны переехали
 function sec_state() {
     $pins = pins_read(); $r = [];
-    foreach (DOCS_USERS as $u) $r[$u['id']] = ['own' => !empty($pins[$u['id']]['hash']), 'tpl' => tpl_key($u['id']) !== ''];
+    foreach (DOCS_USERS as $u) $r[$u['id']] = ['own' => !empty($pins[$u['id']]['hash']), 'tpl' => tpl_key($u['id']) !== '',
+        // только названия файлов шаблонов в закрытой папке, без содержимого (для проверки, что всё на месте)
+        'files' => array_map('basename', glob(tpl_dir($u['id']) . '/*.docx.enc') ?: [])];
     return $r;
 }
 
