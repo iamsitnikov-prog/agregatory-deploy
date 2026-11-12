@@ -97,6 +97,8 @@ $due = function ($name, $after, $onlyDow = 0) use ($state, $today, $hm, $dow) {
 };
 
 $run('monitor', 'monitor.yml');
+// Приём нажатий кнопок бота заявок (с 12.11.2026): держим запущенным, лишний запуск просто встанет в очередь
+$run('monitor', 'tg-poll.yml');
 if ($due('deploy', 600)) $run('deploy', 'deploy.yml');
 if ($due('backup', 810)) $run('backup', 'backup-check.yml');
 if ($due('morning', 820)) $run('morning', 'morning-report.yml', ['test' => 'false']);

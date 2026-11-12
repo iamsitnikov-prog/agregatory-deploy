@@ -14,7 +14,9 @@ const BOT_TEAM = ['lilia' => 'Лиля', 'alisa' => 'Алиса', 'yuri' => 'Ю�
 // Ники в Telegram (назвал Юрий 11.11.2026): по ним бот тегает, пока человек сам не нажал кнопку и бот не узнал его аккаунт
 const BOT_NICKS = ['alisa' => 'agregatoryandex', 'lilia' => 'LK728'];
 const BOT_REASONS = ['Не дозвонились', 'Не наш профиль', 'Дорого', 'Передумал', 'Дубль', 'Спам'];
-const BOT_HOOK_VERSION = 1;
+// 2 = с 12.11.2026 нажатия забирает GitHub (tg-poll.yml) и передаёт в api/tg-hook.php:
+// Telegram не может достучаться до хостинга reg.ru (Connection timed out), поэтому вебхук выключен.
+const BOT_HOOK_VERSION = 2;
 const BOT_REPORT_AT = 2200;      // вечерняя сводка, МСК
 const BOT_WORK_FROM = 1000;      // напоминания о невзятых только в это время, МСК
 const BOT_WORK_TO = 2100;
@@ -117,12 +119,8 @@ function bot_mention_all() {
 function bot_ensure_hook() {
     if (bot_token() === '') return false;
     if ((int)(bot_state()['hook'] ?? 0) === BOT_HOOK_VERSION) return true;
-    $r = bot_api('setWebhook', [
-        'url' => 'https://agregatory.pro/api/tg-hook.php',
-        'secret_token' => bot_secret(),
-        'allowed_updates' => json_encode(['message', 'callback_query']),
-        'max_connections' => 5,
-    ]);
+    // Вебхук выключаем: при нём Telegram сам ходит на хостинг, а туда не достаёт. Нажатия забирает GitHub.
+    $r = bot_api('deleteWebhook', ['drop_pending_updates' => 'false']);
     $ok = ($r['code'] ?? 0) === 200 && !empty($r['body']['ok']);
     if ($ok) {
         bot_api('setMyCommands', ['commands' => json_encode([

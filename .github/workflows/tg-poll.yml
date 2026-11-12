@@ -1,0 +1,68 @@
+name: Кнопки бота заявок (приём нажатий)
+
+# С 12.11.2026. Telegram не может достучаться до хостинга reg.ru (Connection timed out),
+# поэтому нажатия «Взять заявку», «Отказ» и сообщения боту забираем отсюда (getUpdates)
+# и передаём на сайт в api/tg-hook.php с тем же секретным заголовком, что слал бы Telegram.
+# Одна задача работает почти 6 часов. Новую запускает будильник хостинга (tick.php) раз в 30 минут
+# и расписание ниже; лишние встают в очередь и стартуют, когда закончится текущая.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 */3 * * *'
+
+concurrency:
+  group: tg-poll
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Принимаю нажатия и передаю на сайт
+        env:
+          BOT: ${{ secrets.TG_BOT_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, time, urllib.request, urllib.parse
+          tok = os.environ.get('BOT', '')
+          if not tok:
+              print('::warning::нет TG_BOT_TOKEN'); raise SystemExit
+          api = f'https://api.telegram.org/bot{tok}/'
+          secret = hashlib.sha256((tok + 'tg-hook').encode()).hexdigest()[:48]
+          def tg(method, **p):
+              data = urllib.parse.urlencode(p).encode()
+              with urllib.request.urlopen(api + method, data, timeout=70) as r:
+                  return json.load(r)
+          def relay(u):
+              body = json.dumps(u).encode()
+              for i in range(4):
+                  try:
+                      req = urllib.request.Request('https://agregatory.pro/api/tg-hook.php', body, {
+                          'Content-Type': 'application/json', 'X-Telegram-Bot-Api-Secret-Token': secret,
+                          'User-Agent': 'agregatory-tg-poll'})
+                      with urllib.request.urlopen(req, timeout=40) as r:
+                          if r.status == 200: return True
+                  except Exception as e:
+                      print('сайт не принял:', e)
+                  time.sleep(3 * (i + 1))
+              return False
+          tg('deleteWebhook', drop_pending_updates='false')
+          end = time.time() + 5 * 3600 + 40 * 60
+          off, done, lost = 0, 0, 0
+          while time.time() < end:
+              try:
+                  r = tg('getUpdates', offset=off, timeout=50, allowed_updates=json.dumps(['message', 'callback_query']))
+              except urllib.error.HTTPError as e:
+                  if e.code == 409:  # кто-то снова включил вебхук
+                      tg('deleteWebhook', drop_pending_updates='false')
+                  time.sleep(5); continue
+              except Exception as e:
+                  print('Telegram:', e); time.sleep(5); continue
+              for u in r.get('result', []):
+                  off = u['update_id'] + 1
+                  if relay(u): done += 1
+                  else: lost += 1
+          print(f'::notice::передано на сайт: {done}, не принято сайтом: {lost}')
+          PY
