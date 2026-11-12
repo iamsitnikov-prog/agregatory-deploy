@@ -82,6 +82,7 @@ function tg_send_chat($chat, $html) {
 function lead_line($l) {
     $e = fn($s) => htmlspecialchars((string)$s, ENT_NOQUOTES, 'UTF-8');
     $t = "<b>Заявка № {$l['id']}</b>: {$e($l['name'])}, {$e($l['phone'])}";
+    if (($l['city'] ?? '') !== '') $t .= "\nГород: {$e($l['city'])}";
     if ($l['place'] !== '') $t .= "\nЗаведение: {$e($l['place'])}";
     if ($l['service'] !== '') $t .= "\nУслуга: {$e($l['service'])}";
     if ($l['comment'] !== '') $t .= "\nКомментарий: {$e(mb_substr($l['comment'], 0, 400))}";
@@ -252,7 +253,7 @@ if ($a === 'add') {
     $me = $USER;
     $item = crm_update(function (&$db) use ($in, $name, $phone, $owner, $me, $NAMES) {
         $l = crm_new_item($db, [
-            'name' => $name, 'phone' => $phone, 'email' => $in('email', 120), 'place' => $in('place', 300),
+            'name' => $name, 'phone' => $phone, 'email' => $in('email', 120), 'place' => $in('place', 300), 'city' => $in('city', 80),
             'service' => $in('service', 200), 'channel' => $in('channel', 50), 'comment' => $in('comment', 3000),
             'source' => 'вручную', 'who' => $me['name'],
         ], 'new', 'добавлена вручную');

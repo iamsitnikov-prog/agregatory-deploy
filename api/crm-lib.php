@@ -84,6 +84,7 @@ function crm_new_item(&$db, $l, $status = 'new', $historyText = 'заявка с
         'phone' => mb_substr(trim((string)($l['phone'] ?? '')), 0, 50),
         'email' => mb_substr(trim((string)($l['email'] ?? '')), 0, 120),
         'place' => mb_substr(trim((string)($l['place'] ?? '')), 0, 300),
+        'city' => mb_substr(trim((string)($l['city'] ?? '')), 0, 80),
         'service' => mb_substr(trim((string)($l['service'] ?? '')), 0, 200),
         'channel' => mb_substr(trim((string)($l['channel'] ?? '')), 0, 50),
         'comment' => mb_substr(trim((string)($l['comment'] ?? '')), 0, 3000),
@@ -115,7 +116,7 @@ function crm_import_csv(&$db) {
         $svc = (string)($r[4] ?? '');
         crm_new_item($db, [
             'created' => (string)$r[0], 'name' => $r[1] ?? '', 'phone' => $r[2] ?? '', 'place' => $r[3] ?? '',
-            'service' => $svc, 'channel' => $r[5] ?? '', 'comment' => $r[6] ?? '', 'page' => $r[7] ?? '',
+            'service' => $svc, 'channel' => $r[5] ?? '', 'comment' => $r[6] ?? '', 'page' => $r[7] ?? '', 'city' => $r[9] ?? '',
             'source' => $svc === 'скачал чек-лист' ? 'чек-лист' : 'форма',
         ], 'new', 'перенесена из журнала заявок сайта');
     }

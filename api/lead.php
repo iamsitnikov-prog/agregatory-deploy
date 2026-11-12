@@ -52,6 +52,7 @@ $f = function ($k, $max = 1000) use ($body) {
 $name = $f('name', 200);
 $phone = $f('phone', 50);
 $place = $f('place', 300);
+$city = preg_replace('/\s+/u', ' ', $f('city', 80));
 $status = $f('status', 100);
 $channel = $f('channel', 50);
 $comment = $f('comment', 3000);
@@ -98,7 +99,7 @@ $crm = null;
 if (is_file(__DIR__ . '/crm-lib.php')) {
     require_once __DIR__ . '/crm-lib.php';
     $crm = crm_add([
-        'name' => $name, 'phone' => $phone, 'place' => $place, 'service' => $status, 'channel' => $channel,
+        'name' => $name, 'phone' => $phone, 'place' => $place, 'city' => $city, 'service' => $status, 'channel' => $channel,
         'comment' => $comment, 'page' => $page, 'source' => $status === 'скачал чек-лист' ? 'чек-лист' : 'форма',
     ]);
 }
@@ -111,16 +112,19 @@ if ($out) {
     flock($out, LOCK_EX);
     if ($isNew) {
         fwrite($out, "\xEF\xBB\xBF");
-        fputcsv($out, ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница', 'ip']);
+        fputcsv($out, ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница', 'ip', 'город']);
     }
     $dt = new DateTime('now', new DateTimeZone('Europe/Moscow'));
-    $saved = fputcsv($out, [$dt->format('Y-m-d H:i:s'), $name, $phone, $place, $status, $channel, $comment, $page, $ip]) !== false;
+    $saved = fputcsv($out, [$dt->format('Y-m-d H:i:s'), $name, $phone, $place, $status, $channel, $comment, $page, $ip, $city]) !== false;
     flock($out, LOCK_UN); fclose($out);
 }
 
 // --- Текст сообщения --------------------------------------------------------
 $e = fn($s) => htmlspecialchars($s, ENT_NOQUOTES, 'UTF-8');
 $lines = ['🔴🔴🔴 <b>НОВАЯ ЗАЯВКА</b>' . ($crm ? " <b>№ {$crm['id']}</b>" : '') . ' 🔴🔴🔴', '', "👤 <b>Имя:</b> {$e($name)}", "📞 <b>Телефон:</b> {$e($phone)}"];
+// Город показываем всегда, кроме скачивания чек-листа (там его не спрашиваем)
+if ($city !== '') $lines[] = "🏙 <b>Город:</b> {$e($city)}";
+elseif ($status !== 'скачал чек-лист') $lines[] = '🏙 <b>Город:</b> не указан';
 if ($place !== '') $lines[] = "<b>Заведение:</b> {$e($place)}";
 if ($status !== '') $lines[] = "<b>Услуга:</b> {$e($status)}";
 if ($channel !== '') $lines[] = "<b>Связь:</b> {$e($channel)}";
@@ -199,7 +203,7 @@ if (!$tg && !$mailed && $BACKUP_URL !== '' && function_exists('curl_init')) {
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => json_encode([
-            'name' => $name, 'phone' => $phone, 'place' => $place, 'status' => $status,
+            'name' => $name, 'phone' => $phone, 'place' => $place, 'city' => $city, 'status' => $status,
             'channel' => $channel, 'comment' => $comment, 'page' => $page,
         ], JSON_UNESCAPED_UNICODE),
         CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Origin: https://agregatory.pro'],

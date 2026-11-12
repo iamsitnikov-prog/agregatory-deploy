@@ -140,6 +140,9 @@ function bot_lead_text($l) {
         $head = "🔴🔴🔴 <b>НОВАЯ ЗАЯВКА № {$id}</b> 🔴🔴🔴";
     }
     $lines = [$head, '', '👤 <b>Имя:</b> ' . bot_e($l['name']), '📞 <b>Телефон:</b> ' . bot_e($l['phone'])];
+    // Город: всегда строкой у заявок с формы и ручных; у чек-листов и оплат его не спрашиваем
+    if (($l['city'] ?? '') !== '') $lines[] = '🏙 <b>Город:</b> ' . bot_e($l['city']);
+    elseif (in_array($l['source'] ?? '', ['форма', 'вручную'], true)) $lines[] = '🏙 <b>Город:</b> не указан';
     if (($l['place'] ?? '') !== '') $lines[] = '<b>Заведение:</b> ' . bot_e($l['place']);
     if (($l['service'] ?? '') !== '') $lines[] = '<b>Услуга:</b> ' . bot_e($l['service']);
     if (($l['channel'] ?? '') !== '') $lines[] = '<b>Связь:</b> ' . bot_e($l['channel']);
@@ -274,6 +277,7 @@ function bot_age($created) {
 function bot_short($l) {
     $t = "№ {$l['id']} · " . bot_e($l['name'] !== '' ? $l['name'] : $l['phone']);
     if (($l['place'] ?? '') !== '') $t .= ', ' . bot_e(mb_substr($l['place'], 0, 60));
+    if (($l['city'] ?? '') !== '') $t .= ', ' . bot_e($l['city']);
     return $t;
 }
 // Невзятые: только те, что пришли уже с кнопками (старые из журнала считаем отдельно)
