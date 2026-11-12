@@ -1,0 +1,24 @@
+name: Диагностика бота заявок (только чтение)
+
+# Ничего не публикует в группе: спрашивает Telegram, видит ли бот группу,
+# какие у него права и куда приходят нажатия кнопок. Результат в аннотациях.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ответы Telegram
+        env:
+          BOT: ${{ secrets.TG_BOT_TOKEN }}
+        run: |
+          n() { echo "$1"; echo "::notice::$1"; }
+          [ -z "$BOT" ] && { n "нет TG_BOT_TOKEN"; exit 0; }
+          clip() { tr -d '\n' | head -c 900; }
+          n "getMe: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getMe | clip)"
+          n "getWebhookInfo: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getWebhookInfo | clip)"
+          n "getChat: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getChat -d chat_id=-5022978987 | clip)"
+          ME=$(curl -s -m 20 https://api.telegram.org/bot$BOT/getMe | python3 -c 'import sys,json;print(json.load(sys.stdin)["result"]["id"])')
+          n "getChatMember: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getChatMember -d chat_id=-5022978987 -d user_id=$ME | clip)"
