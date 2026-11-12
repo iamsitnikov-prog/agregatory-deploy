@@ -68,7 +68,7 @@ RewriteRule ^ - [R=404,L]
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.xml|robots\.txt|rss\.xml)$">
+  <FilesMatch "^(sitemap\.xml|robots\.txt|rss\.xml|llms\.txt|llms-full\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
@@ -81,6 +81,8 @@ RewriteRule ^ - [R=404,L]
   AddType image/webp .webp
   AddType application/xml .xml
   AddType text/javascript .mjs
+  # llms.txt и llms-full.txt (для нейросетей) на русском: отдаём с кодировкой, иначе кракозябры
+  AddCharset utf-8 .txt
 </IfModule>
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
