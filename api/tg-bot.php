@@ -38,19 +38,32 @@ function bot_msk() { return new DateTime('now', new DateTimeZone('Europe/Moscow'
 function bot_api($method, $params = []) {
     $token = bot_token();
     if ($token === '' || !function_exists('curl_init')) return null;
+    // 12.11.2026: связь хостинга с Telegram иногда рвётся (заявка № 24 ушла без кнопок).
+    // Ждём дольше, пробуем другие адреса Telegram, но не дольше 25 секунд, чтобы форма не висела.
+    $start = microtime(true);
+    $errs = [];
     foreach (['', '149.154.167.220', '149.154.167.99', '149.154.175.50'] as $ip) {
+        if (microtime(true) - $start > 25) break;
         $ch = curl_init("https://api.telegram.org/bot{$token}/{$method}");
         $opts = [CURLOPT_POST => true, CURLOPT_POSTFIELDS => http_build_query($params), CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CONNECTTIMEOUT => 3, CURLOPT_TIMEOUT => 8];
+            CURLOPT_CONNECTTIMEOUT => 4, CURLOPT_TIMEOUT => 10];
         if ($ip !== '') $opts[CURLOPT_RESOLVE] = ["api.telegram.org:443:{$ip}"];
         curl_setopt_array($ch, $opts);
         $r = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $err = curl_error($ch);
         curl_close($ch);
-        if ($code > 0) return ['code' => $code, 'body' => json_decode((string)$r, true)];
+        if ($code > 0) {
+            $body = json_decode((string)$r, true);
+            $GLOBALS['bot_last_err'] = $code === 200 ? '' : "ответ {$code}: " . mb_substr((string)($body['description'] ?? $r), 0, 150);
+            return ['code' => $code, 'body' => $body];
+        }
+        $errs[] = ($ip ?: 'основной адрес') . ': ' . ($err ?: 'нет ответа');
     }
+    $GLOBALS['bot_last_err'] = 'нет связи с Telegram (' . mb_substr(implode('; ', $errs), 0, 200) . ')';
     return null;
 }
+function bot_last_err() { return (string)($GLOBALS['bot_last_err'] ?? ''); }
 function bot_send($chat, $html, $extra = []) {
     $r = bot_api('sendMessage', ['chat_id' => $chat, 'text' => $html, 'parse_mode' => 'HTML', 'disable_web_page_preview' => 'true'] + $extra);
     return ($r['code'] ?? 0) === 200 ? (int)($r['body']['result']['message_id'] ?? 0) : 0;
@@ -173,17 +186,46 @@ function bot_lead_kb($l, $mode = '') {
 }
 
 // Новая заявка: отправляем в группу с кнопками и запоминаем номер сообщения
-function bot_post_lead($l) {
+function bot_post_lead($l, $note = '', $tries = 2) {
     $chat = bot_group();
     if ($chat === '' || !$l) return false;
     bot_ensure_hook();
-    $mid = bot_send($chat, bot_lead_text($l), ['reply_markup' => json_encode(bot_lead_kb($l), JSON_UNESCAPED_UNICODE)]);
-    if (!$mid) return false;
     $id = (int)$l['id'];
-    crm_update(function (&$db) use ($id, $chat, $mid) {
-        foreach ($db['items'] as &$x) if ((int)$x['id'] === $id) { $x['tg'] = ['chat' => $chat, 'mid' => $mid]; break; }
+    $kb = ['reply_markup' => json_encode(bot_lead_kb($l), JSON_UNESCAPED_UNICODE)];
+    $mid = bot_send($chat, bot_lead_text($l) . $note, $kb);
+    if (!$mid && $tries > 1) { usleep(1500000); $mid = bot_send($chat, bot_lead_text($l) . $note, $kb); }
+    $err = bot_last_err();
+    crm_update(function (&$db) use ($id, $chat, $mid, $err) {
+        foreach ($db['items'] as &$x) {
+            if ((int)$x['id'] !== $id) continue;
+            if ($mid) {
+                $x['tg'] = ['chat' => $chat, 'mid' => $mid];
+            } else {
+                $x['tg']['fails'] = (int)($x['tg']['fails'] ?? 0) + 1;
+                $x['history'][] = ['at' => crm_now(), 'who' => 'бот', 'text' => 'кнопки в Telegram не ушли: ' . ($err ?: 'причина неизвестна')];
+            }
+            break;
+        }
     });
-    return true;
+    return (bool)$mid;
+}
+
+// Досылка кнопок: невзятые заявки за сутки, которые ушли в группу без кнопок (сбой связи).
+// Вызывается из bot_tick раз в 30 минут; на одну заявку не больше 6 попыток.
+function bot_resend_missing() {
+    $log = [];
+    $from = bot_msk()->modify('-1 day')->format('Y-m-d H:i:s');
+    foreach ((crm_read()['items'] ?? []) as $l) {
+        if (!bot_is_open($l) || !empty($l['tg']['mid'])) continue;
+        if (!in_array($l['source'] ?? '', ['форма', 'чек-лист'], true)) continue; // ручные заявки в группу не публикуются
+        if ((string)$l['created'] < $from || (int)($l['tg']['fails'] ?? 0) >= 6) continue;
+        $note = "\n\n<i>Пришла " . substr($l['created'], 8, 2) . '.' . substr($l['created'], 5, 2) . ' в ' . bot_hm($l['created'])
+            . ', кнопки досланы после сбоя связи с Telegram</i>';
+        $ok = bot_post_lead($l, $note, 1);
+        $log[] = "бот: кнопки к заявке № {$l['id']} " . ($ok ? 'досланы' : 'снова не ушли: ' . bot_last_err());
+        usleep(400000);
+    }
+    return $log;
 }
 // Заявку поменяли (кнопкой или в кабинете): обновляем её сообщение в группе
 function bot_refresh($l, $mode = '') {
@@ -361,6 +403,7 @@ function bot_tick() {
     if (bot_token() === '' || bot_group() === '') return $log;
     if (!bot_ensure_hook()) $log[] = 'бот: не удалось включить приём нажатий';
     try { foreach (bot_intro() as $x) $log[] = $x; } catch (Throwable $e) { $log[] = 'бот: памятка не ушла: ' . $e->getMessage(); }
+    try { foreach (bot_resend_missing() as $x) $log[] = $x; } catch (Throwable $e) { $log[] = 'бот: досылка кнопок: ' . $e->getMessage(); }
     $now = bot_msk();
     $hm = (int)$now->format('Hi');
     $today = $now->format('Y-m-d');

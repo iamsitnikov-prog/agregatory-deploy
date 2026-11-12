@@ -5,6 +5,10 @@ name: Диагностика бота заявок (только чтение)
 
 on:
   workflow_dispatch:
+    inputs:
+      tick:
+        description: 'Запустить проверку бота (досылка кнопок, напоминания)'
+        default: 'false'
 
 jobs:
   diag:
@@ -22,3 +26,13 @@ jobs:
           n "getChat: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getChat -d chat_id=-5022978987 | clip)"
           ME=$(curl -s -m 20 https://api.telegram.org/bot$BOT/getMe | python3 -c 'import sys,json;print(json.load(sys.stdin)["result"]["id"])')
           n "getChatMember: $(curl -s -m 20 https://api.telegram.org/bot$BOT/getChatMember -d chat_id=-5022978987 -d user_id=$ME | clip)"
+
+      - name: Запустить проверку бота сейчас (как раз в 30 минут по расписанию)
+        if: ${{ inputs.tick == 'true' }}
+        env:
+          BOT: ${{ secrets.TG_BOT_TOKEN }}
+        run: |
+          K=$(printf '%s' "${BOT}tick" | sha256sum | cut -d' ' -f1)
+          out=$(curl -s -m 150 "https://agregatory.pro/api/tick.php?k=$K")
+          echo "$out"
+          echo "$out" | head -20 | while IFS= read -r l; do [ -n "$l" ] && echo "::notice::tick: $l"; done

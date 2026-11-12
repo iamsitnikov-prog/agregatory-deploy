@@ -175,7 +175,9 @@ if ($token !== '' && $chats && function_exists('curl_init')) {
     if ($withButtons) $tg = true;
     foreach (array_values($chats) as $i => $chat) {
         if ($withButtons && $i === 0) continue;
-        if (tg_send($token, $chat, $html)) $tg = true;
+        // Без кнопок ушло только запасное сообщение: кнопки дошлёт бот при следующей проверке (раз в 30 минут)
+        $text = ($crm && $i === 0) ? $html . "\n\n<i>Кнопки «Взять заявку» и «Отказ» придут отдельным сообщением: была заминка связи с Telegram.</i>" : $html;
+        if (tg_send($token, $chat, $text)) $tg = true;
     }
 }
 
