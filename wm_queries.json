@@ -1,0 +1,7601 @@
+{
+ "from": "2026-09-07",
+ "to": "2026-10-06",
+ "rows": [
+  {
+   "q": "яндекс еда вендор",
+   "TOTAL_SHOWS": 250.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 8.848,
+   "AVG_CLICK_POSITION": 6.0
+  },
+  {
+   "q": "яндекс вендор для ресторана",
+   "TOTAL_SHOWS": 87.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.89655172413793,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс еда",
+   "TOTAL_SHOWS": 67.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 8.119402985074627,
+   "AVG_CLICK_POSITION": 6.5
+  },
+  {
+   "q": "вендор еда яндекс",
+   "TOTAL_SHOWS": 66.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.530303030303031,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор личный кабинет",
+   "TOTAL_SHOWS": 59.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.423728813559322,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс еда",
+   "TOTAL_SHOWS": 42.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.119047619047619,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана",
+   "TOTAL_SHOWS": 41.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 8.878048780487806,
+   "AVG_CLICK_POSITION": 7.0
+  },
+  {
+   "q": "еда вендор",
+   "TOTAL_SHOWS": 33.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.181818181818182,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс еда вход в личный кабинет",
+   "TOTAL_SHOWS": 32.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.4375,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс реклама адвертпро",
+   "TOTAL_SHOWS": 31.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.354838709677419,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аео продвижение 88006002744",
+   "TOTAL_SHOWS": 28.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.642857142857143,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению яндекс еда",
+   "TOTAL_SHOWS": 27.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.037037037037037,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда",
+   "TOTAL_SHOWS": 27.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.1481481481481484,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение ресторана",
+   "TOTAL_SHOWS": 26.0,
+   "TOTAL_CLICKS": 23.0,
+   "AVG_SHOW_POSITION": 2.9615384615384617,
+   "AVG_CLICK_POSITION": 3.1739130434782608
+  },
+  {
+   "q": "услуги продвижения сервиса яндекс",
+   "TOTAL_SHOWS": 26.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.3076923076923075,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "когда час пик",
+   "TOTAL_SHOWS": 24.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 10.541666666666666,
+   "AVG_CLICK_POSITION": 11.0
+  },
+  {
+   "q": "раскрутка ресторана в яндекс еде",
+   "TOTAL_SHOWS": 24.0,
+   "TOTAL_CLICKS": 24.0,
+   "AVG_SHOW_POSITION": 2.1666666666666665,
+   "AVG_CLICK_POSITION": 2.1666666666666665
+  },
+  {
+   "q": "продвижение кафе на доставке",
+   "TOTAL_SHOWS": 23.0,
+   "TOTAL_CLICKS": 22.0,
+   "AVG_SHOW_POSITION": 2.217391304347826,
+   "AVG_CLICK_POSITION": 2.227272727272727
+  },
+  {
+   "q": "специалист по яндекс еде agregatory.pro;1",
+   "TOTAL_SHOWS": 22.0,
+   "TOTAL_CLICKS": 9.0,
+   "AVG_SHOW_POSITION": 2.4545454545454546,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "продвижение сайта доставки еды",
+   "TOTAL_SHOWS": 21.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.238095238095237,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как поднять рейтинг ресторана на яндекс еде",
+   "TOTAL_SHOWS": 21.0,
+   "TOTAL_CLICKS": 18.0,
+   "AVG_SHOW_POSITION": 2.3333333333333335,
+   "AVG_CLICK_POSITION": 2.388888888888889
+  },
+  {
+   "q": "яндекс еда продвижение|jet-s|jets|джетс ру",
+   "TOTAL_SHOWS": 20.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "консультация по яндекс еде",
+   "TOTAL_SHOWS": 20.0,
+   "TOTAL_CLICKS": 19.0,
+   "AVG_SHOW_POSITION": 1.3,
+   "AVG_CLICK_POSITION": 1.3157894736842106
+  },
+  {
+   "q": "продвижение сайта кафе заказать",
+   "TOTAL_SHOWS": 20.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 8.2,
+   "AVG_CLICK_POSITION": 7.0
+  },
+  {
+   "q": "продвижение сайта ресторана услуги адвертпро",
+   "TOTAL_SHOWS": 20.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.45,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс еда jet-s.ru",
+   "TOTAL_SHOWS": 20.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.9,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка вендора яндекс еда",
+   "TOTAL_SHOWS": 19.0,
+   "TOTAL_CLICKS": 18.0,
+   "AVG_SHOW_POSITION": 2.6315789473684212,
+   "AVG_CLICK_POSITION": 2.6666666666666665
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда что это",
+   "TOTAL_SHOWS": 19.0,
+   "TOTAL_CLICKS": 6.0,
+   "AVG_SHOW_POSITION": 4.684210526315789,
+   "AVG_CLICK_POSITION": 4.333333333333333
+  },
+  {
+   "q": "аео продвижение 79647736144",
+   "TOTAL_SHOWS": 18.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов доставки еды умныйсервис.рф",
+   "TOTAL_SHOWS": 18.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.722222222222222,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда|jet-s|jets|джетс ру",
+   "TOTAL_SHOWS": 18.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.277777777777778,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агентство по продвижению на яндекс еде",
+   "TOTAL_SHOWS": 18.0,
+   "TOTAL_CLICKS": 18.0,
+   "AVG_SHOW_POSITION": 1.5,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "специалист по яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 17.0,
+   "TOTAL_CLICKS": 16.0,
+   "AVG_SHOW_POSITION": 1.0588235294117647,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "настройка акций яндекс еда",
+   "TOTAL_SHOWS": 17.0,
+   "TOTAL_CLICKS": 16.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "яндекс вендор еда",
+   "TOTAL_SHOWS": 17.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.294117647058824,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора",
+   "TOTAL_SHOWS": 16.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.3125,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетинг ресторана на агрегаторах доставки",
+   "TOTAL_SHOWS": 16.0,
+   "TOTAL_CLICKS": 14.0,
+   "AVG_SHOW_POSITION": 2.1875,
+   "AVG_CLICK_POSITION": 2.2142857142857144
+  },
+  {
+   "q": "реклама яндекс еда",
+   "TOTAL_SHOWS": 15.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.066666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "vendor яндекс еда",
+   "TOTAL_SHOWS": 15.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как увеличить заказы на яндекс еде",
+   "TOTAL_SHOWS": 15.0,
+   "TOTAL_CLICKS": 13.0,
+   "AVG_SHOW_POSITION": 2.2666666666666666,
+   "AVG_CLICK_POSITION": 2.3076923076923075
+  },
+  {
+   "q": "продвижение сайта доставки",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.428571428571429,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор личный кабинет вход",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.785714285714286,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки еды",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.2142857142857144,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки еды в яндекс",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.7857142857142856,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана калининград agregatory.pro",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 8.0,
+   "AVG_SHOW_POSITION": 1.9285714285714286,
+   "AVG_CLICK_POSITION": 1.125
+  },
+  {
+   "q": "продвижение сайта доставка еды",
+   "TOTAL_SHOWS": 14.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.857142857142857,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение еф",
+   "TOTAL_SHOWS": 13.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.923076923076923,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанов на агрегаторах",
+   "TOTAL_SHOWS": 13.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 5.923076923076923,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "как работать с негативными отзывами на яндекс еде",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 9.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": 3.3333333333333335
+  },
+  {
+   "q": "заказать seo продвижение доставки еды",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.833333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанного бизнеса",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.416666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор поддержка телефон для ресторанов",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.166666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение jet-s.ru",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов доставки еды",
+   "TOTAL_SHOWS": 12.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.416666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключение ресторана к яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 8.0,
+   "AVG_SHOW_POSITION": 1.4545454545454546,
+   "AVG_CLICK_POSITION": 1.125
+  },
+  {
+   "q": "продвижение агрегатора цена",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.636363636363637,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор еда",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.818181818181818,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро платная реклама в яндекс",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.090909090909091,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.272727272727273,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "цена на seo продвижение доставки еды",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.909090909090909,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo поддержка сайта доставки еды",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.2727272727272725,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo для карточки ресторана на яндекс еде",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 11.0,
+   "AVG_SHOW_POSITION": 2.090909090909091,
+   "AVG_CLICK_POSITION": 2.090909090909091
+  },
+  {
+   "q": "раскрутка ресторан",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс услугах|jet-s|jets|джетс ру",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта доставки еды в яндексе",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.1818181818181817,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндекс еде",
+   "TOTAL_SHOWS": 11.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.909090909090909,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда реклама",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта кафе и кофеен",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 7.1,
+   "AVG_CLICK_POSITION": 7.5
+  },
+  {
+   "q": "заказать раскрутку сервиса доставки еды",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда jet-s.ru",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.9,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сети ресторанов на доставке",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 10.0,
+   "AVG_SHOW_POSITION": 2.5,
+   "AVG_CLICK_POSITION": 2.5
+  },
+  {
+   "q": "продвижение яндекс еда|jet-s|jets|джетс ру",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комплексное продвижение сайта доставки еды",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.3,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетинговые услуги по продвижению товара",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 9.7,
+   "AVG_CLICK_POSITION": 5.0
+  },
+  {
+   "q": "адвертпро реклама яндекс цена в месяц",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "платная реклама в яндекс адвертпро",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению яндекс еда|jet-s|jets|джетс ру",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.9,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo оптимизацию доставки еды",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "разработка агрегаторов da-fresh.ru",
+   "TOTAL_SHOWS": 10.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "тарифы на seo сервиса доставки еды",
+   "TOTAL_SHOWS": 9.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки на яндекс еде",
+   "TOTAL_SHOWS": 9.0,
+   "TOTAL_CLICKS": 8.0,
+   "AVG_SHOW_POSITION": 3.6666666666666665,
+   "AVG_CLICK_POSITION": 3.875
+  },
+  {
+   "q": "что такое показы",
+   "TOTAL_SHOWS": 9.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.444444444444445,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "консалтинг для ресторанов доставка",
+   "TOTAL_SHOWS": 9.0,
+   "TOTAL_CLICKS": 8.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": 3.125
+  },
+  {
+   "q": "продвижение сайта доставки еды с гарантией",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.375,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта доставки еды под ключ",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.375,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настрою рекламу в яндексе адвертпро",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.625,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как увеличить выручку с доставки agregatory.pro",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 8.0,
+   "AVG_SHOW_POSITION": 1.75,
+   "AVG_CLICK_POSITION": 1.75
+  },
+  {
+   "q": "seo продвижение агрегатора доставки воды",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта доставки еды умныйсервис.рф",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение сайта ресторана и доставка еды в топ",
+   "TOTAL_SHOWS": 8.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.375,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетинговое агентство для ресторанов",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 21.571428571428573,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение услуги",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.571428571428571,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта кафе в яндексе",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.714285714285714,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро яндекс реклама продвижение",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.857142857142857,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик это когда",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.428571428571429,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта ресторана в яндексе",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.857142857142857,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание агрегаторов da-fresh.ru",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.142857142857143,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторанов",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс доставке",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 7.0,
+   "AVG_SHOW_POSITION": 1.2857142857142858,
+   "AVG_CLICK_POSITION": 1.2857142857142858
+  },
+  {
+   "q": "продвижение ресторана на яндекс еде",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 7.0,
+   "AVG_SHOW_POSITION": 2.2857142857142856,
+   "AVG_CLICK_POSITION": 2.2857142857142856
+  },
+  {
+   "q": "фотоконтент как пишется",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.571428571428571,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как снизить дрр на яндекс еде",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 7.0,
+   "AVG_SHOW_POSITION": 2.7142857142857144,
+   "AVG_CLICK_POSITION": 2.7142857142857144
+  },
+  {
+   "q": "курс по работе с агрегаторами доставки",
+   "TOTAL_SHOWS": 7.0,
+   "TOTAL_CLICKS": 6.0,
+   "AVG_SHOW_POSITION": 1.4285714285714286,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "продвижение пиццерии в яндексе",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки готовой еды в интернете",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.8333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на агрегаторах",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 3.1666666666666665,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "seo продвижение сети ресторанов",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение ресторана",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро продвижение сайта ресторана услуги",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.166666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда что это итб",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.166666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агрегатора",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": 4.0
+  },
+  {
+   "q": "раскрутка сервиса заказа воды в яндексе",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "нужен специалист по продвижению в ии для ресторана",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора в яндексе",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "выросла 14 1 кухни на продвижение пф",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение услуг ресторан",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "консультация по яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 6.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "комбо это что такое простыми словами в еде",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф kuhninazakaz14 1 dostavka22",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.8333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео раскрутка сервиса по доставке еды",
+   "TOTAL_SHOWS": 6.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.166666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для доставки еды",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро раскрутка сайта в яндекс",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама в поисковике яндекс адвертпро",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение заказов на доставку еды через seo",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки еды firstrank",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка кафе",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для ресторана",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение кафе",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф которые растут catalogdivany6 3 kuhninazakaz14",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс услугах jet-s.ru",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта доставка еды умныйсервис.рф",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.4,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "доставка вендор",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижение",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор поддержка телефон",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько стоит продвижение в нейросетях для ресторана",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 22.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка акций яндекс еда agregatory.pro",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 5.0,
+   "AVG_SHOW_POSITION": 1.8,
+   "AVG_CLICK_POSITION": 1.8
+  },
+  {
+   "q": "прайс на раскрутку доставки еды",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта доставки еды",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "менеджер по продвижению на агрегаторах agregatory.pro",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 4.0,
+   "AVG_SHOW_POSITION": 1.4,
+   "AVG_CLICK_POSITION": 1.25
+  },
+  {
+   "q": "яндекс вендор для ресторана телефон",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько стоит продвижение ресторана в нейросетях",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.2,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка вендора яндекс еда agregatory.pro",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 5.0,
+   "AVG_SHOW_POSITION": 1.8,
+   "AVG_CLICK_POSITION": 1.8
+  },
+  {
+   "q": "нужен специалист по продвижению ресторана в ии",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "где можно заказать продвижение ресторана в ии",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.8,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка кейтеринговой компании в яндексе",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.6,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки еды в яндекс st",
+   "TOTAL_SHOWS": 5.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo для агрегаторов",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов доставка",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключение ресторана к яндекс еде",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.5,
+   "AVG_CLICK_POSITION": 1.3333333333333333
+  },
+  {
+   "q": "вендор доставка",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана в поисковых системах ферст",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое самовывоз",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегаторы а",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 5.25,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "агрегатор",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 16.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги seo для ресторана",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта в яндекс адвертпро",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро реклама в поисковике яндекс",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "когда начинается час пик",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро размещение рекламы в яндексе",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "генерация заявок на доставку еды через seo",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро реклама в поисковой выдаче яндекс",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта ресторана под ключ",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "kuhninazakaz14 1 dostavka22 продвижение пф",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поисковое продвижение доставки еды",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор телефон поддержки для партнеров",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ставки на аукционе яндекс еда",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 4.0,
+   "AVG_SHOW_POSITION": 1.5,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "сео оптимизация адвертпро",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама в яндекс еде",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказной проект агрегатора",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео продвижение сайта доставки еды",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта ресторана",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение доставки еды",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для кафе",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "выросла 14 1 кухни продвижение пф",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сайта ресторана",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегаторы",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "начать сотрудничество оптимизатор про рф",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор про",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 2.25,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "что такое комбо простыми словами",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "менеджер по продвижению на агрегаторах",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 4.0,
+   "AVG_SHOW_POSITION": 4.25,
+   "AVG_CLICK_POSITION": 4.25
+  },
+  {
+   "q": "яндекс вендор для ресторана регистрация",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор еда для ресторанов",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро реклама в яндекс поиске",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.25,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора товаров",
+   "TOTAL_SHOWS": 4.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.75,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов петербург seo продвижение на валверде агенцы",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение магазина с доставкой по городу",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ищу агентство продвижения в нейросетях для ресторана",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание агрегаторов",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "«консалтинг для региональных рестораторов» another agency; кто в данном проекте выступает как исполнитель, а кто заказчик",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана в яндекс еде",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 2.3333333333333335,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "яндекс еда вендор поддержка",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.666666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс еда для ресторанов",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как снизить дрр на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "услуги рекламы для ресторана",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.3333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "консультации продвижение",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость настройки рекламы для услуг по доставке тортов",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как быстро запустить и продвинуть агрегатор",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ищу агентство продвижения ресторана в нейросетях",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта ресторанов и баров",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги рекламы ресторана",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео раскрутка сервиса по доставке еды ферст ранк",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аудит ресторана на агрегаторе",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.3333333333333333,
+   "AVG_CLICK_POSITION": 1.3333333333333333
+  },
+  {
+   "q": "раскрутка джако аккаунта платно",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключить ресторан к яндекс еде и деливери",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение сети ресторанов firstrank",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение ресторанах",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "окупаемость seo продвижения агрегатора",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как увеличить заказы на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.6666666666666667,
+   "AVG_CLICK_POSITION": 1.6666666666666667
+  },
+  {
+   "q": "сколько вычитает сервис",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo оптимизация сайта доставки еды под ключ санкт петербург",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка яндекс еда под ключ",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.3333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для кофейни",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "регистрация ресторана в яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "продвижение сервиса доставки еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "http://degenerator.pro/",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.3333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора услуг",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как поднять рейтинг ресторана на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 1.6666666666666667,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "seo аудит сайта доставки еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.6666666666666665,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение доставки спб",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.3333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение сайта ресторана и доставка еды в топ da-fresh.ru",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.3333333333333335,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта агрегатора",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.666666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда,",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижения доставки еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 24.333333333333332,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда челябинск для ресторанов",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение бизнеса da-fresh.ru",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "запуск ресторана на доставке с нуля agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.3333333333333333,
+   "AVG_CLICK_POSITION": 1.3333333333333333
+  },
+  {
+   "q": "поисковое продвижение услуг выездного ресторана",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама яндекс адвертпро",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение ресторана agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.3333333333333333,
+   "AVG_CLICK_POSITION": 1.3333333333333333
+  },
+  {
+   "q": "продвижение агрегаторо",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "продвижение товарного агрегатора",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс реклама продвижение адвертпро",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанов на яндекс еде",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поддержка яндекс вендор для ресторана номер",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение ресторана или кафе в интернете",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "обучение персонала работе с яндекс едой agregatory.pro;1",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "школа доставки яндекс еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "анкета на агрегаторе",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.666666666666667,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки еды в яндекс seotemple",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.6666666666666665,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько времени начинается час пик во сколько заканчивается",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама яндекс еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание агрегатора услуг с личными кабинетами исполнителей da-fresh.ru",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поддержка яндекс еда вендор",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.666666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение ресторана или кафе в интернете коваленко александр",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это простыми словами",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижения",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": 13.0
+  },
+  {
+   "q": "услуги seo для сервиса доставки еды",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.333333333333333,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор техподдержка телефон",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сервиса доставки еды в поисковых системах",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.333333333333334,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана в яндекс директе",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.666666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки еды ферст ранк",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agarty.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.666666666666666,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "обучение персонала работе с яндекс едой agregatory.pro",
+   "TOTAL_SHOWS": 3.0,
+   "TOTAL_CLICKS": 3.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "раскрутка товарного агрегатора",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как увеличить заказы на яндекс еде agregatory.pro;1",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "раскрутка ресторана под ключ",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо что это такое простыми словами в еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "yandex еда вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "еда яндекс вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "испо курс лист агрегатор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость продвижения сайта ресторана",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сотрудничество еда вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": 5.0
+  },
+  {
+   "q": "ведение яндекс еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аудит карточек яндекс еда",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение кулинарии сеотемпле",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение приложения доставки еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана услуги",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что такое в еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поддержка яндекс вендор для ресторана",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро заказать настройку яндекс директ консультация",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги seo для сервиса доставки еды ферст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "инструменты продвижения доставку еды ст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендора яндекс еда",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение доставки еды firstrank",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что означает заказ с комбо",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сайта кафе",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф 3 kuhninazakaz14 1 dostavka22",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "титульное фото для яндекс еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижения ресторана",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик в какое время",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "деливери вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость раскрутки сайта адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что такое простыми словами",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "когда час пик?",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость продвижения сайта доставки еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "где посмотреть договор в яндекс еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часпик когда начинается",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "менеджеры по работе с карточкой яндекс еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама в яндекс еде какие тарифы",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое сквозная конверсия",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение доставки еды в поисковиках",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо набор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрейдер pro",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги seo продвижения сайта доставки еды спб",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "бизнес школа яндекс еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор курсов продвижение",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение рекламы в яндексе адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта кафе с гарантией",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегаторов в яндекс еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "яндекс доставка вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "10 дней в пик это сколько времени обычно",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро яндекс реклама",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение доставки еды web-force.ru",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки еды ферст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндекс еда",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часы пик",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "прайс на раскрутку доставки еды ферст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это сколько",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сервиса доставки еды ферст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана поддержка",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижения агрегатора питер",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта кафе",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта кафе",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "хочу заказать продвижение ресторана в нейросетях",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "бюджет на продвижение агрегатора",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое зона доставки",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик когда заканчивается по времени",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реальные сроки продвижения агрегатора",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс яда вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана скачать",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "партнерство с ресторанами нижний новгород",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "менеджер по продвижению на агрегаторах agregatory.pro;1",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "продвижение аф",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "проагрегатор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта доставки еды ферст ранк",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор поддержка телефон",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в топ яндекса сервисного центра гетгроу ру",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "компании которые занимаются продвижением ресторана в яндекс еде",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo optimization адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое час пик в магазине",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сервиса доставки еды ферст ранк",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "видеоформи цены курс лист агрегатор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гет гроу ру продвижение в топ яндекса грузоперевозок",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregatory. pro",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "услуги по продвижению сервиса яндекс еда что это agregatory.pro",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "продвижение агро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана регистрация подключение",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 1.5,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "яндекс едавендро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "компания агрегатор проджект",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кейсы продвижения агрегаторов",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро seo продвижение с гарантией в договоре",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "коммерческое seo для агрегатора услуг",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора без бюджета",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо что это такое простыми",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "нужен специалист по продвижению ресторана в ии валерия гаврилина",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор регистрация",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана агентство",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки яндекс еды",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": 8.0
+  },
+  {
+   "q": "продвижение яндекс доставки пицца москва",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана калининград agregatory.pro;1",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 1.5,
+   "AVG_CLICK_POSITION": 1.5
+  },
+  {
+   "q": "продвижение сайта доставки еды ферст",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комплексное продвижение сайта ресторана",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поиске яндекс в реклама адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "популяризация ресторана",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение клиентов из яндекса сервисного центра гет гроу ру",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo яндекс адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость услуг яндекс вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как сделать титульное фото в яндекс еду",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда заведениям вендор",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро купить рекламу в яндексе",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аудит ресторана на агрегаторе agregatory.pro",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 2.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "продвижения яндекс доставка",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 4.5,
+   "AVG_CLICK_POSITION": 7.0
+  },
+  {
+   "q": "абгрейдер яндекс",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "eo продвижение работа",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс доставки пицца москва специалист",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ресторана продвижение",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка доставки",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": 5.0
+  },
+  {
+   "q": "удержана сумма дохода за месяц в яндекс еда почему",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор подать заявку",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "анкета акцепт",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "органика это статистика",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое комбо",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "лендинг яндекс еда",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "какая нужна команда для продвижения агрегатора",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это 2 или три",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как найти долю от упаковки",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часы пик это",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама яндекс цена в месяц адвертпро",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение нового сайта в яндексе гетгроу ру",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо набор как пишется",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижения сайта агрегатора",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "во сколько начинается час птк",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро заказать продвижение сайта в яндекс",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как в яндекс еда вендор сделать платные приборы",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги gea продвижения",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка ватсап канала платно",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка джойлада аккаунта платно",
+   "TOTAL_SHOWS": 2.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.5,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregator.r",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка москва aгeнтctвo tо0плине",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое услуга по продвижению сервиса яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "egjeconf созвоны",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта кулинариии",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео раскрутка сервиса по доставке еды firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сайта продвижение гео адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "core vocabulary and answering key points for ib history essay question impact analysis: pros and cons",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндееда вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение служб доставки йошкар ола",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта в яндексе недорого адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo оптимизацию кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройки вендора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "philosophy pro-xylane ingredient list fda regulatory safety report",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик в магазине нам4акоемвремя выпадает",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ее pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое комбо в еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "надпо агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "еда.вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор заявка на сотрудничество",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро продвижение рекламы в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана в яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик это во сколько",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "размещение рекламы в яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сервисы накрутки поведенческих яндекс император xdy2ueq3",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пы imperator-yandex wnztg",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поддержка targetto.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агентство раскрутки магазина шин 2026",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ии не окупается leoagent",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еды вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "vendor яндекс еда скидка на продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение в топ яндекса по заборам и воротам",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора цена магазин интернет топ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ресторан в яндекс еда с нуля",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "прлдвижение агрегаторов в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": 3.0
+  },
+  {
+   "q": "комбо обед это простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс доставка платные продвижения",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": 4.0
+  },
+  {
+   "q": "продвижение в иоп яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "яндекс еда вендор заявка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание и запуск ресторана под ключ консультация тюмень",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поддержка аграторг для персонала",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "выход что значит в технологической карте",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "инструменты продвижения доставку еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часы-пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "обучение персонала работе с яндекс едой",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "недовложение в заказе это как",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ато в ресторане",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аналгео продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregator servises",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатор цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка и заведение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик для ресторана как сказать по другому",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "еду по дрр",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва яндексоид tepfve",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "zdkztncz kb htathfkmyfz cbcntvf d zyltrc tlt ge,kbxyjq jathnjq",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что значит заказ открыли повторно",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс доставка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение рф яндекс император cukhxqjb",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание и запуск ресторана под ключ консультация череповец",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу привлечение клиентов из яндекса службы мастеров на дом",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс vendor еда заявка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "цена разработки агрегатора на заказ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф москва император яндекса z7enr",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва яндексойд топ b",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов зарайск агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетолог общепит сочи",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф москва император яндекса d",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта доставки еды в яндексе firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда плжжержэжка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео оптимизатор юрий",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в топ яндекса сервисного центра getgrowth",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сквозная конверсия",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор фирма",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта на аутсорсе гет гроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ижение агрегатпродвижение агрегатора head-promo.ruор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение мерчедальзеров москва",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это в баре",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "отдача от продвижения ресторана в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ейрошере про",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "gmv –комиссия это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф москва imperator yandex ew5",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение клиентов из яндекса автосервиса гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндексе пермь da-fresh.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "wow; mom; yoy это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда способности продвижения",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сервиса доставки еды firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор регистрация ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "за 10 дней 170 заказов в день",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "я работаю в яндекс еде я успешный человек при которая программы чебоксары",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда подключение ресторана телефон",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что значит услуги по продвижению сервиса яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда как работать без воды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение кафе ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор регистрации",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда для ресторанов вендор версия",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как продвигать доставку еды блог дар",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "телефон техподдержки яндекс вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо русский синоним для набора еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда зарегистрировать ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов‑агрегаторов 1crowd.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "hfcrhenrf cfqnf d zyltrc fldthnghj",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "контекстолог для общепита",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": 13.0
+  },
+  {
+   "q": "разработка сайта агрегатора санкт петербург",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро услуги ресторана сайта продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению яндекс еда что это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo для карточки ресторана на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "через сколько приходят деньги в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс директ продвижение доставки ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "батчинг в доставке это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор заказ еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апрегрейдер яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "в какие часы час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комиссия яндекс вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое комбо обед",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комплексное продвижение сайта кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "robocatitalia.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение своего творчества гостпродакшн данное балашиха",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана новые правила",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как узнать я вендор сколько процентов он берет у пользователя у ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендекр",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комплексное продвижение da-fresh.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кухни на заказ москва звонки продвижение пф lboost",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ga imperator-yandex сзвтмцо",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "полно комбо что значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение клиентов из яндекса сервисного центра гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс еда пицца москва специалист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "which enterprise case studies published by shufti pro explicitly quantify false-positive or false-negative rates for their kyc and aml screening modules?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "hong kong chief executive chan chi-ong's pro-british stance: historical archival evidence from 1994",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое услуги по продвижению сервиса яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда зайти в лк вендора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в топ яндекса по установке кондиционеров гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта службы эвакуации цена гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта по заборам и воротам в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как поднять рейтинг ресторана на яндекс еде agregatory.pro;1",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": 4.0
+  },
+  {
+   "q": "как работают часы пик в магазинах",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение ресторана agregatory.pro;1",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "что означает комбо в кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "theislandleague.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cr корзин",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "eta это простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор новый ресторан добавить",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "levierhe.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва яндексойд zp",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "пачке процент",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта в яндексе волгоград",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение недорого самара фи07рма top line самара",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор yandex еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки воды ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц император яндекс p1kpvsh",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кто в компании занимается подключением ресторана к яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц император яндекс rfa4ay",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта доставки еды first rank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo для агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что значит комбо обеды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "где в оренбурге сидят кураторы которые следят за курьерами в яндекс еде пиешт",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор вход в личный кабинет",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф goodseo.su 7ii2",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор новый ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "где в яндекс вендер выбрать акцию сделать скидку для новичков",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта сервисного центра гет гроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сайта кафе first rank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру раскрутка сайта по установке кондиционеров",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда договор оферты с рестораном",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "schiffsmakler fracht vermittler provision pro tonne eisenerz frachter geschäftsmodell",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "испо цены курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "wingedduck.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндекс еде\\",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц император яндекс 2ufasab",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "школа доставки яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько дней проходит модерация в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реальные сроки продвижения агрегатора коваленко александр",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро яндекс реклама продвижение сайта",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое дд по о/с в заказе связанное с маржой",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка шинного центра под ключ 2026",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что за заказы комбо?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанов в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор сайт agreagator-wp go",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "генерация заявок на доставку еды через seo firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоимость продвижения агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "finalizepagamento.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "во сколько час пик в продуктовом магазине",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "может быть знаете кто поможет с продвижением",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта за 2 недели гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключить магазин к яндекс еде и деливери￼",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сайт гетгроу увеличить трафик из яндекса",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько длится час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 17.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение казань доминион",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф в яндексе cпб",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "по доле опозданий",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф император яндекса zp",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению сервиса",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц в уфе император яндекса gxghera",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "помощь в агрегаторе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cerynize.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва яндексоид топ v3",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор поддержка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как правильно считать пики часов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "wow mom перевод",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение кафе цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "командные задания яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "поисковое продвижение услуг выездного ресторана firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор питания",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "triageter pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта мебели на заказ в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс поддержка еда вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что это за комбо-наборы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "конструктор агрегаторов услуг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка доставки пиццы и фаст фуда онлайн нужен специалист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро seo яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц в мск imperator yandex gpbdg",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана спб",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "в общежитии когда наступает час пик на кухне",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "kyro приложение захват территории бег кланы kyro pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетолог яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва yandexoid 4cg1",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "mom/wow тренд это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор для партнеров новый ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как в яндекс еда вендор посмотреть затраты на продвижение заказы продвижение выручка по продвижению стоимость заказ продвижение рейтинги",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта онлайн школы адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "gmv и профитабили это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта грузоперевозок в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "с какого времени начинается час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как оспорить корректировку в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 47.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка товарного агрегатора в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "видимость ресторана в вендоре где найти",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "upgreider.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как в яндекс еде вендоре стать первым в списке",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "apgreder.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда увеличение конверсии",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанах официальный",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как продвигать агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": 9.0
+  },
+  {
+   "q": "яндекс вендро добавить ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сервиса доставки еды в поисковых системах ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "partners@geoad.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "еда pro integration",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для кафе ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание фото блюда: это что из обработка хранение сбор передача",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "курсы по яндекс еде акции, продвижение и прочее",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое комбо в магазине",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда шакаршо",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс vendor еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "консалтинг для региональных рестораторов от яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор еда яндекс отзывы написать",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "в какое время час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пц в мск император яндекса 7nd",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "nps логистика",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключение ресторана к яндекс еда королёв",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апрегедер яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "накрутка qeo император яндекс olqwvdemng",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "проджект агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка яндекс директ москве адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "мы работаем на автортет как по другому",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс апргейдер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "партнерка яндекс апгрейдер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апггейдер яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро сайта раскрутки стоимость",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "чем отличается диспетчер от логиста",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора internetmagazin",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dpanowrecht.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько стоит создание агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф под ключ pf-top.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dunyabazaar.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру раскрутка сайта автошколы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ra-tgr yandex продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение заведений общепита",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение ресторана ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как работать в яндекс еде https://eda-rabota.pro/",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана под ключ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению товара кремлёвская 25 88006002744 79647736144 avigroup avigroup.pro/prodvizhenie-na-marketplejsah/",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "getgrowth продвижение сайта автосервиса цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dji js39 pro dji care official firmware error code motor hall sensor fault code",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва яндексойд 2qrgy1ynl",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гет гроу ру продвижение сайта автосервиса",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аудит доставки ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "teaterrace.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда горизонты",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агригатор доставки еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сквозная конверсия это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "фот в логистике",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "помощь в подключения к яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "wow это что значит метрика",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов‑агрегаторов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда,агер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора head-promo.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта ресторана first rank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "congiastri pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "самовывоз что это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апгрейдер яндекс ингпры",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "школе доставки» яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик когда в городе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ставка едыдо",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "regbnm htrkfve d zyltrct fldthnghj",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вести рестораны в яндекс еде помогать аккаунт менеджер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "vendor yandex для ресторанов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "buzzvector.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижение доставки еды в поисковиках коваленко александр",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адверантура результаты",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часпик в пятницу",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стратегия продвижения агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что такое в кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "где в яндекс вендор выбрать акцию сделать скидку для новичков",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "sla зона доставки",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение кафе на яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cr в корзину как считать в рк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор зарегистрироваться",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ес центр курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "платформенная экономика что сделать ресторану",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "негртест еду",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро раскрутка сайта в регионе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько комиссия в яндекс вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "svoya dostavka",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ga яндекс продвижение кг.oxelo.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "комиссия яндекс еда как снизить agregatory.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "яндекс вендор продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dustyzoneqy.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как подключить свой ресторан к яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 17.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кухня комбо что это такое простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс продвижение ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregatory pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": 2.0
+  },
+  {
+   "q": "гет гроу ру продвижение в топ яндекса юридической компании",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сервиса заказа воды в яндексе ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуга по продвижению сервиса яндекс еда что в нее входит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "интернет магазин.топ продвижение агрегатора цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс доставке agregatory.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "когда по времени часы пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "експедия агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "выход что значит в столовой",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в топ яндекса сервисного центра гет гроу",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "абргрейдор про",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "профи цены курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "юрий ситников гинза",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс thetagroup.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс курсы с трудоустройством курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo школа курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо услуги это что подразумевается",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "про еду картеринг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое eta при бронировании номера",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание и запуск ресторана под ключ консультация тольятти",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "самовывоз это xv",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "магазин топ интернет продвижение агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта бухгалтерской компании в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро geo продвижение сайта",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта оптимизатором адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда способы продвижения",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание и запуск ресторана под ключ консультация махачкала",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик во сколько начинается",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как в яндекс едевендор сформировать отчет за месяц",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как заключить договор с сервисом яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "подключение ресторана к яндекс еда и деливери",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "vendor яндекс еда скидка на продвижение для кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "компания которая сможет помочь с рекламой cpa пампаду оффер яндекс доставка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру отчеты по позициям для клиентов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "помогу продвижение бизнеса общепит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "growy.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "компании которые занимаются продвижением ресторана в яе и деливкри",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": 5.0
+  },
+  {
+   "q": "anadyr-delivery.ru.",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "foolerysoupy.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "тарифы на seo ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гет гроу ру раскрутка сайта оконной компании",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это в кафе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как понять сумма переплаты была удержана в яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор видимость ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что значит собрать комбо",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "aeo накрутка в питере imperator yandex s",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "тедре про",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "churn nima",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс еде и девел услуга на авито",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "онлайн источники продвижения пиццерии",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо наборы или комбо-наборы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "управление репутацией товаров на агрегаторах doctor-marketing.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "недовложение что это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "айгрейдер сотрудничество",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "партнерка яндекс еды интегралом определённым уравнение омск",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение заказов на доставку еды через seo ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "титульное фото для яндекс вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана калуга",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги cpa маркетинга яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое недовложение заказа",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сервиса доставки воды под ключ ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "расчет дрр онлайн",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ga император яндекса цгиазноы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как продвинуться в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор для ресторанов регистрация",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "2 комбо что это значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда для ресторанов vendor",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое каннибализация в отеле и каким простым словом можно заменить",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта в яндексе гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "какое время считается час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cleansparkinvestment.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва yandexoid ejtfdj",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "часпик в пятницу сильнее?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда оферта",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "можно ли расширить зону доставки у яндекса для ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф yandexoid top 2zdc2fyvbr",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "собрали комбо что значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ижение агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как часто отправляются деньги от яндекс еды вендорам",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор ела",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "yoy и wow",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда сотрудничество для ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторанных услуг через онлайн каналы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо обед что это значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 20.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo продвижение доставки еды ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cozmozis.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс. еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кухни на заказ продвижение пф яндексоид tgn2",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда продвижение подкасты",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "eta что это простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео яндекс доставка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как раскрутить агрегатор с нуля",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько по времени проходит блюда в модерации в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "личный кабинет яндекс еда вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "настройка яндекс еда для ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": 8.0
+  },
+  {
+   "q": "agregator happ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 37.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда смм",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "партнеры агрегаторы яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку сайта ресторана first rank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор реклама яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сф яндекс измератор aa9eqact",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать geo продвижение 88006002744 79647736144 кремлёвская 25",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги продвижения сайта ресторана в локальном поиске спб",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро продвижение сайта под яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "в какое время наступает час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф растут catalogdivany6 3 kuhninazakaz14",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор заполнить форму",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregator kanalov",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 29.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф imperator-yandex ru auom7mww",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру продвижение сайта по выкупу авто в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "еда вендор поддержка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сф imperator-yandex ozzi5lfs4i",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта службы мастеров на дом в яндексе гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор номер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда для ресторанов вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продbижение яндекс заказать",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ратгр яндекс seo продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение приложения доставки еды st",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "мск агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение на яндекс еде и девел",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сервер развитие ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама в яндекс поиске адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта компании в яндексе гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора в яндексе магазин интернет топ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "vendor yandex еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутить ga в яндексе мск imperator yandex еегсикпммп",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф москва император яндекса 6gurq",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама ресторана в яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo оптимизацию доставки еды ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как продвигать агрегатор в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "привлечение заказов на доставку еды через seo firstrank",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кто разбирается в яндекс еда подробнее дальше всех белее иркутск",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сео агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "eda team",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "journey game pros and cons analysis narrative-driven gameplay deep comparison",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "реклама яндекс еда 2025",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказ внешних агрегаторов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки готовой еды в интернете ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "adjusters pro официальный сайт",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо что это такое простыми словами стоит узнать",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "публичная оферта для ресторанов яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта доставки еды с гарантией ферст ранк",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта доставки еды под ключ ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо что это такое простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "разработка сервиса доставки на заказ",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик какое время",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сервис аналитики яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора доставки еды павел-науменко-сео рф",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как посчитать долю выручки курьеров агрегаторов от товарооборота агрегаторов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана телефон оператора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор подключить ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как работает сайт агрегатор agreagator-wp ot",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение заведения",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "школа сео продвижения агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать seo оптимизацию доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ga стоимость продвижение кг.oxelo.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 26.0,
+   "AVG_CLICK_POSITION": 26.0
+  },
+  {
+   "q": "среднее фактическое время доставки за текущую смену",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик это какое время",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ректер. яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "topinmefiorbavove.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда как улучшить свой ресторан",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "повышение индекса качества яндекс еда agregatory.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "пачка процент",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "работа в яндекс практикум агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "пгрегатор проэго",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайтов агрегаторов курсов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "укажите целевую аудиторию, яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение с гарантией в договоре адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "почему час пик начинается с обеда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо в еде что такое",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта в конкурентной нише гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аудит ресторана реклама",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда модератор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение 1000р в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор со",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как продвигаться в яндекс еде экспедиция медленно джунглях",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "cr корзинв",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seniornowpol.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое cpo - логистика",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "самовывоз это в объявлении что значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта в яндексе саратов гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "арбитраж яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва yandexoid top 2ydrdoa",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что значит минимальная сумма заказа",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое выход блюда кратко",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "psasp distribution network pv voltage loss analysis: pros and cons of ieee standard literature",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "gihiqa.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кто занимается продвижением ресторана на яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": 7.0
+  },
+  {
+   "q": "яндекс еда спишет ли с баланса долг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик поп ятнциам во соклько",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетинг ресторана агентство",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение агрегатора с нуля",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "собрать комбо это что значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда венендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "оптимизация яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегаторы для доставок яндекс для общественного питания",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "недовложение четырех чего ?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как сделать фото с моим заведением как видят меню наши гости",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "контент ессентукская курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "pro продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение доставки через яндекс еду",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "доставка еды продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение услуг услуга",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo поддержка сайта доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "какое время час пик",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "почему снимают деньги в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в яндексе thetagroup.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф яндексоид топ inibo3ogc5",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "evita pro product certification comparison with evita full",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора в яндексе топ магазин интернет",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яе вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказ разработки агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "finalopoweko.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "полное комбо что значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "кто такой логист диспетчер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "опекс пишется по-русски",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 23.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое час пик в селе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ultra pro inlet/outlet version quick connect official installation verification standards for stonetech",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "аппкк цены курс лист агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что означает заказ комбо",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое услуги по продвижению яндекс доставка",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрегатор для ресторан доставка еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро продвижение сайта в поиске яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс доставка еды реклама",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как настроить яндекс вендор чтобы зарабатывать от яндекс еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как определяется термин «геосервисы»?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо как назвать по другому",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "удержание средств согласно п. 14.7 оферты яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo продвижение ресторанов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 20.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана выборг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "neonfalcon.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф goodseo.su ugq",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф яндекс император x",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "увеличит заказы на яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "fisixeo.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "тест сравнение компании с блюдом",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "я еда вендор телефон",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "wow и mom это метрики",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение крупного сайта агрегатора цена",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "час пик на выходных во сколько",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "таксиагрегатор личный кабин",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": 6.0
+  },
+  {
+   "q": "авитолог яндекс услуги",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 15.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "люди или организации которые ведут агрегаторы",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "инструменты продвижения доставку еды st",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo оптимизатор юрий",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта сервисного центра в яндексе гет гроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что за услуги по продвижению яндекса еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "taiwan's pro-american faction historical legacy issues internet slang comparison",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта агрегатора инженеры-продаж.рф",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "зарегистрировать ресторан в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "мешагрупп реклама яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "индепендер агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение яндекс еда итб",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта бухгалтерской компании в яндексе гет гроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги агрегаторов доставки еды",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "мы помогаем расти ресторанам в деливери аккаунт менеджер",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "eso-продвижение",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта в яндексе челябинск сайт getgrowth",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "pr продвижение агрегатора",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение агрегатора в поиске",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор для ресторана контакт",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "mom wow перевод",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агентская система это простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "уву поймать свою рекламу в яндекс еде",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка сайта доставки еды в яндексе ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "epson pro industrial projector indesign file format compatibility 2027",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение товаров услуга",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс консалтинг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сколько стоит создать агрегатор для бизнеса",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "smartbhome.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо это что такое в кулинарии",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адаптарио в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "что такое комбо в кулинарии",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка чайтав регионе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда удержание средств согласно п. 14.7 оферты",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "contented агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение кф император яндекс 7i",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда вендор заявка на сотрудничество для ресторанов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "агрейдер яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "geoscience pro academic license expired - official support documentation for reset or renewal",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 15.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение рф мск imperator yandex 3p",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еде вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "smartvisionmonitor.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс еда стать вендором",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гет гроу ру продвижение сайта сервисного центра в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение рф в москве imperator yandex qujgts334f",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "испо агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "месяц в цена яндекс реклама адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dealrestate.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение в топ яндекса автосервиса getgrowth",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "раскрутка школы пилатеса в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "доля органики что это значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор видимость ресторана в каком разделе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение корпоративного сайта гет гроу",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "pro rекламу",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "комбо обед как пишется",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 16.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ga продвижение стоимость кг.oxelo.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "площадка aggregator ru.",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "амовывоз, агрегаторы, свои курьеры доставка 5 000 15 000 • получение заказа из всех источников: виджет, сайт, мобильное приложение, агрегаторы • доставка на самовывоз или агрегаторами • история по клиентам, аналитика продаж • доставка своими курьерами (до 5) • планирование маршрута на карте, контроль за перемещением • мобильное приложение и касса для курьеров • режим высокой нагрузки доп. курьер 1",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "цена на seo продвижение доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "создание и запуск ресторана под ключ консультация ставрополь",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказ рекламы в телеграм магнетто",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "fldthnghj zyltrc d htrkfvf gkfnyfz",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "адвертпро продвижение сайта яндекс цена в москве",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс ела вендор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "griggroup",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "faktypolityczne.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апргрейдор яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндеквендор как подать заявку на подключение к яндекседе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "crispmillsa.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "какое время в зале считается час пик?",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "без воды как происходит оплата яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вывести сайт грузоперевозок в топ яндекса гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги раскрутки сайта ресторана ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "динамика yoy, руб. что это",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "первый час пик это сколько время",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "практикум агрегатор курс лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать раскрутку шинного центра в яндексе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "является ли реферальная система в яндекс еде публичной офертой",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "careernowoil.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo раскрутка и продвижение адвертпро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как увеличить заказы в яндекс ресторане",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 16.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "dinovusadi.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 14.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "яндекс вендор регистрация",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "gomafia pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "пункт 5.13 оферты яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 10.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "diqohyru.pro domain",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "катапульто.ру сайт аггрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру раскрутка сайта заказать",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф яндекс император 7o",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение ресторана на яндекс еде agregatory.pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 1.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": 1.0
+  },
+  {
+   "q": "оферта яндекс еды для ресторанов",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "наценка это простыми словами",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "стоп лист",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "гетгроу ру привлечение клиентов из яндекса автосервиса",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "маркетинговые услуги стоимость александразар.рф",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "анкета акцэпт",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "сайт продвижение услуг",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 13.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как конкурировать с агрегаторами medlider pro",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "услуги по продвижению яндекс еда jet-s.ru",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "рекламное прние аудиторияедложе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение пф кухни на заказ москва yandexoid top x80ofj",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "agregator servis",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "разместить рекламу на сайте агрегаторе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "мой профиль на агрегаторе",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "хочу заказать продвижение в ии для ресторана",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "заказать продвижеhие в яндекс",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "апгрейдер точка ппро",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение сайта службы эвакуации в яндексе гетгроу ру",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 1.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "getgrowth продвижение сайта в яндексе челябинск",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "seo агентство для доставки еды ферст",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 4.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как с нуля подключить ресторан к яндекс еда",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение аф мск император яндекса 9nocaoiuy",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 3.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "желтый агрегатор",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 6.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "ресторан доставка еды реклама",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 7.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение оплата за результат atlantseo",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 2.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "как пишется слово фотоконтент",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 8.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "если показатель yoy составляет 90% что это значит",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 5.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "вендор яндекс еда для ре",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "pro basketball heroes: sanbu vs xiangbei official match results animation score",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 15.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "продвижение компании услуга",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 11.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "работа с заказами управление ресторанами версия: 244 платформа: 1.137.0 заказы ресторан включён заказы ко времени к 20:52 · 7 блюд 1 №...630760 7 020 ₽ ・ 11 блюд 8 мин ищем курьера... заказ готов №...894098 2 980 ₽ ・ 5 блюд 12 мин ищем курьера... заказ готов в работе 2 выполнены 11",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 9.0,
+   "AVG_CLICK_POSITION": null
+  },
+  {
+   "q": "flova competitor review: pros and cons of domestic low-code workflow platforms",
+   "TOTAL_SHOWS": 1.0,
+   "TOTAL_CLICKS": 0.0,
+   "AVG_SHOW_POSITION": 12.0,
+   "AVG_CLICK_POSITION": null
+  }
+ ]
+}
