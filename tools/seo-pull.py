@@ -97,6 +97,24 @@ def mk(name, dims, days=60, limit=2000, filters="ym:s:lastTrafficSource=='organi
     return f
 
 
+def wm_samples(path, name):
+    def f():
+        rows, off = [], 0
+        while off < 5000:
+            r = call(base + path, {'offset': off, 'limit': 100})
+            items = r.get('samples', [])
+            rows += items
+            if len(items) < 100:
+                break
+            off += 100
+        save(name, rows)
+        return f'{len(rows)} адресов'
+    return f
+
+
+step('Вебмастер: страницы в поиске', wm_samples('/search-urls/in-search/samples', 'wm_in_search.json'))
+step('Вебмастер: исключённые страницы', wm_samples('/search-urls/events/samples', 'wm_events.json'))
+step('Вебмастер: что обошёл робот', wm_samples('/indexing/samples', 'wm_indexing.json'))
 step('Вебмастер: запросы', wm_popular)
 step('Вебмастер: аналитика по страницам', wm_analytics('URL'))
 step('Вебмастер: аналитика по запросам', wm_analytics('QUERY'))
