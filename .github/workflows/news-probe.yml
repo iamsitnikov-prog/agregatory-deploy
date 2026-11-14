@@ -1,0 +1,26 @@
+name: Проверка источников новостей
+
+# Ручная диагностика для дайджеста «Внутри Еды»: какие ленты СМИ и Telegram каналы
+# открываются с серверов GitHub и сколько в них свежих новостей по теме доставки.
+# Ничего не меняет. Actions → «Проверка источников новостей» → Run workflow.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Проверка
+        run: python3 scripts/news-probe.py scripts/news-sources.json | tee probe.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: news-probe
+          path: |
+            probe.txt
+            news-probe.json
