@@ -1,0 +1,566 @@
+[
+ {
+  "name": "РБК",
+  "ok": true,
+  "url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss",
+  "total": 30,
+  "fresh": 30,
+  "hits": 1,
+  "newest": "0 ч назад",
+  "sample": "«ВкусВилл» проверил салат и онигири после отравления москвички",
+  "focus": false
+ },
+ {
+  "name": "Коммерсантъ",
+  "ok": true,
+  "url": "https://www.kommersant.ru/RSS/news.xml",
+  "total": 392,
+  "fresh": 392,
+  "hits": 11,
+  "newest": "0 ч назад",
+  "sample": "Костин призвал банки работать как хороший официант в ресторане",
+  "focus": false
+ },
+ {
+  "name": "Ведомости",
+  "ok": true,
+  "url": "https://www.vedomosti.ru/rss/news",
+  "total": 200,
+  "fresh": 200,
+  "hits": 0,
+  "newest": "3 ч назад",
+  "sample": "Маск заявил о подготовке петиции о восстановлении Дженсена Хуанга в должности",
+  "focus": false
+ },
+ {
+  "name": "Интерфакс",
+  "ok": true,
+  "url": "https://www.interfax.ru/rss.asp",
+  "total": 25,
+  "fresh": 25,
+  "hits": 0,
+  "newest": "0 ч назад",
+  "sample": "Уровень судоходства в Ормузском проливе по-прежнему на 65% ниже довоенного",
+  "focus": false
+ },
+ {
+  "name": "ТАСС",
+  "ok": true,
+  "url": "https://tass.ru/rss/v2.xml",
+  "total": 100,
+  "fresh": 100,
+  "hits": 5,
+  "newest": "0 ч назад",
+  "sample": "Врач Гурова сообщила, что исключать любые сахара при диабете не нужно",
+  "focus": false
+ },
+ {
+  "name": "РИА Новости",
+  "ok": true,
+  "url": "https://ria.ru/export/rss2/archive/index.xml",
+  "total": 99,
+  "fresh": 99,
+  "hits": 0,
+  "newest": "0 ч назад",
+  "sample": "Певца Юрия Антонова внесли в антироссийскую базу ГУР Украины",
+  "focus": false
+ },
+ {
+  "name": "Известия",
+  "ok": false,
+  "url": "https://iz.ru/xml/rss/all.xml",
+  "err": "HTTPError: HTTP Error 403: Forbidden",
+  "focus": false
+ },
+ {
+  "name": "Лента.ру",
+  "ok": true,
+  "url": "https://lenta.ru/rss",
+  "total": 200,
+  "fresh": 200,
+  "hits": 2,
+  "newest": "0 ч назад",
+  "sample": "Главком ВСУ поехал лично улаживать бунт бойцов «Айдара»",
+  "focus": false
+ },
+ {
+  "name": "Газета.ру",
+  "ok": false,
+  "url": "https://www.gazeta.ru/export/rss/lenta.xml",
+  "err": "HTTPError: HTTP Error 404: Not Found",
+  "focus": false
+ },
+ {
+  "name": "Forbes",
+  "ok": false,
+  "url": "https://www.forbes.ru/newrss.xml",
+  "err": "ParseError: not well-formed (invalid token): line 1, column 13",
+  "focus": false
+ },
+ {
+  "name": "Frank Media",
+  "ok": true,
+  "url": "https://frankmedia.ru/feed",
+  "total": 60,
+  "fresh": 60,
+  "hits": 2,
+  "newest": "8 ч назад",
+  "sample": "«Сбер» планирует продать складские помещения маркетплейсам",
+  "focus": false
+ },
+ {
+  "name": "The Bell",
+  "ok": true,
+  "url": "https://thebell.io/feed",
+  "total": 20,
+  "fresh": 20,
+  "hits": 3,
+  "newest": "1 ч назад",
+  "sample": "Что будет с ИИ-бумом без Хуанга, с чем Россия идет на следующие переговоры, Wildberries по",
+  "focus": false
+ },
+ {
+  "name": "vc.ru",
+  "ok": true,
+  "url": "https://vc.ru/rss/all",
+  "total": 12,
+  "fresh": 12,
+  "hits": 0,
+  "newest": "10 ч назад",
+  "sample": "Mercedes решила прекратить «все дальнейшие инвестиции» в Германии и рассматривает возможно",
+  "focus": false
+ },
+ {
+  "name": "CNews",
+  "ok": true,
+  "url": "https://www.cnews.ru/inc/rss/news.xml",
+  "total": 200,
+  "fresh": 146,
+  "hits": 10,
+  "newest": "10 ч назад",
+  "sample": "Доля рекламных расходов продавцов Ozon на продвижение с оплатой за клик снизилась на четве",
+  "focus": false
+ },
+ {
+  "name": "ComNews",
+  "ok": true,
+  "url": "https://www.comnews.ru/rss",
+  "total": 3,
+  "fresh": 3,
+  "hits": 0,
+  "newest": "1 ч назад",
+  "sample": "AI выходит за периметр компании: суверенитет для крупного бизнеса",
+  "focus": false
+ },
+ {
+  "name": "Inc. Russia",
+  "ok": true,
+  "url": "https://incrussia.ru/feed/",
+  "total": 250,
+  "fresh": 62,
+  "hits": 3,
+  "newest": "5 ч назад",
+  "sample": "Новые правила Ozon увеличат расходы продавцов на маркетплейсах",
+  "focus": false
+ },
+ {
+  "name": "Фонтанка",
+  "ok": true,
+  "url": "https://www.fontanka.ru/rss-feeds/rss.xml",
+  "total": 91,
+  "fresh": 91,
+  "hits": 0,
+  "newest": "1 ч назад",
+  "sample": "Суд отклонил просьбу Лерчек о выезде в Китай ради лечения рака",
+  "focus": false
+ },
+ {
+  "name": "ПРАЙМ",
+  "ok": true,
+  "url": "https://1prime.ru/export/rss2/index.xml",
+  "total": 100,
+  "fresh": 100,
+  "hits": 2,
+  "newest": "1 ч назад",
+  "sample": "Новый ГОСТ на русскую кухню в финальной версии оказался без бутербродов",
+  "focus": false
+ },
+ {
+  "name": "Банки.ру",
+  "ok": false,
+  "url": "https://www.banki.ru/xml/news.rss",
+  "err": "ParseError: not well-formed (invalid token): line 6, column 168",
+  "focus": false
+ },
+ {
+  "name": "Retail.ru",
+  "ok": true,
+  "url": "https://www.retail.ru/rss/news/",
+  "total": 30,
+  "fresh": 30,
+  "hits": 8,
+  "newest": "7 ч назад",
+  "sample": "«Авито»: россияне потратят на новогодние подарки в среднем 11 000 рублей",
+  "focus": true
+ },
+ {
+  "name": "New Retail",
+  "ok": true,
+  "url": "https://new-retail.ru/rss/",
+  "total": 120,
+  "fresh": 84,
+  "hits": 27,
+  "newest": "10 ч назад",
+  "sample": "SUNLIGHT: треть россиян планируют покупать в «Чёрную пятницу» подарки для родных и друзей ",
+  "focus": true
+ },
+ {
+  "name": "Oborot.ru",
+  "ok": true,
+  "url": "https://oborot.ru/rss/",
+  "total": 20,
+  "fresh": 20,
+  "hits": 12,
+  "newest": "12 ч назад",
+  "sample": "Соискатели ночуют в очереди ради трудоустройства на склад Wildberries под Минском. Сколько",
+  "focus": true
+ },
+ {
+  "name": "Sostav",
+  "ok": true,
+  "url": "https://www.sostav.ru/rss",
+  "total": 100,
+  "fresh": 60,
+  "hits": 6,
+  "newest": "9 ч назад",
+  "sample": "GRASS, СИБУР и «Магнит» открыли в Уфе экостанцию для раздельного сбора вторсырья",
+  "focus": false
+ },
+ {
+  "name": "Ресторановед",
+  "ok": true,
+  "url": "https://restoranoved.ru/rss/",
+  "total": 10,
+  "fresh": 2,
+  "hits": 2,
+  "newest": "18 ч назад",
+  "sample": "WHERETOEAT СЕВЕРО-ЗАПАД 2026: ИТОГИ",
+  "focus": true
+ },
+ {
+  "name": "Sfera.fm",
+  "ok": true,
+  "url": "https://sfera.fm/rss",
+  "total": 5,
+  "fresh": 3,
+  "hits": 1,
+  "newest": "10 ч назад",
+  "sample": "Плесень на упаковке напитков устранили без изменения технологического процесса",
+  "focus": true
+ },
+ {
+  "name": "Restoclub",
+  "ok": false,
+  "url": "https://www.restoclub.ru/rss",
+  "err": "HTTPError: HTTP Error 503: Service Temporarily Unavailable",
+  "focus": true
+ },
+ {
+  "name": "Shoppers",
+  "ok": false,
+  "url": "https://shoppers.media/rss",
+  "err": "HTTPError: HTTP Error 404: Not Found",
+  "focus": true
+ },
+ {
+  "name": "E-pepper",
+  "ok": false,
+  "url": "https://e-pepper.ru/feed",
+  "err": "HTTPError: HTTP Error 404: Not Found",
+  "focus": true
+ },
+ {
+  "name": "Retail-life",
+  "ok": true,
+  "url": "https://retail-life.ru/feed/",
+  "total": 10,
+  "fresh": 10,
+  "hits": 3,
+  "newest": "10 ч назад",
+  "sample": "Роботы Яндекса начали доставлять лекарства в Москве",
+  "focus": true
+ },
+ {
+  "name": "Правительство",
+  "ok": true,
+  "url": "http://government.ru/all/rss/",
+  "total": 20,
+  "fresh": 20,
+  "hits": 0,
+  "newest": "7 ч назад",
+  "sample": "Денис Мантуров и губернатор Нижегородской области Глеб Никитин обсудили развитие промышлен",
+  "focus": false
+ },
+ {
+  "name": "Госдума",
+  "ok": false,
+  "url": "http://duma.gov.ru/news/rss/",
+  "err": "URLError: <urlopen error timed out>",
+  "focus": false
+ },
+ {
+  "name": "Яндекс, новости компании",
+  "ok": true,
+  "url": "https://yandex.ru/company/news",
+  "total": 2,
+  "fresh": 2,
+  "hits": 0,
+  "newest": "без дат",
+  "sample": "Правила корпоративной этики",
+  "focus": true
+ },
+ {
+  "name": "Тема Еды",
+  "ok": true,
+  "url": "https://t.me/s/temaconference",
+  "total": 10,
+  "fresh": 3,
+  "hits": 1,
+  "newest": "16 ч назад",
+  "sample": "Вчера ресторанная группа Berrywood Family из Красноярска организовала концерт симфоническо",
+  "focus": true
+ },
+ {
+  "name": "#Фудтех",
+  "ok": true,
+  "url": "https://t.me/s/foodtechonline",
+  "total": 20,
+  "fresh": 13,
+  "hits": 7,
+  "newest": "7 ч назад",
+  "sample": "Роскачество и  Купер   запустили  витрину товаров, отмеченных государственным Знаком качес",
+  "focus": true
+ },
+ {
+  "name": "Ресторановед (TG)",
+  "ok": true,
+  "url": "https://t.me/s/restoranoved",
+  "total": 7,
+  "fresh": 2,
+  "hits": 2,
+  "newest": "12 ч назад",
+  "sample": "МЕТРО / MEGUSTRO. Юбилейный MEGUSTRO в СанктПетербурге – десять лет ключевому событию HoRe",
+  "focus": true
+ },
+ {
+  "name": "Ресторанные ведомости",
+  "ok": true,
+  "url": "https://t.me/s/restovedofficial",
+  "total": 20,
+  "fresh": 12,
+  "hits": 7,
+  "newest": "12 ч назад",
+  "sample": "11 НОЯБРЯ | СЕГОДНЯ В 17:00    🎙   ГОСТЕЙ МЕНЬШЕ. А ВЫ ПРОДАЁТЕ БОЛЬШЕ?  Сегодня поговорим",
+  "focus": true
+ },
+ {
+  "name": "New Retail (TG)",
+  "ok": true,
+  "url": "https://t.me/s/NewRetail",
+  "total": 20,
+  "fresh": 20,
+  "hits": 10,
+  "newest": "11 ч назад",
+  "sample": "«Самокат»    запустил доставку продуктов    в университеты Москвы   Онлайн-ритейлер начал ",
+  "focus": true
+ },
+ {
+  "name": "Oborot (TG)",
+  "ok": true,
+  "url": "https://t.me/s/oborotru",
+  "total": 18,
+  "fresh": 10,
+  "hits": 5,
+  "newest": "10 ч назад",
+  "sample": "В следующую пятницу, 20 ноября 2026 года, ГК \"СофтБаланс\", партнер федеральной сети \"1С:Бу",
+  "focus": true
+ },
+ {
+  "name": "Sfera (TG)",
+  "ok": true,
+  "url": "https://t.me/s/sferafm",
+  "total": 20,
+  "fresh": 18,
+  "hits": 3,
+  "newest": "9 ч назад",
+  "sample": "В России выпустили мороженое с грибами и хрустящим луком   Компания «ВкусВилл»  расширила ",
+  "focus": true
+ },
+ {
+  "name": "Frank Media (TG)",
+  "ok": true,
+  "url": "https://t.me/s/frank_media",
+  "total": 19,
+  "fresh": 19,
+  "hits": 1,
+  "newest": "7 ч назад",
+  "sample": "🤴    Легендарный Александр Аузан тем временем предрёк, что через три года маркетплейсы \"со",
+  "focus": false
+ },
+ {
+  "name": "Яндекс Еда (TG)",
+  "ok": true,
+  "url": "https://t.me/s/yandexedachannel",
+  "total": 19,
+  "fresh": 5,
+  "hits": 1,
+  "newest": "10 ч назад",
+  "sample": "Что у нас по выгодным перекусам?    Собрали самые выгодные предложения в рамках Чёрной пят",
+  "focus": true
+ },
+ {
+  "name": "Открытая кухня",
+  "ok": true,
+  "url": "https://t.me/s/otkrytaya_kuhnya",
+  "total": 12,
+  "fresh": 3,
+  "hits": 3,
+  "newest": "12 ч назад",
+  "sample": "«Заказ готовится». А что это значит на деле?   Шеф ресторана   Reborn     (входит в Ultima",
+  "focus": true
+ },
+ {
+  "name": "Купер (TG)",
+  "ok": true,
+  "url": "https://t.me/s/kuper_ru",
+  "total": 9,
+  "fresh": 3,
+  "hits": 2,
+  "newest": "37 ч назад",
+  "sample": "💫      💫      💫      💫      💫      💫      💫      💫      💫      ОЙ! А у кого это сегодня де",
+  "focus": true
+ },
+ {
+  "name": "Самокат (TG)",
+  "ok": true,
+  "url": "https://t.me/s/samokatwithlove",
+  "total": 8,
+  "fresh": 6,
+  "hits": 1,
+  "newest": "17 ч назад",
+  "sample": "Знакомьтесь, наша команда!   Задачи у всех абсолютно разные, но для каждого Самокат — возм",
+  "focus": true
+ },
+ {
+  "name": "Unipack",
+  "ok": true,
+  "url": "https://t.me/s/unipacknews",
+  "total": 18,
+  "fresh": 7,
+  "hits": 4,
+  "newest": "19 ч назад",
+  "sample": "NEOPOLIS  примет участие в международной выставке  PharmTech & Ingredients 2026 , которая ",
+  "focus": false
+ },
+ {
+  "name": "Кандидат: Retail.ru TG",
+  "ok": true,
+  "url": "https://t.me/s/retailru",
+  "total": 1,
+  "fresh": 0,
+  "hits": 0,
+  "newest": "87900 ч назад",
+  "sample": "Channel created",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Infoline",
+  "ok": true,
+  "url": "https://t.me/s/infoline_news",
+  "total": 13,
+  "fresh": 1,
+  "hits": 1,
+  "newest": "60 ч назад",
+  "sample": "Победитель конкурса «Новинка года 2026» в номинации «Рыба и морепродукты».    Решением жюр",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Restoclub TG",
+  "ok": true,
+  "url": "https://t.me/s/restoclub",
+  "total": 4,
+  "fresh": 0,
+  "hits": 0,
+  "newest": "80 ч назад",
+  "sample": "В Санкт-Петербурге появился новый полезный гид для тех, кто ищет классные места для встреч",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Ресторатор",
+  "ok": false,
+  "url": "restorator_ru",
+  "err": "200, записей не найдено",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Деловой ресторатор",
+  "ok": false,
+  "url": "delovoy_restorator",
+  "err": "200, записей не найдено",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Плохой ресторатор",
+  "ok": false,
+  "url": "badrestorator",
+  "err": "200, записей не найдено",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Food Business",
+  "ok": false,
+  "url": "foodbusinessrussia",
+  "err": "200, записей не найдено",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Data Insight",
+  "ok": true,
+  "url": "https://t.me/s/datainsight",
+  "total": 20,
+  "fresh": 9,
+  "hits": 3,
+  "newest": "11 ч назад",
+  "sample": "Карточка есть. Покупателей нет   Путь заказа, шаг 5 из 12: привлечь покупателя   #Экосисте",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Деливери",
+  "ok": true,
+  "url": "https://t.me/s/deliveryclub",
+  "total": 4,
+  "fresh": 0,
+  "hits": 0,
+  "newest": "15077 ч назад",
+  "sample": "Channel created",
+  "focus": true
+ },
+ {
+  "name": "Кандидат: Ozon Fresh",
+  "ok": true,
+  "url": "https://t.me/s/ozonru",
+  "total": 12,
+  "fresh": 7,
+  "hits": 6,
+  "newest": "11 ч назад",
+  "sample": "🙌     Руки-загребуки, сегодня ваш день!   Давно хотели обновить гардероб? Присматривали но",
+  "focus": false
+ },
+ {
+  "name": "Кандидат: Яндекс Еда для ресторанов",
+  "ok": false,
+  "url": "eda_for_business",
+  "err": "200, записей не найдено",
+  "focus": true
+ }
+]
