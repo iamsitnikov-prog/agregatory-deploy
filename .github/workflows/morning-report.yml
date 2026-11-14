@@ -27,8 +27,24 @@ jobs:
       YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
       BOT: ${{ secrets.CLAUDE_BOT_TOKEN }}
     steps:
+      - name: Уже отправлен сегодня?
+        id: dup
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # 14.11: отчёт приходил дважды. Основной запуск идёт ручным вызовом около 8:37 МСК,
+          # а расписание GitHub срабатывает с опозданием на несколько часов (в 15–17 МСК).
+          # Расписание оставлено запасным: если сегодня отчёт уже ушёл, ничего не шлём.
+          today=$(TZ=Europe/Moscow date +%F)
+          n=$(gh api "repos/${{ github.repository }}/actions/workflows/morning-report.yml/runs?per_page=20&status=success" \
+               --jq "[.workflow_runs[] | select(.id != ${{ github.run_id }}) | select((.created_at | fromdateiso8601 + 10800 | strftime(\"%Y-%m-%d\")) == \"$today\")] | length")
+          echo "Успешных запусков сегодня: $n"
+          if [ "${n:-0}" -gt 0 ]; then echo "skip=1" >> "$GITHUB_OUTPUT"; echo "::notice::отчёт за сегодня уже отправлен, повтор не шлём"; fi
       - uses: actions/checkout@v4
+        if: steps.dup.outputs.skip != '1'
       - name: Собираем и отправляем
+        if: steps.dup.outputs.skip != '1'
         run: |
           [ -n "$YANDEX_TOKEN" ] || { echo "::error::нет секрета YANDEX_TOKEN"; exit 1; }
           python3 scripts/morning-report.py report.html
