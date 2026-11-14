@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
@@ -18,9 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Проверка
         run: python3 scripts/news-probe.py scripts/news-sources.json | tee probe.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: news-probe
-          path: |
-            probe.txt
-            news-probe.json
+      - name: Сохранить результат в ветку news-probe-result
+        run: |
+          mkdir /tmp/r && cp probe.txt news-probe.json /tmp/r/ && cd /tmp/r
+          git init -q -b news-probe-result && git add . && git -c user.name=bot -c user.email=bot@local commit -qm "Результат проверки источников"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" news-probe-result
