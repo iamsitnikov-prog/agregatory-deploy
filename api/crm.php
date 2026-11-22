@@ -106,7 +106,16 @@ if ($a === 'list') {
             'tg' => !empty($tg['users'][$u['id']]['chat'])], $TEAM),
         'me' => ['id' => $USER['id'], 'name' => $USER['name'], 'admin' => !empty($USER['admin'])],
         'tg_ready' => trim((string)(cfg()['tg_token'] ?? '')) !== '',
+        'origins' => CRM_ORIGINS,
     ]);
+}
+
+// Поисковые запросы и визиты по страницам входа для отчёта «Откуда заявки»
+// (api/data/crm/seo.json кладёт задача lead-queries.yml раз в день, из Вебмастера и Метрики)
+if ($a === 'seo') {
+    $f = crm_dir() . '/seo.json';
+    $d = is_file($f) ? json_decode((string)@file_get_contents($f), true) : null;
+    out(200, ['ok' => true, 'seo' => is_array($d) ? $d : null, 'origins' => CRM_ORIGINS]);
 }
 
 if ($method !== 'POST') out(405, ['error' => 'Нужен POST']);
@@ -118,11 +127,13 @@ if ($a === 'update') {
     $note = $in('note', 3000);
     $channel = array_key_exists('channel', $body) ? $in('channel', 50) : null;
     $reason = array_key_exists('reason', $body) ? preg_replace('/\s+/u', ' ', $in('reason', 200)) : null;
+    $origin = array_key_exists('origin', $body) ? $in('origin', 40) : null;
+    if ($origin !== null && $origin !== '' && !in_array($origin, CRM_ORIGINS, true)) out(400, ['error' => 'Нет такого источника']);
     $valid = array_column(crm_statuses(), 'id');
     if ($status !== '' && !in_array($status, $valid, true)) out(400, ['error' => 'Нет такого статуса']);
     if ($owner !== null && $owner !== '' && !isset($NAMES[$owner])) out(400, ['error' => 'Нет такого сотрудника']);
     $me = $USER;
-    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $reason, $channel, $me, $NAMES) {
+    $res = crm_update(function (&$db) use ($id, $status, $owner, $note, $reason, $channel, $origin, $me, $NAMES) {
         foreach ($db['items'] as &$l) {
             if ((int)$l['id'] !== $id) continue;
             $now = crm_now();
@@ -152,6 +163,14 @@ if ($a === 'update') {
             }
             if ($note !== '') {
                 $l['notes'][] = ['at' => $now, 'who' => $me['name'], 'text' => $note];
+            }
+            // Откуда пришла: вручную только для заявок без данных с сайта (звонок, Telegram, сарафан)
+            if ($origin !== null && (empty($l['src']) || !empty($l['src']['manual']))) {
+                $was = (string)($l['src']['manual'] ?? '');
+                if ($origin !== $was) {
+                    $l['src'] = $origin === '' ? null : crm_src_manual($origin);
+                    $l['history'][] = ['at' => $now, 'who' => $me['name'], 'text' => 'откуда: ' . ($origin === '' ? 'не знаем' : $origin)];
+                }
             }
             $l['updated'] = $now;
             return ['item' => $l, 'assigned' => $owner !== null && $owner !== '' && $owner !== $was ? $owner : ''];
@@ -256,6 +275,7 @@ if ($a === 'add') {
             'name' => $name, 'phone' => $phone, 'email' => $in('email', 120), 'place' => $in('place', 300), 'city' => $in('city', 80),
             'service' => $in('service', 200), 'channel' => $in('channel', 50), 'comment' => $in('comment', 3000),
             'source' => 'вручную', 'who' => $me['name'],
+            'src' => in_array($in('origin', 40), CRM_ORIGINS, true) ? crm_src_manual($in('origin', 40)) : null,
         ], 'new', 'добавлена вручную');
         if ($owner !== '') {
             $k = count($db['items']) - 1;

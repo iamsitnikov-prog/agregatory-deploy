@@ -213,7 +213,7 @@ function pay_notify($cfg, $order) {
             'name' => $order['name'], 'phone' => '+' . $order['phone'], 'email' => $order['email'],
             'place' => $order['company'] ?? '', 'service' => $order['title'], 'amount' => (int)$order['amount'],
             'comment' => 'Заказ ' . $order['id'] . ', ' . pay_money($order['amount']), 'page' => $order['page'] ?? '',
-            'source' => 'оплата',
+            'source' => 'оплата', 'src' => $order['src'] ?? null,
         ], 'paid', 'оплата на сайте ' . pay_money($order['amount']));
     }
     $html = implode("\n", $lines);

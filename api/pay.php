@@ -91,6 +91,7 @@ $order = [
     'company' => $company,
     'invoice' => $invoice,
     'page' => $f('page', 300),
+    'src' => is_file(__DIR__ . '/crm-lib.php') ? (function ($raw) { require_once __DIR__ . '/crm-lib.php'; return crm_src_clean($raw); })($body['src'] ?? null) : null,
     'status' => 'pending',
     'payment_id' => '',
     'notified' => false,

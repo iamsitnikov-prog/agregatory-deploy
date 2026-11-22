@@ -1,0 +1,55 @@
+name: Запросы для отчёта «Откуда заявки» (Вебмастер и Метрика → CRM)
+
+# С 23.11.2026. Раз в день (около 5:00 МСК, будит хостинг api/tick.php) берёт из Вебмастера
+# запросы по каждой странице, из Метрики визиты по страницам входа и кладёт файл
+# api/data/crm/seo.json на хостинг. Кабинет /dokumenty → Заявки → «откуда заявки»
+# показывает рядом со страницами, с которых пришли заявки. Только чтение.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'   # запасной запуск
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lead-queries
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+
+      - name: Беру данные из Вебмастера и Метрики
+        env:
+          YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
+        run: |
+          set -o pipefail
+          python3 scripts/lead-queries.py seo.json | tee log.txt
+          while IFS= read -r l; do echo "::notice::$l"; done < log.txt
+          echo "::notice::размер файла: $(stat -c %s seo.json) байт"
+
+      - name: Кладу на хостинг (api/data/crm/seo.json)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          set -eu
+          sudo apt-get install -y -qq lftp >/dev/null
+          dir="${FTP_DIR%/}"; [ -n "$dir" ] || dir="."
+          for i in 1 2 3; do
+            if lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:timeout 30; set net:max-retries 3; mkdir -pf '$dir/api/data/crm'; put seo.json -o '$dir/api/data/crm/seo.json.tmp'; mv '$dir/api/data/crm/seo.json.tmp' '$dir/api/data/crm/seo.json'; bye" "$FTP_SERVER" > lftp.log 2>&1; then
+              echo "::notice::seo.json на хостинге"; exit 0
+            fi
+            echo "::warning::попытка $i не удалась: $(tail -3 lftp.log | sed "s/$FTP_PASSWORD/***/g")"
+            sleep 20
+          done
+          exit 1

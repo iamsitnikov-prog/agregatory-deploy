@@ -8,6 +8,7 @@
 //   каждый раз                  сторож сайта (monitor.yml)
 //   раз в день после 6:00 МСК   выкладка (deploy.yml), чтобы вышли статьи дня
 //   раз в день после 4:00 МСК   копия данных сайта с хостинга (site-backup.yml)
+//   раз в день после 5:00 МСК   запросы для отчёта «Откуда заявки» в CRM (lead-queries.yml)
 //   раз в день после 8:10 МСК   проверка резервной копии (backup-check.yml)
 //   раз в день после 8:20 МСК   утренний отчёт в рабочую группу (morning-report.yml)
 //   в субботу после 9:45 МСК    выгрузка заявок (report.yml)
@@ -101,6 +102,7 @@ $run('monitor', 'monitor.yml');
 // Приём нажатий кнопок бота заявок (с 12.11.2026): держим запущенным, лишний запуск просто встанет в очередь
 $run('monitor', 'tg-poll.yml');
 if ($due('sitebackup', 400)) $run('sitebackup', 'site-backup.yml');
+if ($due('leadq', 500)) $run('leadq', 'lead-queries.yml');
 if ($due('deploy', 600)) $run('deploy', 'deploy.yml');
 if ($due('backup', 810)) $run('backup', 'backup-check.yml');
 if ($due('morning', 820)) $run('morning', 'morning-report.yml', ['test' => 'false']);

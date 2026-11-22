@@ -98,9 +98,11 @@ if ($fh) {
 $crm = null;
 if (is_file(__DIR__ . '/crm-lib.php')) {
     require_once __DIR__ . '/crm-lib.php';
+    $src = crm_src_clean($body['src'] ?? null);
     $crm = crm_add([
         'name' => $name, 'phone' => $phone, 'place' => $place, 'city' => $city, 'service' => $status, 'channel' => $channel,
         'comment' => $comment, 'page' => $page, 'source' => $status === 'скачал чек-лист' ? 'чек-лист' : 'форма',
+        'src' => $src,
     ]);
 }
 
@@ -133,6 +135,7 @@ if ($status !== '' && $status !== 'скачал чек-лист') $lines[] = "<b
 if ($channel !== '') $lines[] = "<b>Связь:</b> {$e($channel)}";
 if ($comment !== '') $lines[] = "<b>Комментарий:</b> {$e($comment)}";
 if (strpos($page, 'http') === 0) $lines[] = "<b>Страница:</b> {$e($page)}";
+if (!empty($src) && function_exists('crm_src_line')) $lines[] = '🧭 <b>Откуда:</b> ' . $e(crm_src_line($src));
 if ($crm) $lines[] = '<b>В кабинете:</b> https://agregatory.pro/dokumenty?tab=zayavki';
 $html = implode("\n", $lines);
 $plain = html_entity_decode(strip_tags($html), ENT_QUOTES, 'UTF-8');

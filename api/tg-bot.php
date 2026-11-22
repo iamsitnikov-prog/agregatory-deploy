@@ -163,6 +163,7 @@ function bot_lead_text($l) {
     if (($l['channel'] ?? '') !== '') $lines[] = '<b>Связь:</b> ' . bot_e($l['channel']);
     if (($l['comment'] ?? '') !== '') $lines[] = '<b>Комментарий:</b> ' . bot_e(mb_substr($l['comment'], 0, 1500));
     if (strpos((string)($l['page'] ?? ''), 'http') === 0) $lines[] = '<b>Страница:</b> ' . bot_e($l['page']);
+    if (!empty($l['src']) && function_exists('crm_src_line')) $lines[] = '🧭 <b>Откуда:</b> ' . bot_e(crm_src_line($l['src']));
     return implode("\n", $lines);
 }
 function bot_lead_kb($l, $mode = '') {
