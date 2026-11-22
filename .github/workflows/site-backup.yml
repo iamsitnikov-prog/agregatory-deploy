@@ -1,0 +1,131 @@
+name: Резервная копия данных сайта (хостинг → Telegram)
+
+# Работает сам на GitHub, без мака и без Claude. С 22.11.2026.
+# Каждую ночь (около 4:00 МСК, будит хостинг) забирает с reg.ru папку api/data:
+# заявки CRM, журнал заявок, пользователи и шаблоны договоров, логотипы партнёров,
+# реакции и прочее, что живёт только на хостинге и не лежит в GitHub.
+# Шифрует тем же ключом, что и копия документов с мака (backup/public-key.asc,
+# открыть можно только ключом восстановления и паролем с бумаги),
+# и присылает файл в личку @Claudesitnikov_bot (без звука, не закрепляет).
+# Присылает, только если данные изменились, и в любом случае по воскресеньям.
+# Если забрать данные не вышло, пишет Юрию.
+# Открыть копию: gpg -d site-data_ДАТА.tar.gz.gpg | tar xz   (см. «Как восстановить.txt»)
+# Проверить вручную: Actions → «Резервная копия данных сайта» → Run workflow
+# (галочка force пришлёт копию, даже если ничего не менялось).
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Прислать копию, даже если ничего не изменилось"
+        type: boolean
+        default: false
+  schedule:
+    - cron: '41 1 * * *'   # запасной запуск, основной будит хостинг (api/tick.php)
+
+permissions:
+  contents: read
+  actions: write   # только чтобы GitHub не выключил расписание через 60 дней
+
+concurrency:
+  group: site-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BOT: ${{ secrets.CLAUDE_BOT_TOKEN }}
+      CHAT: '979925834'
+    steps:
+      - name: Забираем ключ шифрования
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: backup
+
+      - name: Скачиваем api/data с хостинга
+        id: dl
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          set -eu
+          sudo apt-get install -y -qq lftp >/dev/null
+          dir="${FTP_DIR%/}"; [ -n "$dir" ] || dir="."
+          mkdir -p snap
+          for i in 1 2 3; do
+            if lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:timeout 30; set net:max-retries 3; mirror --parallel=4 --no-perms '$dir/api/data' snap/data; bye" "$FTP_SERVER" > lftp.log 2>&1; then
+              break
+            fi
+            echo "::warning::попытка $i не удалась: $(tail -3 lftp.log | sed "s/$FTP_PASSWORD/***/g")"
+            [ "$i" = 3 ] && exit 1
+            sleep 20
+          done
+          files=$(find snap/data -type f | wc -l)
+          size=$(du -sk snap/data | cut -f1)
+          echo "::notice::скачано файлов: $files, $size КБ"
+          [ "$files" -gt 0 ] || { echo "::error::папка api/data пустая или не найдена"; exit 1; }
+          test -f snap/data/crm/leads.json || echo "::warning::нет crm/leads.json"
+          # отпечаток без журналов будильника, которые меняются каждые полчаса
+          hash=$(cd snap && find data -type f ! -name 'tick.log' ! -name 'tick.json' ! -name '*.log' -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-16)
+          echo "hash=$hash" >> "$GITHUB_OUTPUT"
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+          echo "size=$size" >> "$GITHUB_OUTPUT"
+
+      - name: Присылали ли уже такую копию
+        id: seen
+        uses: actions/cache/restore@v4
+        with:
+          path: .sent
+          key: site-backup-${{ steps.dl.outputs.hash }}
+          lookup-only: true
+
+      - name: Шифруем и присылаем в Telegram
+        id: send
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -eu
+          dow=$(TZ=Europe/Moscow date +%u)
+          if [ "${{ steps.seen.outputs.cache-hit }}" = "true" ] && [ "$dow" != 7 ] && [ "${FORCE:-false}" != "true" ]; then
+            echo "Данные не менялись, сегодня не воскресенье, пропускаю"; echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          [ -n "$BOT" ] || { echo "::error::нет секрета CLAUDE_BOT_TOKEN"; exit 1; }
+          d=$(TZ=Europe/Moscow date +%Y-%m-%d)
+          name="site-data_${d}.tar.gz.gpg"
+          export GNUPGHOME=$(mktemp -d)
+          (cd snap && tar czf - data) | gpg --batch --yes --quiet --trust-model always --recipient-file backup/public-key.asc -e -o "$name"
+          bytes=$(stat -c %s "$name")
+          if [ "$bytes" -gt $((45*1024*1024)) ]; then
+            split -b 45m -d -a 1 "$name" "$name.part"; rm "$name"
+          fi
+          for f in "$name"*; do
+            r=$(curl -sS -m 150 "https://api.telegram.org/bot${BOT}/sendDocument" -F chat_id="$CHAT" -F disable_notification=true -F document=@"$f")
+            echo "$r" | grep -q '"ok":true' || { echo "::error::Telegram не принял $f: $(echo "$r" | head -c 300)"; exit 1; }
+          done
+          mb=$(awk "BEGIN{printf \"%.1f\", $bytes/1048576}")
+          text="Копия данных сайта за $(TZ=Europe/Moscow date +%d.%m.%Y) готова: заявки CRM, договоры, партнёры. Файлов ${{ steps.dl.outputs.files }}, $mb МБ. Делает GitHub сам, без мака."
+          curl -sS -m 30 "https://api.telegram.org/bot${BOT}/sendMessage" --data-urlencode chat_id="$CHAT" --data-urlencode disable_notification=true --data-urlencode text="$text" | grep -q '"ok":true' || echo "::warning::подпись не ушла"
+          echo "::notice::отправлено: $name, $mb МБ"
+          mkdir -p .sent && echo "$d" > .sent/date
+
+      - name: Запоминаем, что эту версию прислали
+        if: steps.send.outcome == 'success' && steps.send.outputs.skip != '1'
+        uses: actions/cache/save@v4
+        with:
+          path: .sent
+          key: site-backup-${{ steps.dl.outputs.hash }}
+
+      - name: Если не получилось, пишем Юрию
+        if: failure()
+        run: |
+          [ -n "$BOT" ] || exit 0
+          curl -sS -m 30 "https://api.telegram.org/bot${BOT}/sendMessage" --data-urlencode chat_id="$CHAT" \
+            --data-urlencode text="Резервная копия данных сайта не сделана. Журнал: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
+
+      - name: Не даём GitHub выключить расписание
+        if: always()
+        uses: liskin/gh-workflow-keepalive@v1
