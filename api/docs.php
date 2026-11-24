@@ -344,27 +344,9 @@ if ($a === 'save' && $method === 'POST') {
     fwrite($fh, json_encode($j, JSON_UNESCAPED_UNICODE));
     flock($fh, LOCK_UN); fclose($fh);
 
-    // Копия договора в рабочую группу (с 8.11.2026, tg_chat в настройках выкладки)
-    $c = cfg();
-    $token = trim((string)($c['tg_token'] ?? ''));
-    $chat = trim(explode(',', (string)($c['tg_chat'] ?? ''))[0] ?? '');
+    // Копию договора в рабочую группу больше не шлём (просьба Юрия 24.11.2026):
+    // договор только сохраняется в журнале кабинета /dokumenty.
     $sent = false;
-    if ($token !== '' && $chat !== '' && function_exists('curl_init')) {
-        $e = fn($s) => htmlspecialchars((string)$s, ENT_NOQUOTES, 'UTF-8');
-        $cap = "<b>Договор № {$e($num)}</b>" . ($version > 1 ? " (версия {$version})" : '') . "\n{$e($client)}, ИНН {$e($meta['inn'] ?? '')}\nИсполнитель: {$e($meta['executor'] ?? '')}\nОформил(а): {$e($meta['author'] ?? '')}\n"
-            . (($meta['doc'] ?? '') === 'проект'
-            ? 'Консалтинговый проект: ' . number_format((int)($meta['total'] ?? 0), 0, ',', ' ') . ' ₽'
-            : 'Точек: ' . (int)($meta['points'] ?? 0) . ', в месяц: ' . number_format((int)($meta['total'] ?? 0), 0, ',', ' ') . ' ₽');
-        $ch = curl_init("https://api.telegram.org/bot{$token}/sendDocument");
-        curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 30,
-            CURLOPT_POSTFIELDS => ['chat_id' => $chat, 'caption' => $cap, 'parse_mode' => 'HTML',
-                'document' => new CURLFile($docsDir . '/' . $name,
-                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                    'Договор_' . $safe . '.docx')]]);
-        curl_exec($ch);
-        $sent = curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
-        curl_close($ch);
-    }
     out(200, ['ok' => true, 'telegram' => $sent, 'version' => $version]);
 }
 
