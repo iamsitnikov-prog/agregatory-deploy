@@ -64,8 +64,29 @@ if ($trap !== '') reply(200, ['ok' => true]);
 
 if ($name === '' || $phone === '') reply(400, ['error' => 'name and phone are required']);
 
-$ip = substr((string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? ''), 0, 64);
-$ip = trim(explode(',', $ip)[0]);
+// Значение, которое Excel принял бы за формулу, записываем как текст.
+// Телефон вида +7 (916) ... не трогаем.
+function csv_safe($v) {
+    $v = (string)$v;
+    if ($v === '' || strpos('=+-@', $v[0]) === false || preg_match('/^[+\-][\d\s()\-]+$/', $v)) return $v;
+    return "'" . $v;
+}
+
+if (is_file(__DIR__ . '/crm-lib.php')) require_once __DIR__ . '/crm-lib.php';
+
+// Признаки робота. Форма на сайте сама требует 11 цифр телефона, а в основной заявке
+// ещё и заведение, поэтому заявка без них пришла в обход формы.
+$junk = function_exists('crm_junk_reason') ? crm_junk_reason([
+    'name' => $name, 'phone' => $phone, 'place' => $place, 'city' => $city, 'service' => $status,
+    'channel' => $channel, 'comment' => $comment, 'page' => $page,
+]) : '';
+$phoneDigits = strlen(preg_replace('/\D/', '', $phone));
+if ($junk === '' && ($phoneDigits < 10 || $phoneDigits > 12)) $junk = 'телефон не похож на номер';
+if ($junk === '' && $status !== 'скачал чек-лист' && mb_strlen($place) < 2) $junk = 'заявка в обход формы (нет заведения)';
+
+// Адрес берём только из того, что выставляет хостинг (раньше брали первый из
+// X-Forwarded-For, а его робот может подставить любой и обойти лимит).
+$ip = function_exists('site_client_ip') ? site_client_ip() : substr((string)($_SERVER['REMOTE_ADDR'] ?? ''), 0, 64);
 
 // --- Журнал и защита от потока заявок с одного адреса -----------------------
 $dataDir = __DIR__ . '/data';
@@ -86,18 +107,42 @@ if ($fh) {
         if (!$rate[$k]) unset($rate[$k]);
     }
     $tooMany = $ip !== '' && count($rate[$ip] ?? []) >= 5;
+    // Один и тот же телефон больше 2 раз за 10 минут и больше 20 заявок за 10 минут
+    // со всего сайта: это робот, такие заявки уходят в журнал мусора, а не в группу.
+    $phoneKey = 'p:' . substr(sha1(preg_replace('/\D/', '', $phone)), 0, 12);
+    $total = 0;
+    foreach ($rate as $k => $list) if (strpos((string)$k, 'p:') !== 0) $total += count($list);
+    if ($junk === '' && count($rate[$phoneKey] ?? []) >= 2) $junk = 'один телефон много раз подряд';
+    if ($junk === '' && $total >= 20) $junk = 'поток заявок со всего сайта';
     if (!$tooMany && $ip !== '') $rate[$ip][] = $now;
+    $rate[$phoneKey][] = $now;
     ftruncate($fh, 0); rewind($fh);
     fwrite($fh, json_encode($rate));
     flock($fh, LOCK_UN); fclose($fh);
     if ($tooMany) reply(429, ['error' => 'too many requests']);
 }
 
+// --- Мусор от роботов: в группу и в кабинет не идёт ---------------------------
+// Лежит в api/data/junk.csv (снаружи закрыт), чтобы при сомнении можно было проверить.
+// Роботу отвечаем «принято», чтобы он не подбирал обход.
+if ($junk !== '') {
+    $jf = $dataDir . '/junk.csv';
+    if (!is_file($jf) || filesize($jf) < 2000000) {
+        $jh = @fopen($jf, 'a');
+        if ($jh) {
+            flock($jh, LOCK_EX);
+            $dt = new DateTime('now', new DateTimeZone('Europe/Moscow'));
+            fputcsv($jh, array_map('csv_safe', [$dt->format('Y-m-d H:i:s'), $junk, $ip, $name, $phone, $place, $city, $status, $comment, $page]));
+            flock($jh, LOCK_UN); fclose($jh);
+        }
+    }
+    reply(200, ['ok' => true]);
+}
+
 // --- В раздел «Заявки» кабинета (до записи в журнал: при первом запуске
 // раздел сам переносит старый журнал, и эта заявка не должна задвоиться) ---
 $crm = null;
-if (is_file(__DIR__ . '/crm-lib.php')) {
-    require_once __DIR__ . '/crm-lib.php';
+if (function_exists('crm_add')) {
     $src = crm_src_clean($body['src'] ?? null);
     $crm = crm_add([
         'name' => $name, 'phone' => $phone, 'place' => $place, 'city' => $city, 'service' => $status, 'channel' => $channel,
@@ -117,7 +162,7 @@ if ($out) {
         fputcsv($out, ['дата МСК', 'имя', 'телефон', 'заведение', 'услуга', 'связь', 'комментарий', 'страница', 'ip', 'город']);
     }
     $dt = new DateTime('now', new DateTimeZone('Europe/Moscow'));
-    $saved = fputcsv($out, [$dt->format('Y-m-d H:i:s'), $name, $phone, $place, $status, $channel, $comment, $page, $ip, $city]) !== false;
+    $saved = fputcsv($out, array_map('csv_safe', [$dt->format('Y-m-d H:i:s'), $name, $phone, $place, $status, $channel, $comment, $page, $ip, $city])) !== false;
     flock($out, LOCK_UN); fclose($out);
 }
 

@@ -52,6 +52,61 @@ function crm_is_test($name, $comment) {
     return stripos((string)$name, 'ТЕСТ Claude') === 0 || mb_stripos((string)$comment, 'от Claude') !== false;
 }
 
+// --- Мусор от роботов (с 25.11.2026) ------------------------------------------
+// 25.11 сканер уязвимостей прислал через форму заявки 38–43: имя TestName, телефон
+// 79991234567 и строки вида «' AND SLEEP(8)-- -» (попытка SQL-инъекции). Базы SQL
+// у сайта нет (заявки лежат в файлах), поэтому вреда не было, но такие заявки не должны
+// попадать в кабинет и в группу. Возвращает причину или '' для нормальной заявки.
+function crm_junk_reason($l) {
+    $fields = [];
+    foreach (['name', 'phone', 'place', 'city', 'service', 'channel', 'comment', 'page'] as $k) $fields[] = (string)($l[$k] ?? '');
+    $all = implode("\n", $fields);
+    $attack = [
+        '/\b(sleep|benchmark|pg_sleep|dbms_pipe\.receive_message|waitfor\s+delay)\s*\(/i',
+        '/\bunion\b[\s\S]{0,40}\bselect\b/i',
+        '/\bselect\b[\s\S]{0,60}\bfrom\b[\s\S]{0,40}\b(information_schema|dual|users?)\b/i',
+        "/['\"`]\\s*\\)?\\s*(and|or|xor)\\s+(\\d+\\s*[=<>]|['\"]\\w*['\"]?\\s*=|true\\b|false\\b|not\\b|\\(\\s*select\\b)/i",
+        "/['\"`)]\\s*(--\\s*-?|#|\\/\\*)\\s*$/m",
+        '/@@version|xp_cmdshell|load_file\s*\(|into\s+outfile/i',
+        '/<\s*\/?\s*(script|iframe|svg|img|body)\b|javascript:|on(error|load)\s*=/i',
+        '/\$\{[^}]*\}|\{\{[^}]*\}\}|<%=?/',
+        '/\.\.\/|\/etc\/passwd|win\.ini|\bcmd\.exe\b|\|\s*(id|whoami|cat)\b|;\s*(id|whoami|ls)\b/i',
+    ];
+    foreach ($attack as $re) if (preg_match($re, $all)) return 'похоже на атаку';
+    if (preg_match('/^test\s*name$|^тест\s*имя$/iu', trim((string)($l['name'] ?? '')))) return 'имя-заглушка сканера';
+    $digits = preg_replace('/\D/', '', (string)($l['phone'] ?? ''));
+    if ($digits !== '' && in_array(substr($digits, -10), ['9991234567', '1234567890', '9999999999', '0000000000', '9876543210'], true)) return 'телефон-заглушка';
+    return '';
+}
+
+// Заявки-мусор, которые уже попали в базу и с ними никто не работал, убираем из списка
+// в отдельный раздел той же базы ($db['junk']). Ничего не удаляется: при нужде можно вернуть.
+function crm_sweep_junk(&$db) {
+    $keep = []; $moved = 0;
+    foreach ($db['items'] as $l) {
+        $untouched = ($l['status'] ?? '') === 'new' && ($l['owner'] ?? '') === '' && empty($l['notes']);
+        $why = $untouched ? crm_junk_reason($l) : '';
+        if ($why !== '') { $l['junk'] = $why; $l['junk_at'] = crm_now(); $db['junk'][] = $l; $moved++; }
+        else $keep[] = $l;
+    }
+    if ($moved) $db['items'] = $keep;
+    return $moved;
+}
+
+// Адрес посетителя: только то, что выставляет сам хостинг (как в docs-auth.php).
+// Первый адрес в X-Forwarded-For присылает посетитель, по нему ограничивать нельзя.
+function site_client_ip() {
+    $pub = fn($ip) => (bool)filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+    $ra = trim((string)($_SERVER['REMOTE_ADDR'] ?? ''));
+    if ($pub($ra)) return substr($ra, 0, 64);
+    $real = trim((string)($_SERVER['HTTP_X_REAL_IP'] ?? ''));
+    if ($pub($real)) return substr($real, 0, 64);
+    $xff = array_map('trim', explode(',', (string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')));
+    $last = (string)end($xff);
+    if ($pub($last)) return substr($last, 0, 64);
+    return substr($ra, 0, 64);
+}
+
 // Читает и меняет базу под замком: $fn получает массив заявок по ссылке.
 function crm_update(callable $fn) {
     $file = crm_dir() . '/leads.json';
@@ -61,6 +116,7 @@ function crm_update(callable $fn) {
     $db = json_decode(stream_get_contents($fh) ?: '', true);
     if (!is_array($db) || !isset($db['items'])) $db = ['next' => 1, 'items' => [], 'imported' => false];
     if (empty($db['imported'])) crm_import_csv($db);
+    if (!empty($db['items'])) crm_sweep_junk($db);
     $res = $fn($db);
     ftruncate($fh, 0); rewind($fh);
     fwrite($fh, json_encode($db, JSON_UNESCAPED_UNICODE));
@@ -128,6 +184,7 @@ function crm_import_csv(&$db) {
 function crm_add($l, $status = 'new', $historyText = 'заявка с сайта') {
     try {
         if (crm_is_test($l['name'] ?? '', $l['comment'] ?? '')) return null;
+        if (crm_junk_reason($l) !== '') return null;
         return crm_update(function (&$db) use ($l, $status, $historyText) {
             return crm_new_item($db, $l, $status, $historyText);
         });
