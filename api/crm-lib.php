@@ -73,7 +73,8 @@ function crm_junk_reason($l) {
         '/\.\.\/|\/etc\/passwd|win\.ini|\bcmd\.exe\b|\|\s*(id|whoami|cat)\b|;\s*(id|whoami|ls)\b/i',
     ];
     foreach ($attack as $re) if (preg_match($re, $all)) return 'похоже на атаку';
-    if (preg_match('/^test\s*name$|^тест\s*имя$/iu', trim((string)($l['name'] ?? '')))) return 'имя-заглушка сканера';
+    // TestName, «Тест Тестов», «Test User», BASELINE-TEST-777 и т.п.
+    if (preg_match('/^(test|тест)(\s|name|имя|user|$)|^(test|тест)\s*(тестов|testov)?$|\b(baseline|ctrl|probe)[\s_-]*\w*[\s_-]*(test|noquote)/iu', trim((string)($l['name'] ?? '')))) return 'имя-заглушка сканера';
     $digits = preg_replace('/\D/', '', (string)($l['phone'] ?? ''));
     if ($digits !== '' && in_array(substr($digits, -10), ['9991234567', '1234567890', '9999999999', '0000000000', '9876543210'], true)) return 'телефон-заглушка';
     return '';
