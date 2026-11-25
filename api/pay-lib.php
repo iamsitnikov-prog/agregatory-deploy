@@ -91,8 +91,8 @@ function pay_log($order, $event) {
 
 // Не больше 10 попыток оплаты за 10 минут с одного адреса.
 function pay_rate_ok() {
-    $ip = substr((string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? ''), 0, 64);
-    $ip = trim(explode(',', $ip)[0]);
+    if (is_file(__DIR__ . '/crm-lib.php')) require_once __DIR__ . '/crm-lib.php';
+    $ip = function_exists('site_client_ip') ? site_client_ip() : substr((string)($_SERVER['REMOTE_ADDR'] ?? ''), 0, 64);
     if ($ip === '') return true;
     $file = pay_dir() . '/rate.json';
     $fh = @fopen($file, 'c+');
