@@ -1,0 +1,134 @@
+[
+ {
+  "d": [
+   "Яндекс",
+   null,
+   "/blog/otchet-agenta-yandex-eda"
+  ],
+  "m": [
+   151.0,
+   11.9205298,
+   122.54966887
+  ]
+ },
+ {
+  "d": [
+   "Яндекс",
+   null,
+   "/blog/podderzhka-yandex-edy-dlya-restoranov"
+  ],
+  "m": [
+   57.0,
+   49.12280702,
+   52.42105263
+  ]
+ },
+ {
+  "d": [
+   "Google",
+   null,
+   "/blog/otchet-agenta-yandex-eda"
+  ],
+  "m": [
+   54.0,
+   9.25925926,
+   110.40740741
+  ]
+ },
+ {
+  "d": [
+   "Google",
+   null,
+   "/"
+  ],
+  "m": [
+   51.0,
+   1.96078431,
+   153.1372549
+  ]
+ },
+ {
+  "d": [
+   "Яндекс",
+   null,
+   "/"
+  ],
+  "m": [
+   43.0,
+   4.65116279,
+   136.1627907
+  ]
+ },
+ {
+  "d": [
+   "Google",
+   null,
+   "/blog/pretenziya-k-yandex-ede"
+  ],
+  "m": [
+   27.0,
+   7.40740741,
+   28.11111111
+  ]
+ },
+ {
+  "d": [
+   "Google",
+   null,
+   "/blog/razdely-lichnogo-kabineta-vendor"
+  ],
+  "m": [
+   27.0,
+   40.74074074,
+   26.74074074
+  ]
+ },
+ {
+  "d": [
+   "Google",
+   null,
+   "/blog/uslugi-po-prodvizheniyu-servisa-yandex-eda"
+  ],
+  "m": [
+   13.0,
+   7.69230769,
+   13.84615385
+  ]
+ },
+ {
+  "d": [
+   "Яндекс",
+   "яндекс вендер вход в личный кабинет",
+   "/blog/yandex-vendor-vhod-v-lichnyy-kabinet"
+  ],
+  "m": [
+   12.0,
+   33.33333333,
+   41.33333333
+  ]
+ },
+ {
+  "d": [
+   "Яндекс",
+   "вендор яндекс еда вход в личный кабинет",
+   "/blog/yandex-vendor-vhod-v-lichnyy-kabinet"
+  ],
+  "m": [
+   11.0,
+   36.36363636,
+   17.27272727
+  ]
+ },
+ {
+  "d": [
+   "Яндекс",
+   "яндекс еда поддержка для ресторанов",
+   "/blog/podderzhka-yandex-edy-dlya-restoranov"
+  ],
+  "m": [
+   11.0,
+   18.18181818,
+   25.45454545
+  ]
+ }
+]
